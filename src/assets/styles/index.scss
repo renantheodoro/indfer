@@ -1,0 +1,8 @@
+@charset 'UTF-8';
+
+/* 1. Configuration and helpers */
+@import '@/assets/styles/abstracts/functions', '@/assets/styles/abstracts/colors', '@/assets/styles/abstracts/configs', '@/assets/styles/abstracts/reset', '@/assets/styles/abstracts/mixins';
+
+/* 2. Base stuff */
+@import '@/assets/styles/base/fonts', '@/assets/styles/base/typography', '@/assets/styles/base/helpers', '@/assets/styles/base/grids';
+
