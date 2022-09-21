@@ -1,0 +1,22 @@
+/// @access private
+/// @prop {string} color - Pure colors or a map of tones
+/// @prop {color | map} color.tone - Pure colors or returned color value of functions
+/// @require {function} palette
+
+$palette: (
+    'orange': (
+        'base': #ff5a00,
+    ),
+    'blue': (
+        'base': #0879b2
+    ),
+    'grey': (
+        'base': #1a1a1a
+    ),
+    'white': (
+        'base': #ffffff
+    ),
+    'black': (
+        'base': #000000
+    ),
+);
