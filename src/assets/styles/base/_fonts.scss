@@ -1,0 +1,33 @@
+/* Gotham */
+@font-face {
+    src: local('Gotham'), url('@/assets/fonts/gotham/gotham-600.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-family: 'Gotham';
+
+    font-display: swap;
+}
+@font-face {
+    src: local('Gotham Bold'), url('@/assets/fonts/gotham/gotham-400.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'Gotham';
+
+    font-display: swap;
+}
+@font-face {
+    src: local('Roboto'), url('@/assets/fonts/roboto/roboto-400.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'Roboto';
+
+    font-display: swap;
+}
+@font-face {
+    src: local('Roboto Bold'), url('@/assets/fonts/roboto/roboto-700.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-family: 'Roboto';
+
+    font-display: swap;
+}
