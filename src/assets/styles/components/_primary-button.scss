@@ -1,0 +1,23 @@
+#app {
+    .primary-button {
+        font-family: $gotham-font-stack;
+        font-size: to-rem(14px);
+        font-weight: 600;
+        color: palette('white');
+    
+        background-color: palette('orange');
+    
+        padding: 1rem;
+    
+        box-shadow: none;
+
+        width: auto;
+        height: auto;
+
+        display: block;
+        margin: 0;
+        margin-left: 1rem;
+
+        line-height: 1rem;
+    }
+}
