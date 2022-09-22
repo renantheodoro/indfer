@@ -1,16 +1,24 @@
 <template>
+  <Header></Header>
   <Home />
 </template>
 
 <script>
-import Home from './views/Home.vue'
+
+import Header from "@/presentation/components/modules/Header.vue";
+import Home from "./presentation/views/Home.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Home
-}
-}
+    Header,
+    Home,
+  },
+
+  mounted() {
+    // M.AutoInit();
+  },
+};
 </script>
 
 <style lang="scss" src="./assets/styles/index.scss"></style>
