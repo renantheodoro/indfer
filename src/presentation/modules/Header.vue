@@ -55,7 +55,7 @@
           </li>
 
           <li>
-            <PrimaryButton></PrimaryButton>
+            <Button>Solicite orçamento</Button>
           </li>
         </ul>
       </nav>
@@ -66,7 +66,7 @@
 <script>
 import M from "materialize-css";
 
-import PrimaryButton from "@/presentation/components/PrimaryButton.vue";
+import Button from "@/presentation/components/Button.vue";
 
 export default {
   name: "app-header",
@@ -78,7 +78,7 @@ export default {
   },
 
   components: {
-    PrimaryButton,
+    Button,
   },
 };
 </script>

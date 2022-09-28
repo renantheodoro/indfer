@@ -1,0 +1,47 @@
+/* ---- BANNER SECTION ---- */
+#app .banner {
+    background-image: url('@/assets/images/banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media screen and (min-width: breakpoint('desktop')) {
+        padding-top: to-rem(180px);
+        padding-bottom: to-rem(140px);
+    }
+
+    h1 {
+        font-size: to-rem(45px);
+        font-weight: bold;
+        color: palette('white');
+        display: block;
+        position: relative;
+
+        padding-bottom: to-rem(40px);
+        margin-bottom: to-rem(30px);
+
+        &::after {
+            content: "";
+
+            display: block;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: palette('white');
+            height: to-rem(3px);
+            width: to-rem(64px);
+        }
+    }
+
+    p {
+        font-size: to-rem(18px);
+        color: palette('white');
+        font-weight: 100;
+    }
+
+    .button {
+        min-width: to-rem(160px);
+        margin-top: to-rem(40px);
+    }
+}

@@ -1,0 +1,31 @@
+#app .contact-section {
+  background-color: palette("grey", "background");
+  
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    position: absolute;
+    z-index: 0;
+  }
+
+  &::before {
+    width: 200px;
+    height: 100px;
+
+    left: 40px;
+    top: 95px;
+    background-image: url("@/assets/images/svg/pattern-blue-horizontal.svg");
+  }
+
+  .contact-section__form {
+    background-color: palette("white");
+    padding: to-rem(20px);
+    border-radius: 4px;
+  }
+}

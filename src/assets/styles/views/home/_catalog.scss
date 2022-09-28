@@ -1,0 +1,33 @@
+.catalog {
+    position: relative;
+    background-color: palette('grey');
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        opacity: 0.4;
+        mix-blend-mode: luminosity;
+
+        background-image: url('@/assets/images/catalog-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+
+    }
+
+    &>.container {
+        position: relative;
+        z-index: 1;
+    }
+
+}

@@ -1,0 +1,46 @@
+.button.btn {
+  font-family: $gotham-font-stack;
+  font-size: to-rem(14px);
+  font-weight: 600;
+  color: palette("white");
+
+  padding: 1rem;
+
+  box-shadow: none;
+
+  width: auto;
+  height: auto;
+
+  display: inline-block;
+  margin: 0;
+
+  line-height: 1rem;
+
+  transition: ease 0.3s;
+
+  &.button--primary {
+    background-color: palette("orange");
+
+    &:hover {
+      background-color: palette('orange', 'dark');
+    }
+  }
+
+  &.button--secondary {
+    background-color: transparent;
+    border: 1px solid palette("white");
+
+    &:hover {
+      background-color: white;
+      color: palette('blue');
+    }
+  }
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  &.button--full-width {
+    width: 100%;
+  }
+}

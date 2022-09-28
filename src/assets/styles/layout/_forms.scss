@@ -1,0 +1,83 @@
+#app .forms {
+  .input-field {
+    $lateral-spacing: 1rem;
+
+    margin: 0;
+    margin-bottom: to-rem(20px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > input {
+      margin: 0;
+      margin-bottom: 0;
+
+      display: block;
+      box-sizing: border-box;
+    }
+
+    & > input,
+    & > textarea {
+      color: palette("blue");
+      text-transform: uppercase;
+    }
+
+    & > textarea {
+      min-height: 198px;
+    }
+
+    & > label {
+      width: auto;
+      padding: 0 10px;
+      left: calc(#{$lateral-spacing} - 8px);
+
+      &:not(.label-icon).active {
+        transform: translateY(-9px) scale(0.8);
+        color: palette("grey", "form-text");
+      }
+    }
+
+    & > input,
+    & > textarea,
+    .select-dropdown.dropdown-trigger {
+      font-size: 1rem;
+
+      padding: to-rem(26px) $lateral-spacing;
+      border: 1px solid palette("grey", "input-border");
+      border-radius: 4px;
+
+      box-sizing: border-box;
+
+      &:focus,
+      &:visited,
+      &:active,
+      &.valid {
+        box-shadow: none;
+      }
+    }
+
+    & > label,
+    .select-dropdown.dropdown-trigger {
+      color: palette("grey", "form-text");
+      background-color: palette("white");
+    }
+
+    .select-wrapper {
+        & + label {
+            top: -20px;
+            z-index: 1;
+          }
+
+          .caret {
+            z-index: 1;
+            right: $lateral-spacing;
+            fill: palette('grey','form-text');
+          }
+    }
+
+    .dropdown-content li:not(.disabled) > span {
+      color: palette("grey", "form-text");
+    }
+  }
+}

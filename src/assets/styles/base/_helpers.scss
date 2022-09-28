@@ -195,16 +195,29 @@
 }
 
 // font colors
-.orange {
+.text-orange {
     color: palette('orange', 'base') !important;
+    background-color: transparent;
 }
 
-.blue {
+.text-blue {
     color: palette('blue', 'base') !important;
+    background-color: transparent;
 }
 
-.grey {
+.text-grey {
     color: palette('grey', 'base') !important;
+    background-color: transparent;
+}
+
+.text-black {
+    color: palette('black') !important;
+    background-color: transparent;
+}
+
+.text-white {
+    color: palette('white') !important;
+    background-color: transparent;
 }
 
 // shapes

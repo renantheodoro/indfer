@@ -1,0 +1,68 @@
+<template>
+    <h3>
+        +<big>{{mainNumber}}</big>{{decimalNumber != null && decimalNumber != '' ? '.' + decimalNumber : ''}}
+    </h3>
+</template>
+<script>
+export default {
+    name: "app-counter",
+
+    props: {
+        number: {
+            type: Number,
+            required: true
+        }
+    },
+
+    data() {
+        return {
+            fullNumber: 0
+        }
+    },
+
+    computed: {
+        mainNumber() {
+            return this.splitNumber()[0];
+        },
+        decimalNumber() {
+            return this.splitNumber()[1];
+        },
+    },
+
+    methods: {
+        startCounter() {
+            let count = 0;
+            let duration = 2000;
+
+            let counterFunction = setInterval(() => {
+                if(this.number > 999) {
+                    count = count + 100;
+                } else {
+                    count++;
+                }
+
+                if (count == this.number) {
+                    clearInterval(counterFunction);
+                    this.fullNumber = count;
+                } else {
+                    this.fullNumber = count;
+                }
+            }, duration / this.number);
+
+        },
+
+        splitNumber() {
+            let formattedNumber = new Intl.NumberFormat().format(this.fullNumber);
+            formattedNumber = formattedNumber.toString();
+            return formattedNumber.split('.');
+        },
+    },
+
+    mounted() {
+        // TODO: adicionar start orientado ao scroll da tela
+        this.startCounter();
+    },
+
+
+}
+</script>
