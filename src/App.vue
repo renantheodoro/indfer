@@ -7,8 +7,9 @@
 <script>
 
 import Header from "@/presentation/modules/Header.vue";
-import Home from "./presentation/views/Home.vue";
 import Footer from "@/presentation/modules/Footer.vue";
+
+import Home from "@/presentation/views/Home.vue";
 
 export default {
   name: "App",
@@ -16,10 +17,6 @@ export default {
     Header,
     Home,
     Footer
-  },
-
-  mounted() {
-    // M.AutoInit();
   },
 };
 </script>
