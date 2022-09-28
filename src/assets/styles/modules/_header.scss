@@ -15,11 +15,7 @@
   }
 
   nav {
-    display: block;
     background-color: palette("white");
-    box-shadow: none;
-
-    width: auto;
     height: 100%;
   }
 
@@ -57,6 +53,11 @@
 
     .indicator {
       background-color: palette("blue");
+      height: to-rem(4px);
+    }
+
+    .button {
+      margin-left: 1rem;
     }
   }
 }

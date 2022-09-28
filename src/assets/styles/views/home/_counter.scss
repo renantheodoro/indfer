@@ -1,0 +1,53 @@
+#app .counter {
+  background-color: palette("grey");
+  position: relative;
+
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("@/assets/images/svg/counter-bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+  .counter__list {
+    position: relative;
+    z-index: 1;
+
+    .counter__list__item {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .counter__list__item h3 {
+        font-size: to-rem(56px);
+        font-weight: bold;
+        color: palette('orange');
+
+        big {
+            font-size: to-rem(76px);
+        }
+    }
+
+    .counter__list__item p {
+        font-weight: bold;
+        color: palette('white');
+    }
+  }
+}

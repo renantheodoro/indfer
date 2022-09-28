@@ -89,6 +89,7 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 article,
@@ -103,6 +104,7 @@ menu,
 nav,
 section {
   display: block;
+  margin: 0;
 }
 
 body {
@@ -583,4 +585,24 @@ address {
 
   text-decoration: none;
   text-transform: none;
+}
+
+#app {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+}
+
+#app nav {
+  display: block;
+  box-shadow: none;
+  background-color: transparent;
+
+  width: auto;
+
+  line-height: 100%;
 }

@@ -1,0 +1,44 @@
+#app .center-statement {
+  text-align: center;
+
+  .center-statement__title {
+    font-size: to-rem(36px);
+    line-height: to-rem(43px);
+    font-weight: bold;
+    display: block;
+
+    position: relative;
+    padding-bottom: to-rem(30px);
+    margin-bottom: to-rem(30px);
+
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: to-rem(64px);
+      height: to-rem(2px);
+    }
+
+    &.text-white {
+      &::after {
+        background-color: palette("white");
+      }
+    }
+
+    &.text-blue {
+        &::after {
+            background-color: palette('orange');
+        }
+    }
+  }
+
+  .center-statement__text {
+    margin-bottom: to-rem(60px);
+  }
+}

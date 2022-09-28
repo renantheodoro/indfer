@@ -4,19 +4,28 @@
 /// @require {function} palette
 
 $palette: (
-    'orange': (
-        'base': #ff5a00,
-    ),
-    'blue': (
-        'base': #0879b2
-    ),
-    'grey': (
-        'base': #1a1a1a
-    ),
-    'white': (
-        'base': #ffffff
-    ),
-    'black': (
-        'base': #000000
-    ),
+  "orange": (
+    "base": #ff5a00,
+    "dark": #d24d04,
+  ),
+  "blue": (
+    "base": #0879b2,
+  ),
+  "grey": (
+    "base": #1a1a1a,
+    "background": #eeeeee,
+    "dark-background": #2e2e2e,
+    "input-border": #6a697f1a,
+    "form-text": #9e9e9e
+  ),
+  "white": (
+    "base": #ffffff,
+  ),
+  "black": (
+    "base": #000000,
+    "bottom-footer-background": #111111,
+  ),
+  "yellow": (
+    "base": #ffcc00,
+  ),
 );

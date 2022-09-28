@@ -1,0 +1,15 @@
+.box-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1rem;
+
+  svg {
+    margin: 0 5px;
+  }
+
+  svg path {
+    fill: palette("yellow");
+  }
+}

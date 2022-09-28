@@ -1,18 +1,21 @@
 <template>
   <Header></Header>
   <Home />
-</template>
+  <Footer></Footer>
+</template> 
 
 <script>
 
-import Header from "@/presentation/components/modules/Header.vue";
+import Header from "@/presentation/modules/Header.vue";
 import Home from "./presentation/views/Home.vue";
+import Footer from "@/presentation/modules/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Home,
+    Footer
   },
 
   mounted() {
