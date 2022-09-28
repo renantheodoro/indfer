@@ -3,13 +3,13 @@
     <div class="container">
       <div class="content__row">
         <div class="column-desktop--4">
-          <a href="/">
+          <router-link :to="{name: 'home'}">
             <img
               src="@/assets/images/svg/secondary-logo.svg"
               alt="INDFER - Ferramentas diamantadas"
               title="INDFER - Ferramentas diamantadas"
             />
-          </a>
+          </router-link>
 
           <p class="footer__description">
             lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis
@@ -20,16 +20,16 @@
           <nav class="footer__pages">
             <ul>
               <li>
-                <a href="/">SOBRE</a>
+                <router-link :to="{name: 'about'}">SOBRE</router-link>
               </li>
               <li>
-                <a href="/">PRODUTOS</a>
+                <router-link :to="{name: 'products'}">PRODUTOS</router-link>
               </li>
               <li>
-                <a href="/">CATÁLOGOS</a>
+                <router-link :to="{name: 'catalog'}">CATÁLOGOS</router-link>
               </li>
               <li>
-                <a href="/">CONTATO</a>
+                <router-link :to="{name: 'contact'}">CONTATO</router-link>
               </li>
             </ul>
           </nav>
@@ -41,11 +41,11 @@
           <div class="footer__info-set">
             <font-awesome-icon icon="fa-solid fa-phone" />
             <ul class="footer__info-set__block">
-              <li><a href="">(11) 2083-2079</a></li>
-              <li><a href="">(11) 2308-9270</a></li>
-              <li><a href="">(11) 2083-6505</a></li>
+              <li><a href="tel:55112083-2079">(11) 2083-2079</a></li>
+              <li><a href="tel:551123089270">(11) 2308-9270</a></li>
+              <li><a href="tel:551120836505">(11) 2083-6505</a></li>
               <li>
-                <a href=""
+                <a href="tel:5511985800731"
                   >(11) 98580-0731
                   <font-awesome-icon icon="fa-brands fa-whatsapp" />
                 </a>
@@ -56,8 +56,8 @@
           <div class="footer__info-set">
             <font-awesome-icon icon="fa-solid fa-envelope-open" />
             <ul class="footer__info-set__block">
-              <li><a href="">vendas@indfer.com.br</a></li>
-              <li><a href="">indfer@indfer.com.br</a></li>
+              <li><a href="mailto:vendas@indfer.com.br">vendas@indfer.com.br</a></li>
+              <li><a href="mailto:indfer@indfer.com.br">indfer@indfer.com.br</a></li>
             </ul>
           </div>
 
