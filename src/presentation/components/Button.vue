@@ -1,6 +1,18 @@
 <template>
+  <router-link
+    v-if="link"
+    :to="link"
+    class="button btn waves-effect waves-light"
+    :class="{
+      'button--primary': type === 'primary',
+      'button--secondary': type === 'secondary',
+      'button--full-width': fullWidth,
+    }"
+  >
+    <slot></slot>
+  </router-link>
   <a
-    href="/"
+    v-else
     class="button btn waves-effect waves-light"
     :class="{
       'button--primary': type === 'primary',
@@ -24,6 +36,10 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false,
+      required: false,
+    },
+    link: {
+      type: Object,
       required: false,
     },
   },

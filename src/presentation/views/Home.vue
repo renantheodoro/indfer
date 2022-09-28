@@ -15,7 +15,7 @@
               accumsan et viverra justo commodo.
             </p>
 
-            <Button type="secondary">SAIBA MAIS</Button>
+            <Button :link="{name: 'about'}" type="secondary">SAIBA MAIS</Button>
           </div>
           <div class="column-desktop--4"></div>
         </div>
@@ -46,7 +46,7 @@
                 euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 accumsan et viverra justo commodo.
               </p>
-              <Button> CONHEÇA NOSSA HISTÓRIA </Button>
+              <Button :link="{name: 'about'}">CONHEÇA NOSSA HISTÓRIA</Button>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
             alt="Nossos produtos - metalurgia"
           />
           <h4>METALURGIA</h4>
-          <Button>VER PRODUTOS</Button>
+          <Button :link="{name: 'products'}">VER PRODUTOS</Button>
         </li>
 
         <li class="our-products__products_gallery__item">
@@ -80,7 +80,7 @@
             alt="Nossos produtos - Construção Civil"
           />
           <h4>CONSTRUÇÃO CIVIL</h4>
-          <Button>VER PRODUTOS</Button>
+          <Button :link="{name: 'products'}">VER PRODUTOS</Button>
         </li>
 
         <li class="our-products__products_gallery__item">
@@ -90,12 +90,12 @@
             alt="Nossos produtos - Ferramentas ouro"
           />
           <h4>FERRAMENTAS OURO</h4>
-          <Button>VER PRODUTOS</Button>
+          <Button :link="{name: 'products'}">VER PRODUTOS</Button>
         </li>
       </ul>
 
       <div class="content__row justify-content--center">
-        <Button>VER TODOS OS PRODUTOS</Button>
+        <Button :link="{name: 'products'}">VER TODOS OS PRODUTOS</Button>
       </div>
     </section>
 
@@ -196,7 +196,7 @@
           </p>
 
           <div class="content__row justify-content--center">
-            <Button type="secondary">ACESSAR CATÁLOGO</Button>
+            <Button :link="{name: 'catalog'}" type="secondary">ACESSAR CATÁLOGO</Button>
           </div>
         </div>
       </div>
