@@ -40,6 +40,10 @@ library.add(faLinkedinIn);
 const router = new VueRouter.createRouter({
   history: VueRouter.createWebHistory(),
   routes,
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 }
+  },
 });
 
 // App config
