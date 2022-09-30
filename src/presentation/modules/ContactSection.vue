@@ -25,23 +25,10 @@
   </section>
 </template>
 <script>
-import M from "materialize-css";
 import ContactForm from "@/presentation/modules/ContactForm.vue";
 
 export default {
   name: "app-contact-form",
-
-  mounted() {
-    M.FormSelect.init(this.$refs.select);
-  },
-
-  unmounted() {
-    if (this.$refs.select) {
-      var instance = M.FormSelect.getInstance(this.$refs.select);
-      instance.destroy();
-    }
-  },
-
   components: {
     ContactForm,
   },
