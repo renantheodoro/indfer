@@ -1,6 +1,6 @@
 <template>
     <h3>
-        +<big>{{mainNumber}}</big>{{decimalNumber != null && decimalNumber != '' ? '.' + decimalNumber : ''}}
+        +<span class="big">{{mainNumber}}</span>{{decimalNumber != null && decimalNumber != '' ? '.' + decimalNumber : ''}}
     </h3>
 </template>
 <script>
@@ -48,7 +48,6 @@ export default {
                     this.fullNumber = count;
                 }
             }, duration / this.number);
-
         },
 
         splitNumber() {

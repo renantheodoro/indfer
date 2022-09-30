@@ -1,0 +1,43 @@
+.our-values {
+    background-color: palette('grey');
+
+    .our-values__media {
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+
+            position: absolute;
+
+            top: 15px;
+            right: -35px;
+
+            width: to-rem(115px);
+            height: to-rem(25px);
+
+            background-color: palette('orange');
+        }
+    }
+    
+    .our-values__list {
+        .our-values__list__item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            margin-bottom: to-rem(22px);
+            
+            color: palette('white');
+
+            strong {
+                display: inline-block;
+                font-weight: bold;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

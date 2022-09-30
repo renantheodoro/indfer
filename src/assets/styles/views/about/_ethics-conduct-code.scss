@@ -1,0 +1,112 @@
+.ethics-conduct-code {
+  & > .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 88%;
+      height: 100%;
+
+      background-color: palette("blue");
+      z-index: 0;
+    }
+
+    &::before {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: calc(58.333% + 30px);
+      height: 34px;
+
+      background-color: palette("orange");
+      z-index: 1;
+    }
+  }
+
+  .ethics-conduct-code__content,
+  .ethics-conduct-code__media {
+    position: relative;
+    z-index: 2;
+  }
+
+  .ethics-conduct-code__content {
+    position: relative;
+    padding: to-rem(65px) to-rem(50px) to-rem(120px);
+
+    flex-basis: 50%;
+
+    p {
+      color: palette("white");
+      line-height: 2rem;
+
+      margin-bottom: to-rem(30px);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .button {
+      margin-top: 50px;
+    }
+  }
+
+  .ethics-conduct-code__media {
+    position: relative;
+    flex-basis: 50%;
+
+    display: block;
+
+    &::before {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      right: -25px;
+      bottom: 105px;
+
+      width: 115px;
+      height: 26px;
+
+      background-color: palette("orange");
+      z-index: 2;
+    }
+
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+
+      top: -200px;
+      right: 23px;
+      z-index: 4;
+
+      width: to-rem(246px);
+      height: to-rem(324px);
+
+      background-image: url("@/assets/images/svg/about-pattern-blue-white-vertical.svg");
+    }
+
+    img {
+      min-width: 50%;
+    }
+  }
+}

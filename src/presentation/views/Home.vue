@@ -103,15 +103,15 @@
       <div class="container">
         <div class="counter__list content__row">
           <div class="counter__list__item column-desktop--4">
-            <Counter number="50000" />
+            <Counter :number="50000" />
             <p>FERRAMENTAS DESENVOLVIDAS</p>
           </div>
           <div class="counter__list__item column-desktop--4">
-            <Counter number="40" />
+            <Counter :number="40" />
             <p>DE EXPERIÊNCIA</p>
           </div>
           <div class="counter__list__item column-desktop--4">
-            <Counter number="200" />
+            <Counter :number="200" />
             <p>CLIENTES ATENDIDOS</p>
           </div>
         </div>

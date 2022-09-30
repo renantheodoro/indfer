@@ -1,0 +1,35 @@
+<template>
+  <div class="button-down-anchor">
+    <Button :type="type" :fullWidth="fullWidth" :link="link">
+        <slot></slot>
+    </Button>
+    <font-awesome-icon icon="fa-solid fa-angle-down" />
+  </div>
+</template>
+<script>
+import Button from "@/presentation/components/Button.vue";
+
+export default {
+  name: "app-button-down-anchor",
+
+  props: {
+    type: {
+      type: String,
+      default: "primary",
+      required: false,
+    },
+    fullWidth: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
+    link: {
+      type: Object,
+      required: false,
+    },
+  },
+  components: {
+    Button,
+  },
+};
+</script>

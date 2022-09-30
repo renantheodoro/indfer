@@ -40,7 +40,7 @@
             </div>
 
             <div class="input-field">
-              <select>
+              <select ref="select">
                 <option value="" disabled selected>Selecione uma opção</option>
                 <option value="1">Google</option>
                 <option value="2">Indicação</option>
@@ -69,11 +69,18 @@ export default {
   name: "app-contact-form",
 
   mounted() {
-    M.FormSelect.init(document.querySelectorAll("select"));
+    M.FormSelect.init(this.$refs.select);
+  },
+
+  unmounted() {
+    if (this.$refs.select) {
+      var instance = M.FormSelect.getInstance(this.$refs.select);
+      instance.destroy();
+    }
   },
 
   components: {
-    Button
-  }
+    Button,
+  },
 };
 </script>
