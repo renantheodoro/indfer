@@ -42,6 +42,7 @@ export default {
     return {
       buttonClassLogic: {
       'button--primary': this.type === 'primary',
+      'button--primary-blue': this.type === 'primary-blue',
       'button--secondary': this.type === 'secondary',
       'button--secondary-orange': this.type === 'secondary-orange',
       'button--full-width': this.fullWidth,
