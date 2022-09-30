@@ -36,6 +36,12 @@
             background-color: palette('orange');
         }
     }
+
+    &--simple {
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .center-statement__text {
