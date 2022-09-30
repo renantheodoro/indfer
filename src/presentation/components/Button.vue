@@ -3,25 +3,19 @@
     v-if="link"
     :to="link"
     class="button btn waves-effect waves-light"
-    :class="{
-      'button--primary': type === 'primary',
-      'button--secondary': type === 'secondary',
-      'button--full-width': fullWidth,
-    }"
+    :class="buttonClassLogic"
   >
     <slot></slot>
   </router-link>
   <a
     v-else
     class="button btn waves-effect waves-light"
-    :class="{
-      'button--primary': type === 'primary',
-      'button--secondary': type === 'secondary',
-      'button--full-width': fullWidth,
-    }"
+    :class="buttonClassLogic"
   >
     <slot></slot>
   </a>
+
+  <slot name="icon"></slot>
 </template>
 <script>
 export default {
@@ -42,6 +36,17 @@ export default {
       type: Object,
       required: false,
     },
+  },
+
+  data() {
+    return {
+      buttonClassLogic: {
+      'button--primary': this.type === 'primary',
+      'button--secondary': this.type === 'secondary',
+      'button--secondary-orange': this.type === 'secondary-orange',
+      'button--full-width': this.fullWidth,
+    }
+    }
   },
 };
 </script>

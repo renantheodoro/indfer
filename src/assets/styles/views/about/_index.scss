@@ -1,0 +1,29 @@
+@import "./our-focus", "./our-values", "./our-history", "./ethics-conduct-code";
+
+.about-title {
+  margin-bottom: to-rem(50px);
+
+  &__subtitle {
+    font-size: to-rem(20px);
+    line-height: 100%;
+    color: palette("orange");
+    font-weight: bold;
+  }
+
+  &__title {
+    font-size: to-rem(44px);
+    line-height: 100%;
+    color: palette("blue");
+    font-weight: bold;
+  }
+
+  &--white {
+    .about-title__subtitle {
+      color: palette("white");
+    }
+
+    .about-title__title {
+      color: palette("white");
+    }
+  }
+}

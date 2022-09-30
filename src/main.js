@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import * as VueRouter from 'vue-router';
+import * as VueRouter from "vue-router";
 import routes from "./routes";
 
 import App from "./App.vue";
@@ -16,6 +16,7 @@ import {
   faLocationDot,
   faPhone,
   faStar,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -28,6 +29,8 @@ library.add(faStar);
 library.add(faPhone);
 library.add(faEnvelopeOpen);
 library.add(faLocationDot);
+library.add(faAngleDown);
+
 library.add(faWhatsapp);
 library.add(faFacebookF);
 library.add(faInstagram);

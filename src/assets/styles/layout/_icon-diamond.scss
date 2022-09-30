@@ -1,0 +1,13 @@
+.icon-diamond {
+    display: inline-block;
+
+    background-image: url('@/assets/images/icon-indfer.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: to-rem(32px);
+    height: to-rem(24px);
+
+    margin-right: 1rem;
+}
