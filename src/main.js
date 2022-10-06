@@ -4,6 +4,12 @@ import routes from "./routes";
 
 import App from "./App.vue";
 
+import CMS from 'netlify-cms-app'
+// Initialize the CMS object
+CMS.init()
+// Now the registry is available via the CMS object.
+// CMS.registerPreviewTemplate('my-template', MyTemplate)
+
 // CSS Libs
 import "materialize-css/dist/css/materialize.min.css";
 import "material-design-icons/iconfont/material-icons.css";
