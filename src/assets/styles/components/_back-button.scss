@@ -1,0 +1,19 @@
+.back-button {
+    font-size: 1rem;
+    color: palette("blue");
+  
+    display: flex;
+    align-items: center;
+  
+    font-weight: bold;
+  
+    line-height: 100%;
+  
+    margin-bottom: to-rem(40px);
+  
+    span {
+      display: inline-block;
+      margin-left: 4px;
+    }
+  }
+  

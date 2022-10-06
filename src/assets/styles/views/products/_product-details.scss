@@ -1,0 +1,251 @@
+#app .product-details {
+  .product-details_header {
+    position: relative;
+    background-color: palette("grey");
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+    width: 100%;
+    height: to-rem(205px);
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      z-index: 0;
+
+      mix-blend-mode: luminosity;
+      opacity: 0.6;
+    }
+
+    &--metallurgy {
+      &::after {
+        background-image: url("@/assets/images/product_detail-metallurgy.jpg");
+      }
+    }
+
+    &--civil-building {
+      &::after {
+        background-image: url("@/assets/images/product_detail-building.jpg");
+      }
+    }
+
+    &--gold-tools {
+      &::after {
+        background-image: url("@/assets/images/product_detail-gold_tools.jpg");
+      }
+    }
+
+    h1 {
+      font-size: to-rem(36px);
+      line-height: 100%;
+      color: palette("white");
+      font-weight: bold;
+
+      text-transform: uppercase;
+
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .product-details__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .product-details__main-content {
+    $mediaSize: to-rem(440px);
+    $mediaShapeSize: to-rem(276px);
+    $mediaBorderSize: 20px;
+
+    padding-top: to-rem(40px);
+    padding-bottom: 0;
+
+    &__media {
+      width: $mediaSize;
+      height: $mediaSize;
+
+      background-color: palette("white");
+
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+
+        width: calc(#{$mediaSize} - #{$mediaShapeSize});
+        height: calc(#{$mediaSize} - #{$mediaShapeSize});
+
+        position: absolute;
+
+        bottom: -6px;
+        right: 0;
+        z-index: 1;
+
+        background-color: palette("blue");
+      }
+
+      .holder {
+        border: $mediaBorderSize solid palette("grey", "alternative");
+        overflow: hidden;
+        position: relative;
+
+        cursor: pointer;
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        background-color: palette("white");
+
+        position: relative;
+        z-index: 2;
+
+        display: block;
+
+        transition: ease 0.3s;
+      }
+
+      .zoom-button {
+        position: absolute;
+        cursor: pointer;
+        bottom: 14px;
+        right: 14px;
+
+        z-index: 2;
+
+        svg {
+          height: 24px;
+          path {
+            color: palette("blue");
+          }
+        }
+      }
+
+      legend {
+        font-size: to-rem(14px);
+        color: palette("grey", "alternative");
+        line-height: 20px;
+        font-style: italic;
+        font-weight: normal;
+
+        display: block;
+
+        margin-top: to-rem(20px);
+      }
+    }
+
+    &__content {
+      flex: 1;
+      padding-left: to-rem(46px);
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h3 {
+        font-weight: bold;
+        font-size: to-rem(32px);
+        line-height: 100%;
+        color: palette("blue");
+
+        margin-bottom: to-rem(20px);
+      }
+
+      h4 {
+        font-size: to-rem(18px);
+        color: palette("orange");
+      }
+
+      p {
+        & + h3 {
+          margin-top: 0;
+        }
+      }
+
+      .button-down-anchor {
+        margin-top: 0;
+        width: 100%;
+        max-width: to-rem(325px);
+      }
+
+      .button {
+        margin-top: 1rem;
+        margin-bottom: 0;
+
+        width: 100%;
+        max-width: to-rem(325px);
+      }
+    }
+  }
+}
+
+.product-details__more-details {
+  padding-top: to-rem(64px);
+}
+
+#app .dynamic-content {
+  h3 {
+    font-weight: bold;
+    font-size: to-rem(18px);
+    line-height: 100%;
+    color: palette("blue");
+
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 100%;
+
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: to-rem(20px);
+    color: palette("grey", "alternative");
+
+    margin-bottom: 1rem;
+
+    strong {
+      font-weight: bold;
+      color: palette("orange");
+      font-weight: bold;
+    }
+
+    & + h3 {
+      margin-top: to-rem(46px);
+    }
+  }
+
+  img {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
