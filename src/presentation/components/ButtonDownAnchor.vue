@@ -1,7 +1,7 @@
 <template>
-  <div class="button-down-anchor">
+  <div class="button-down-anchor" :class="buttonClassLogic">
     <Button :type="type" :fullWidth="fullWidth" :link="link">
-        <slot></slot>
+      <slot></slot>
     </Button>
     <font-awesome-icon icon="fa-solid fa-angle-down" />
   </div>
@@ -28,6 +28,15 @@ export default {
       required: false,
     },
   },
+
+  data() {
+    return {
+      buttonClassLogic: {
+        "button-down-anchor--full-width": this.fullWidth,
+      },
+    };
+  },
+
   components: {
     Button,
   },

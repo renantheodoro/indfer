@@ -1,0 +1,112 @@
+#app .products {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .products__header {
+    padding-top: to-rem(90px);
+
+    background-color: palette("blue");
+
+    display: flex;
+    justify-content: center;
+
+    .center-statement__title {
+      margin-bottom: to-rem(50px);
+    }
+
+    .products__header__tabs {
+      background-color: transparent;
+
+      display: flex;
+      justify-content: center;
+
+      .tab a {
+        color: palette("white");
+        font-weight: bold;
+      }
+
+      .indicator {
+        background-color: palette("white");
+        height: 4px;
+      }
+    }
+  }
+
+  .products__list {
+    padding-top: to-rem(40px);
+    padding-bottom: to-rem(90px);
+  }
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+
+  .product-cards__item {
+    $space-lateral: 1rem;
+
+    display: table-cell;
+
+    width: calc(33.333% - #{$space-lateral});
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    padding: to-rem(18px);
+    margin-right: $space-lateral;
+    margin-bottom: to-rem(20px);
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &:nth-child(odd) {
+      background-color: palette("blue");
+    }
+
+    &:nth-child(even) {
+      background-color: palette("grey", "alternative");
+    }
+
+    &:hover .product-cards__item__media img {
+      transform: scale(1.1);
+    }
+
+    .product-cards__item__media {
+      width: 100%;
+      height: calc(100% + -#{to-rem(135px)});
+      max-height: to-rem(325px);
+
+      overflow: hidden;
+
+      margin-bottom: to-rem(20px);
+
+      background-color: palette("white");
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+
+        transition: 0.3s ease;
+      }
+    }
+
+    .product-card__item__title {
+      font-size: 1rem;
+      color: palette("white");
+      font-weight: bold;
+      line-height: 2rem;
+    }
+
+    .product-card__item__text {
+      font-size: to-rem(14px);
+      color: palette("white");
+      line-height: to-rem(20px);
+      margin-bottom: to-rem(23px);
+    }
+  }
+}
+

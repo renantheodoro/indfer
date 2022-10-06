@@ -17,6 +17,9 @@ import {
   faPhone,
   faStar,
   faAngleDown,
+  faAngleLeft,
+  faMagnifyingGlass,
+  faGears,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -30,6 +33,9 @@ library.add(faPhone);
 library.add(faEnvelopeOpen);
 library.add(faLocationDot);
 library.add(faAngleDown);
+library.add(faAngleLeft);
+library.add(faMagnifyingGlass);
+library.add(faGears);
 
 library.add(faWhatsapp);
 library.add(faFacebookF);

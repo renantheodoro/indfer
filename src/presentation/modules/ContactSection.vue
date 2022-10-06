@@ -6,7 +6,10 @@
           <div class="category-block">
             <h3 class="category-title">ENTRE EM CONTATO</h3>
             <h2 class="category-calling text-blue">
-              <strong>SOLICITE UM ORÇAMENTO NÃO DEIXE DE NOS CONTATAR</strong>
+              <strong
+                >SOLICITE UM ORÇAMENTO. <br />
+                NÃO DEIXE DE NOS CONTATAR</strong
+              >
             </h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

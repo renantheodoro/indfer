@@ -1,23 +1,21 @@
 @charset 'UTF-8';
 
 /* 1. Configuration and helpers */
-@import "@/assets/styles/abstracts/functions",
-  "@/assets/styles/abstracts/colors", "@/assets/styles/abstracts/configs",
-  "@/assets/styles/abstracts/reset", "@/assets/styles/abstracts/mixins";
+@import "./abstracts/functions", "./abstracts/colors", "./abstracts/configs",
+  "./abstracts/reset", "./abstracts/mixins";
 
 /* 2. Base stuff */
-@import "@/assets/styles/base/fonts", "@/assets/styles/base/typography",
-  "@/assets/styles/base/helpers", "@/assets/styles/base/grids";
+@import "./base/fonts", "./base/typography", "./base/helpers", "./base/grids";
 
 /* 3. Modules */
-@import "@/assets/styles/modules/index";
+@import "./modules/index";
 
 /* 4. Components */
-@import "@/assets/styles/components/index";
+@import "./components/index";
 
 /* 5. Layout */
-@import "@/assets/styles/layout/index";
+@import "./layout/index";
 
 /* 6. Pages */
-@import "@/assets/styles/views/home/index", "@/assets/styles/views/about/index",
-  "@/assets/styles/views/catalog/index", "@/assets/styles/views/contact/index";
+@import "./views/home/index", "./views/about/index", "./views/catalog/index",
+  "./views/contact/index", "./views/products/index", "./views/404/404";

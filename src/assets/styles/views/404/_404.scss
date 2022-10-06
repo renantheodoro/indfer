@@ -1,0 +1,48 @@
+#app .not-found {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    min-height: 40vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    height: 100%;
+  }
+
+  h2 {
+    text-align: center;
+    color: palette("grey", 'alternative');
+
+    font-size: to-rem(28px);
+    
+    strong {
+        display: block;
+        font-weight: bold;
+        color: palette("blue");
+        font-size: to-rem(94px);
+        line-height: 120%;
+    }
+  }
+
+  svg {
+    height: 70px;
+
+    path {
+      fill: palette("orange");
+    }
+  }
+
+  .button {
+    margin-top: 2rem;
+    max-width: 500px;
+  }
+}

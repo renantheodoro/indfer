@@ -9,19 +9,23 @@
     height: 1rem;
     margin-top: 12px;
 
-    transition: ease .3s;
+    transition: ease 0.3s;
 
     path {
       fill: palette("orange");
     }
   }
 
-  &>.button:hover + svg {
-    transform: translateY(.3rem);
+  & > .button:hover + svg {
+    transform: translateY(0.3rem);
   }
 
   .button {
     margin-top: 0;
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
 
@@ -59,7 +63,7 @@
 
     &:hover {
       background-color: palette("white");
-      color: palette('blue');
+      color: palette("blue");
     }
   }
 
@@ -79,8 +83,9 @@
     color: palette("orange");
 
     &:hover {
-      border-color: palette("white");
-      background-color: white;
+      border-color: palette("orange");
+      background-color: palette("orange");
+      color: palette("white");
     }
   }
 
