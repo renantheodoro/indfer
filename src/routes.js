@@ -5,6 +5,7 @@ import ProductDetails from "./presentation/views/ProductDetails.vue";
 import Catalog from "./presentation/views/Catalog.vue";
 import Contact from "./presentation/views/Contact.vue";
 import NotFound from "./presentation/views/404.vue";
+import Admin from "./Admin.vue";
 
 export default [
   {
@@ -59,6 +60,12 @@ export default [
     path: "/contato",
     name: "contact",
     component: Contact,
+  },
+
+  {
+    path: "/admin",
+    name: "admin",
+    component: Admin
   },
 
   { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
