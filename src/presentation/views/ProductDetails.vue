@@ -1,21 +1,22 @@
 <template>
-  <NotFound v-if="notFound"></NotFound>
+  <Preloader v-if="loading" />
+  <NotFound v-else-if="notFound" />
 
   <div v-else class="product-details">
     <section
       :class="'product-details_header product-details_header--' + category"
     >
-      <h1>{{categoryName}}</h1>
+      <h1>{{ categoryName }}</h1>
     </section>
 
     <section class="product-details__main-content">
       <div class="container">
-        <BackButton></BackButton>
+        <BackButton />
 
         <div class="product-details__row">
           <div class="product-details__main-content__media">
             <div class="holder">
-              <img src="@/assets/images/product-sample.jpg" alt="" />
+              <PrismicImage :field="result.data.thumbnail" />
 
               <div class="zoom-button">
                 <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
@@ -25,32 +26,17 @@
           </div>
           <div class="product-details__main-content__content">
             <div class="dynamic-content">
-              <h3>REBOLO RESINÓIDE</h3>
-              <h4>Diamante ou CBN</h4>
-              <p>
-                <strong>Descrição:</strong>
-                <br />
-                Rebolo de liga resinóide com diamante ou CBN (Cubic Boron
-                Nitride)
-                <br />
-                <br />
-                <strong>Grão:</strong><br />
-                - Desbaste: 252 (60/80), 181 (100/120), 151 (100/120) <br />
-                - Médio Acabamento: 126 (120/140), 107 (140/170), 91 (170/200)
-                <br />
-                - Acabamento: 76 (200/230), 64 (230/270), 54 (270/325) <br />
-                - Fino Acabamento: 46 (325/400), 35 (500)<br />
-                - Extra acabamento: 30 (600) ou mais fino <br />
-                <br />
-                <strong>Concentração:</strong> 25, 50 , 75 e 100
-                <br />
-                <br />
-                <strong>Utilização:</strong>
-                <br />
-                Diamante: desbaste e afiação de metal duro
-                <br />
-                CBN (Borazon): desbaste e afiação de aço
-              </p>
+              <PrismicText
+                :field="result.data.title"
+                wrapper="h3"
+                fallback="No content"
+              />
+              <PrismicText
+                :field="result.data.subtitle"
+                wrapper="h4"
+                fallback="No content"
+              />
+              <PrismicRichText :field="result.data.description" />
             </div>
 
             <Button>FAZER ORÇAMENTO</Button>
@@ -65,50 +51,7 @@
     <section class="product-details__more-details">
       <div class="container">
         <div class="dynamic-content">
-          <h3>FERRAMENTAS ELETROLÍTICAS</h3>
-
-          <p>
-            São desenvolvidas com grãos de Diamantes ou Borazon (CBN)
-            depositados sobre hastes metálicas através de processo eletrolítico,
-            tais como:
-          </p>
-
-          <p>
-            Limas, Discos de Corte, Rebolos, Rebolos para Retífica Interna ou
-            conforme necessidade do cliente.
-          </p>
-
-          <h3>REBOLOS E DISCOS DE CORTE</h3>
-
-          <p>
-            <strong>Diamante:</strong> Para Metal Duro, Aço Liga, Plástico,
-            Grafite, Cerâmica.<br />
-            <strong>Borazon(CBN):</strong> Aço (temperado, aço alto carbono, aço
-            rápido e ligas alto carbono.<br />
-            <strong>Granulometria:</strong> Diamente D126/D181- Borazon
-            B126/B181 ou sob consulta.
-          </p>
-
-          <h3>LIMAS ABRASIVAS</h3>
-
-          <p>
-            Em geral, são utilizadas para trabalhos de acabamentos em moldes,
-            ferramentas e matrizes. Granulometria: D 126 ou sob consulta.
-          </p>
-
-          <img src="@/assets/images/product-detail-sample.jpg" alt="" />
-
-          <h3>LIMAS DIAMANTADAS</h3>
-
-          <img src="@/assets/images/product-detail-sample.jpg" alt="" />
-
-          <h4>LIMA TIPO AGULHA - MANUAL</h4>
-
-          <img src="@/assets/images/product-detail-sample-2.jpg" alt="" />
-
-          <h4>LIMA MÁQUINA - MECÂNICO OU MANUAL</h4>
-
-          <img src="@/assets/images/product-detail-sample-2.jpg" alt="" />
+          <PrismicRichText :field="result.data.details" />
         </div>
       </div>
     </section>
@@ -122,6 +65,7 @@ import Button from "../components/Button.vue";
 import ButtonDownAnchor from "../components/ButtonDownAnchor.vue";
 import ContactSection from "../modules/ContactSection.vue";
 import NotFound from "../views/404.vue";
+import Preloader from "../components/Preloader.vue";
 
 export default {
   name: "app-product-detail",
@@ -130,15 +74,30 @@ export default {
     return {
       category: "",
       categoryName: "",
+      loading: true,
       notFound: false,
+      result: null,
     };
   },
 
-  mounted() {
+  methods: {
+    async getProductData(uid) {
+      const response = await this.$prismic.client.getByUID("produto", uid);
+      
+      if(response) {
+        this.result = response;
+        this.loading = false;
+      }
+      
+      console.log(this.result.data.details);
+    },
+  },
+
+  created() {
+    let uid = this.$router.currentRoute.value.params.id;
     let path = this.$route.path;
 
-    console.log("path", path);
-    console.log(path.includes("construcao-civil"));
+    this.getProductData(uid);
 
     if (path.includes("metalurgia")) {
       this.category = "metallurgy";
@@ -167,6 +126,7 @@ export default {
     ButtonDownAnchor,
     ContactSection,
     NotFound,
-  },
+    Preloader
+},
 };
 </script>

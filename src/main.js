@@ -4,37 +4,8 @@ import routes from "./routes";
 
 import App from "./App.vue";
 
-import CMS from "netlify-cms-app";
-import Admin from "./Admin.vue";
-// Initialize the CMS object
-CMS.init({
-  backend: {
-    name: "git-gateway",
-    branch: "main",
-    publish_mode: "editorial_workflow",
-    media_folder: "dist/images/uploads",
-    public_folder: "images/uploads",
-    collections: [
-      {
-        name: "products",
-        label: "Produts",
-        folder: "_products",
-        create: true,
-        slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-        fields: [
-          { label: "Título", name: "title", widget: "string" },
-          { label: "Subtítulo", name: "subtitle", widget: "string" },
-          { label: "Conteúdo", name: "content", widget: "markdown" },
-          { label: "Detalhes", name: "details", widget: "markdown" },
-          { label: "Imagem de destaque", name: "thumbnail", widget: "image" },
-        ],
-      },
-    ],
-  },
-});
-// Now the registry is available via the CMS object.
-// CMS.registerPreviewTemplate('my-template', MyTemplate)
-CMS.registerPreviewTemplate("index", Admin);
+// prismic
+import prismic from "./services/prismic";
 
 // CSS Libs
 import "materialize-css/dist/css/materialize.min.css";
@@ -89,6 +60,10 @@ const app = createApp(App);
 
 app.use(router);
 app.component("font-awesome-icon", FontAwesomeIcon);
+
+// Register prismic plugin
+app.use(prismic);
+
 
 // App mount
 app.mount("#app");

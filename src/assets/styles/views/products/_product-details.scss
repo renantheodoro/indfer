@@ -167,6 +167,10 @@
       flex-direction: column;
       align-items: flex-start;
 
+      strong {
+        font-weight: bold;
+      }
+
       h3 {
         font-weight: bold;
         font-size: to-rem(32px);
@@ -209,6 +213,10 @@
 }
 
 #app .dynamic-content {
+  strong {
+    font-weight: bold;
+  }
+  
   h3 {
     font-weight: bold;
     font-size: to-rem(18px);
