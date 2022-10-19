@@ -94,6 +94,7 @@
       }
     }
 
+    h3,
     .product-card__item__title {
       font-size: 1rem;
       color: palette("white");
@@ -101,6 +102,7 @@
       line-height: 2rem;
     }
 
+    p,
     .product-card__item__text {
       font-size: to-rem(14px);
       color: palette("white");
