@@ -70,7 +70,7 @@
             alt="Nossos produtos - metalurgia"
           />
           <h4>METALURGIA</h4>
-          <Button :link="{name: 'products'}">VER PRODUTOS</Button>
+          <Button link="produtos/#metalugia">VER PRODUTOS</Button>
         </li>
 
         <li class="our-products__products_gallery__item">
@@ -80,7 +80,7 @@
             alt="Nossos produtos - Construção Civil"
           />
           <h4>CONSTRUÇÃO CIVIL</h4>
-          <Button :link="{name: 'products'}">VER PRODUTOS</Button>
+          <Button link="produtos/#construcao-civil">VER PRODUTOS</Button>
         </li>
 
         <li class="our-products__products_gallery__item">
@@ -90,7 +90,7 @@
             alt="Nossos produtos - Ferramentas ouro"
           />
           <h4>FERRAMENTAS OURO</h4>
-          <Button :link="{name: 'products'}">VER PRODUTOS</Button>
+          <Button link="produtos/#ferramentas-ouro">VER PRODUTOS</Button>
         </li>
       </ul>
 
@@ -206,10 +206,10 @@
   </main>
 </template>
 <script>
-import Button from "@/presentation/components/Button.vue";
-import Counter from "@/presentation/components/Counter.vue";
-import Rating from "@/presentation/components/Rating.vue";
-import ContactSection from "@/presentation/modules/ContactSection.vue";
+import Button from "@/presentation/components/button.vue";
+import Counter from "@/presentation/components/counter.vue";
+import Rating from "@/presentation/components/rating.vue";
+import ContactSection from "@/presentation/modules/contact-section.vue";
 
 export default {
   name: "app-home",

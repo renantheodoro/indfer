@@ -1,0 +1,24 @@
+#app .modal {
+    box-shadow: none;
+
+    .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+
+        svg {
+            height: 26px;
+
+            path {
+                color: palette('grey');
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,5 +1,6 @@
 <template>
   <Preloader v-if="loading" />
+
   <section v-show="!loading" class="products">
     <div class="products__header">
       <div class="container">
@@ -9,21 +10,26 @@
 
         <ul ref="tabs" class="products__header__tabs tabs">
           <li class="tab">
-            <a class="active" href="#metallurgy">METALURGIA</a>
+            <a href="#metalurgia">METALURGIA</a>
+            <!-- <router-link to="#metalurgia">METALURGIA</router-link> -->
           </li>
           <li class="tab">
-            <a href="#civil-building">CONSTRUÇÃO CIVIL</a>
+            <a href="#construcao-civil">CONSTRUÇÃO CIVIL</a>
+            <!-- <router-link to="#construcao-civil">CONSTRUÇÃO CIVIL</router-link> -->
           </li>
-          <li class="tab"><a href="#gold-tools">FERRAMENTAS OURO</a></li>
+          <li class="tab">
+            <a href="#ferramentas-ouro">FERRAMENTAS OURO</a>
+            <!-- <router-link to="#ferramentas-ouro">FERRAMENTAS OURO</router-link> -->
+          </li>
         </ul>
       </div>
     </div>
 
     <div class="products__list">
       <div class="container">
-        <BackButton />
+        <BackButton backLink="home" />
 
-        <div id="metallurgy" class="products__list__item">
+        <div id="metalurgia" class="products__list__item">
           <ul class="product-cards">
             <template v-for="(result, index) in results" :key="index">
               <li
@@ -39,6 +45,7 @@
                   wrapper="h3"
                   fallback="No content"
                 />
+
                 <PrismicText
                   :field="result.data.subtitle"
                   wrapper="p"
@@ -55,7 +62,7 @@
           </ul>
         </div>
 
-        <div id="civil-building" class="products__list__item">
+        <div id="construcao-civil" class="products__list__item">
           <ul class="product-cards">
             <template v-for="(result, index) in results" :key="index">
               <li
@@ -71,6 +78,7 @@
                   wrapper="h3"
                   fallback="No content"
                 />
+
                 <PrismicText
                   :field="result.data.subtitle"
                   wrapper="p"
@@ -87,11 +95,11 @@
           </ul>
         </div>
 
-        <div id="gold-tools" class="products__list__item">
+        <div id="ferramentas-ouro" class="products__list__item">
           <ul class="product-cards">
             <template v-for="(result, index) in results" :key="index">
               <li
-                v-if="result.data.category === 'metalurgia'"
+                v-if="result.data.category === 'ferramentas-ouro'"
                 class="product-cards__item"
               >
                 <div class="product-cards__item__media">
@@ -103,6 +111,7 @@
                   wrapper="h3"
                   fallback="No content"
                 />
+
                 <PrismicText
                   :field="result.data.subtitle"
                   wrapper="p"
@@ -126,10 +135,10 @@
 </template>
 <script>
 import M from "materialize-css";
-import Button from "../components/Button.vue";
-import BackButton from "../components/BackButton.vue";
-import ContactSection from "../modules/ContactSection.vue";
-import Preloader from "../components/Preloader.vue";
+import Button from "../components/button.vue";
+import BackButton from "../components/back-button.vue";
+import ContactSection from "../modules/contact-section.vue";
+import Preloader from "../components/preloader.vue";
 
 export default {
   name: "app-products",
@@ -138,15 +147,35 @@ export default {
     return {
       results: [],
       loading: true,
+      materializeInstance: null,
     };
   },
 
   methods: {
+    initTabs() {
+      setTimeout(() => {
+        this.materializeInstance = M.Tabs.init(this.$refs.tabs, 
+        // {swipeable: true}
+        );
+        this.selectTab();
+      }, 10);
+    },
+
+    selectTab() {
+      const fullPath = this.$router.currentRoute.value.fullPath.split("/");
+      const route = fullPath[fullPath.length - 1].replace("#", "");
+
+      if (this.materializeInstance) {
+        this.materializeInstance.select(route);
+      }
+    },
+
     async getAllProducts() {
       const response = await this.$prismic.client.getByType("produto");
       if (response) {
         this.results = response.results;
         this.loading = false;
+        this.initTabs();
       }
     },
 
@@ -159,8 +188,13 @@ export default {
     this.getAllProducts();
   },
 
-  mounted() {
-    M.Tabs.init(this.$refs.tabs);
+  watch: {
+    $route() {
+      if (this.materializeInstance) {
+        this.materializeInstance.updateTabIndicator();
+        this.selectTab();
+      }
+    },
   },
 
   components: { Button, BackButton, ContactSection, Preloader },

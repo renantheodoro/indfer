@@ -3,18 +3,17 @@
   <NotFound v-else-if="notFound" />
 
   <div v-else class="product-details">
-    <section
-      :class="'product-details_header product-details_header--' + category"
-    >
+    <section :class="'product-details_header product-details_header--' + category">
       <h1>{{ categoryName }}</h1>
     </section>
 
+
     <section class="product-details__main-content">
       <div class="container">
-        <BackButton />
+        <BackButton backLink="products" />
 
         <div class="product-details__row">
-          <div class="product-details__main-content__media">
+          <div @click="showModal" class="product-details__main-content__media">
             <div class="holder">
               <PrismicImage :field="result.data.thumbnail" />
 
@@ -24,25 +23,25 @@
             </div>
             <legend>Imagem meramente ilustrativa*</legend>
           </div>
+
+          <div id="product-image-detail-modal" class="modal" ref="modal">
+            <a href="#" @click="hideModal" class="close-modal">
+              <font-awesome-icon icon="fa-solid fa-xmark" />
+            </a>
+            <div class="modal-content">
+              <PrismicImage v-if="result" :field="result.data.thumbnail" />
+            </div>
+          </div>
+
           <div class="product-details__main-content__content">
             <div class="dynamic-content">
-              <PrismicText
-                :field="result.data.title"
-                wrapper="h3"
-                fallback="No content"
-              />
-              <PrismicText
-                :field="result.data.subtitle"
-                wrapper="h4"
-                fallback="No content"
-              />
+              <PrismicText :field="result.data.title" wrapper="h3" fallback="No content" />
+              <PrismicText :field="result.data.subtitle" wrapper="h4" fallback="No content" />
               <PrismicRichText :field="result.data.description" />
             </div>
 
-            <Button>FAZER ORÇAMENTO</Button>
-            <ButtonDownAnchor type="secondary-orange"
-              >VISUALIZAR MAIS DETALHES</ButtonDownAnchor
-            >
+            <Button :link="{name: 'contact'}">FAZER ORÇAMENTO</Button>
+            <ButtonDownAnchor type="secondary-orange">VISUALIZAR MAIS DETALHES</ButtonDownAnchor>
           </div>
         </div>
       </div>
@@ -60,12 +59,14 @@
   </div>
 </template>
 <script>
-import BackButton from "../components/BackButton.vue";
-import Button from "../components/Button.vue";
-import ButtonDownAnchor from "../components/ButtonDownAnchor.vue";
-import ContactSection from "../modules/ContactSection.vue";
-import NotFound from "../views/404.vue";
-import Preloader from "../components/Preloader.vue";
+import BackButton from "../components/back-button.vue";
+import Button from "../components/button.vue";
+import ButtonDownAnchor from "../components/button-down-anchor.vue";
+import ContactSection from "../modules/contact-section.vue";
+import NotFound from "./not-found.vue";
+import Preloader from "../components/preloader.vue";
+
+import M from 'materialize-css';
 
 export default {
   name: "app-product-detail",
@@ -77,23 +78,46 @@ export default {
       loading: true,
       notFound: false,
       result: null,
+      materializeInstance: null,
     };
   },
 
   methods: {
-    async getProductData(uid) {
-      const response = await this.$prismic.client.getByUID("produto", uid);
-      
-      if(response) {
-        this.result = response;
-        this.loading = false;
-      }
-      
-      console.log(this.result.data.details);
+    initPage() {
+      const element = document.getElementById('product-image-detail-modal');
+      this.materializeInstance = M.Modal.init(element);
+      console.log(this.materializeInstance)
     },
+
+    async getProductData(uid) {
+      try {
+        const response = await this.$prismic.client.getByUID("produto", uid);
+
+        if (response) {
+          this.result = response;
+          this.loading = false;
+        }
+      } catch (error) {
+        console.error(error);
+        this.loading = false;
+        this.notFound = true;
+      }
+
+      setTimeout(() => {
+        this.initPage();
+      }, 10);
+    },
+
+    showModal() {
+      this.materializeInstance.open();
+    },
+
+    hideModal() {
+      this.materializeInstance.close();
+    }
   },
 
-  created() {
+  mounted() {
     let uid = this.$router.currentRoute.value.params.id;
     let path = this.$route.path;
 
@@ -127,6 +151,6 @@ export default {
     ContactSection,
     NotFound,
     Preloader
-},
+  },
 };
 </script>

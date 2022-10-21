@@ -40,7 +40,7 @@
 </template>
 <script>
 import M from "materialize-css";
-import Button from "@/presentation/components/Button.vue";
+import Button from "@/presentation/components/button.vue";
 
 export default {
   name: "app-contact-form",

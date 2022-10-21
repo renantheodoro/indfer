@@ -9,7 +9,6 @@
             title="INDFER - Ferramentas diamantadas"
           />
         </router-link>
-        <!-- <h1>INDFER - Ferramentas diamantadas</h1> -->
       </div>
 
       <nav>
@@ -55,7 +54,7 @@
           </li>
 
           <li>
-            <Button :link="{name: 'contact'}">Solicite orçamento</Button>
+            <Button :link="{ name: 'contact' }">Solicite orçamento</Button>
           </li>
         </ul>
       </nav>
@@ -64,18 +63,10 @@
 </template>
 
 <script>
-import M from "materialize-css";
-
-import Button from "@/presentation/components/Button.vue";
+import Button from "@/presentation/components/button.vue";
 
 export default {
   name: "app-header",
-
-  mounted() {
-    setTimeout(() => {
-      M.Tabs.init(this.$refs.header__navigation, {});
-    }, 100);
-  },
 
   components: {
     Button,
