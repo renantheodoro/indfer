@@ -228,8 +228,17 @@
           Servindo como pilar para nosso comportamento íntegro nos negócios.
         </p>
 
-        <Button :link="{ name: 'contact' }" type="secondary">SOLICITE UM ORÇAMENTO</Button>
+        <Button @click="showModal('contact-form-modal')" type="secondary">SOLICITE UM ORÇAMENTO</Button>
+
       </div>
+
+
+      <Modal id="contact-form-modal" ref="contact-form-modal">
+        <div class="category-block">
+          <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
+        </div>
+        <ContactForm />
+      </Modal>
 
       <div class="ethics-conduct-code__media">
         <img src="@/assets/images/about-ethics_conduct_code.jpg" title="Código de ética e conduta"
@@ -244,6 +253,8 @@
 import ContactSection from "@/presentation/modules/contact-section.vue";
 import ButtonDownAnchor from "@/presentation/components/button-down-anchor.vue";
 import Button from "@/presentation/components/button.vue";
+import Modal from "../components/modal.vue";
+import ContactForm from "../modules/contact-form.vue";
 
 export default {
   name: "app-about",
@@ -252,12 +263,14 @@ export default {
     verifyScrollToStartCounter() {
       const currentTop = document.documentElement.scrollTop;
 
-      console.log('log')
-
       if (currentTop >= this.ourValuesSectionTop + this.ourHistorySectionHeight) {
         document.getElementsByClassName('our-history__timeline')[0].classList.add('animate');
         window.removeEventListener("scroll", this.verifyScrollToStartCounter);
       }
+    },
+
+    showModal(ref) {
+      this.$refs[ref].showModal(ref);
     },
 
   },
@@ -275,7 +288,8 @@ export default {
   components: {
     ButtonDownAnchor,
     ContactSection,
-    Button,
+    Button, Modal,
+    ContactForm
   },
 };
 </script>

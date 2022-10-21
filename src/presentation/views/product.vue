@@ -7,13 +7,12 @@
       <h1>{{ categoryName }}</h1>
     </section>
 
-
     <section class="product-details__main-content">
       <div class="container">
         <BackButton backLink="products" />
 
         <div class="product-details__row">
-          <div @click="showModal" class="product-details__main-content__media">
+          <div @click="showModal('product-image-detail-modal')" class="product-details__main-content__media">
             <div class="holder">
               <PrismicImage :field="result.data.thumbnail" />
 
@@ -24,15 +23,6 @@
             <legend>Imagem meramente ilustrativa*</legend>
           </div>
 
-          <div id="product-image-detail-modal" class="modal" ref="modal">
-            <a href="#" @click="hideModal" class="close-modal">
-              <font-awesome-icon icon="fa-solid fa-xmark" />
-            </a>
-            <div class="modal-content">
-              <PrismicImage v-if="result" :field="result.data.thumbnail" />
-            </div>
-          </div>
-
           <div class="product-details__main-content__content">
             <div class="dynamic-content">
               <PrismicText :field="result.data.title" wrapper="h3" fallback="No content" />
@@ -40,11 +30,22 @@
               <PrismicRichText :field="result.data.description" />
             </div>
 
-            <Button :link="{name: 'contact'}">FAZER ORÇAMENTO</Button>
+            <Button @click="showModal('contact-form-modal')">FAZER ORÇAMENTO</Button>
             <ButtonDownAnchor type="secondary-orange">VISUALIZAR MAIS DETALHES</ButtonDownAnchor>
           </div>
         </div>
       </div>
+
+      <Modal id="product-image-detail-modal" ref="product-image-detail-modal">
+        <PrismicImage v-if="result" :field="result.data.thumbnail" />
+      </Modal>
+
+      <Modal id="contact-form-modal" ref="contact-form-modal">
+        <div class="category-block">
+          <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
+        </div>
+        <ContactForm />
+      </Modal>
     </section>
 
     <section class="product-details__more-details">
@@ -65,8 +66,8 @@ import ButtonDownAnchor from "../components/button-down-anchor.vue";
 import ContactSection from "../modules/contact-section.vue";
 import NotFound from "./not-found.vue";
 import Preloader from "../components/preloader.vue";
-
-import M from 'materialize-css';
+import Modal from "../components/modal.vue";
+import ContactForm from "../modules/contact-form.vue";
 
 export default {
   name: "app-product-detail",
@@ -83,11 +84,6 @@ export default {
   },
 
   methods: {
-    initPage() {
-      const element = document.getElementById('product-image-detail-modal');
-      this.materializeInstance = M.Modal.init(element);
-      console.log(this.materializeInstance)
-    },
 
     async getProductData(uid) {
       try {
@@ -102,19 +98,11 @@ export default {
         this.loading = false;
         this.notFound = true;
       }
-
-      setTimeout(() => {
-        this.initPage();
-      }, 10);
     },
 
-    showModal() {
-      this.materializeInstance.open();
+    showModal(ref) {
+      this.$refs[ref].showModal(ref);
     },
-
-    hideModal() {
-      this.materializeInstance.close();
-    }
   },
 
   mounted() {
@@ -150,7 +138,9 @@ export default {
     ButtonDownAnchor,
     ContactSection,
     NotFound,
-    Preloader
+    Preloader,
+    Modal,
+    ContactForm
   },
 };
 </script>

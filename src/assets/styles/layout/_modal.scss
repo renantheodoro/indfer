@@ -1,24 +1,36 @@
 #app .modal {
-    box-shadow: none;
+  box-shadow: none;
+  background-color: palette("white");
 
-    .close-modal {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 2;
+  width: 100%;
+  max-width: 470px;
+  max-height: 100%;
+  z-index: 9;
 
-        svg {
-            height: 26px;
+  .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
 
-            path {
-                color: palette('grey');
-            }
-        }
+    svg {
+      height: 26px;
+
+      path {
+        color: palette("grey");
+      }
     }
+  }
 
-    &-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  &-content {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    .contact-form {
+      width: 100%;
+      padding: 0;
     }
+  }
 }
