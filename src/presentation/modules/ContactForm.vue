@@ -183,7 +183,7 @@ import { mask } from "vue-the-mask";
 
 import emailjs from "emailjs-com";
 import ButtonSubmit from "@/presentation/components/ButtonSubmit.vue";
-import Button from "@/presentation/components/button.vue";
+import Button from "@/presentation/components/Button.vue";
 
 export default {
   name: "app-contact-form",

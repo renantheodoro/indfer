@@ -61,7 +61,7 @@
 </template>
 <script>
 import BackButton from "@/presentation/components/BackButton.vue";
-import Button from "@/presentation/components/button.vue";
+import Button from "@/presentation/components/Button.vue";
 import ButtonDownAnchor from "@/presentation/components/BackDownAnchor.vue";
 import ContactSection from "@/presentation/modules/ContactSection.vue";
 import NotFound from "@/presentation/views/NotFound.vue";
