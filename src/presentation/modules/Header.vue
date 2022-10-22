@@ -53,8 +53,8 @@
 
 <script>
 import Button from "@/presentation/components/button.vue";
-import Modal from "@/presentation/components/modal.vue";
-import ContactForm from "@/presentation/modules/contact-form.vue";
+import Modal from "@/presentation/components/Modal.vue";
+import ContactForm from "@/presentation/modules/ContactForm.vue";
 
 export default {
   name: "app-header",

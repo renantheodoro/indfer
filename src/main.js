@@ -1,11 +1,11 @@
 import { createApp } from "vue";
 import * as VueRouter from "vue-router";
-import routes from "@/routes";
+import routes from "./routes";
 
-import App from "@/app.vue";
+import App from "./app.vue";
 
 // prismic
-import prismic from "@/services/prismic";
+import prismic from "./services/prismic";
 
 // CSS Libs
 import "materialize-css/dist/css/materialize.min.css";

@@ -182,7 +182,7 @@ import M from "materialize-css";
 import { mask } from "vue-the-mask";
 
 import emailjs from "emailjs-com";
-import ButtonSubmit from "@/presentation/components/button-submit.vue";
+import ButtonSubmit from "@/presentation/components/ButtonSubmit.vue";
 import Button from "@/presentation/components/button.vue";
 
 export default {
