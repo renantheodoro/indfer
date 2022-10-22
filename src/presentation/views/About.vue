@@ -253,8 +253,8 @@
 import ContactSection from "@/presentation/modules/contact-section.vue";
 import ButtonDownAnchor from "@/presentation/components/button-down-anchor.vue";
 import Button from "@/presentation/components/button.vue";
-import Modal from "../components/modal.vue";
-import ContactForm from "../modules/contact-form.vue";
+import Modal from "@/presentation/components/modal.vue";
+import ContactForm from "@/presentation/modules/contact-form.vue";
 
 export default {
   name: "app-about",
