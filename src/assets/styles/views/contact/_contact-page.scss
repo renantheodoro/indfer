@@ -1,6 +1,10 @@
 #app .contact-page {
   background-color: palette("grey", "background");
 
+  .contact-form {
+    position: relative;
+  }
+
   .category-block {
     margin-bottom: to-rem(65px);
   }

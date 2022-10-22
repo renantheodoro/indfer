@@ -1,11 +1,10 @@
-import Home from "./presentation/views/Home.vue";
-import About from "./presentation/views/About.vue";
-import Products from "./presentation/views/Products.vue";
-import ProductDetails from "./presentation/views/ProductDetails.vue";
-import Catalog from "./presentation/views/Catalog.vue";
-import Contact from "./presentation/views/Contact.vue";
-import NotFound from "./presentation/views/404.vue";
-import Admin from "./Admin.vue";
+import Home from "./presentation/views/home.vue";
+import About from "./presentation/views/about.vue";
+import Products from "./presentation/views/product-list.vue";
+import ProductDetails from "./presentation/views/product.vue";
+import Catalog from "./presentation/views/catalog.vue";
+import Contact from "./presentation/views/contact.vue";
+import NotFound from "./presentation/views/not-found.vue";
 
 export default [
   {
@@ -22,32 +21,28 @@ export default [
 
   {
     path: "/produtos",
-    name: "products",
-    component: Products,
-  },
-
-  {
-    path: "/produtos/:id",
-    name: "product-detail",
-    component: ProductDetails,
-  },
-
-  {
-    path: "/produtos/metalurgia/:id",
-    name: "product-detail-metallurgy",
-    component: ProductDetails,
-  },
-
-  {
-    path: "/produtos/construcao-civil/:id",
-    name: "product-detail-civil-building",
-    component: ProductDetails,
-  },
-
-  {
-    path: "/produtos/ferramentas-ouro/:id",
-    name: "product-detail-gold-tools",
-    component: ProductDetails,
+    
+    children: [
+      {
+        path: '',
+        name: "products",
+        component: Products,
+      },
+      {
+        path: "metalurgia/:id",
+        component: ProductDetails,
+      },
+    
+      {
+        path: "construcao-civil/:id",
+        component: ProductDetails,
+      },
+    
+      {
+        path: "ferramentas-ouro/:id",
+        component: ProductDetails,
+      },
+    ]
   },
 
   {
@@ -62,11 +57,5 @@ export default [
     component: Contact,
   },
 
-  {
-    path: "/admin",
-    name: "admin",
-    component: Admin
-  },
-
-  { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
+  { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
 ];

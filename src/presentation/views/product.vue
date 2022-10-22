@@ -3,18 +3,16 @@
   <NotFound v-else-if="notFound" />
 
   <div v-else class="product-details">
-    <section
-      :class="'product-details_header product-details_header--' + category"
-    >
+    <section :class="'product-details_header product-details_header--' + category">
       <h1>{{ categoryName }}</h1>
     </section>
 
     <section class="product-details__main-content">
       <div class="container">
-        <BackButton />
+        <BackButton backLink="products" />
 
         <div class="product-details__row">
-          <div class="product-details__main-content__media">
+          <div @click="showModal('product-image-detail-modal')" class="product-details__main-content__media">
             <div class="holder">
               <PrismicImage :field="result.data.thumbnail" />
 
@@ -24,28 +22,30 @@
             </div>
             <legend>Imagem meramente ilustrativa*</legend>
           </div>
+
           <div class="product-details__main-content__content">
             <div class="dynamic-content">
-              <PrismicText
-                :field="result.data.title"
-                wrapper="h3"
-                fallback="No content"
-              />
-              <PrismicText
-                :field="result.data.subtitle"
-                wrapper="h4"
-                fallback="No content"
-              />
+              <PrismicText :field="result.data.title" wrapper="h3" fallback="No content" />
+              <PrismicText :field="result.data.subtitle" wrapper="h4" fallback="No content" />
               <PrismicRichText :field="result.data.description" />
             </div>
 
-            <Button>FAZER ORÇAMENTO</Button>
-            <ButtonDownAnchor type="secondary-orange"
-              >VISUALIZAR MAIS DETALHES</ButtonDownAnchor
-            >
+            <Button @click="showModal('contact-form-modal')">FAZER ORÇAMENTO</Button>
+            <ButtonDownAnchor type="secondary-orange">VISUALIZAR MAIS DETALHES</ButtonDownAnchor>
           </div>
         </div>
       </div>
+
+      <Modal id="product-image-detail-modal" ref="product-image-detail-modal">
+        <PrismicImage v-if="result" :field="result.data.thumbnail" />
+      </Modal>
+
+      <Modal id="contact-form-modal" ref="contact-form-modal">
+        <div class="category-block">
+          <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
+        </div>
+        <ContactForm />
+      </Modal>
     </section>
 
     <section class="product-details__more-details">
@@ -60,12 +60,14 @@
   </div>
 </template>
 <script>
-import BackButton from "../components/BackButton.vue";
-import Button from "../components/Button.vue";
-import ButtonDownAnchor from "../components/ButtonDownAnchor.vue";
-import ContactSection from "../modules/ContactSection.vue";
-import NotFound from "../views/404.vue";
-import Preloader from "../components/Preloader.vue";
+import BackButton from "../components/back-button.vue";
+import Button from "../components/button.vue";
+import ButtonDownAnchor from "../components/button-down-anchor.vue";
+import ContactSection from "../modules/contact-section.vue";
+import NotFound from "./not-found.vue";
+import Preloader from "../components/preloader.vue";
+import Modal from "../components/modal.vue";
+import ContactForm from "../modules/contact-form.vue";
 
 export default {
   name: "app-product-detail",
@@ -77,23 +79,33 @@ export default {
       loading: true,
       notFound: false,
       result: null,
+      materializeInstance: null,
     };
   },
 
   methods: {
+
     async getProductData(uid) {
-      const response = await this.$prismic.client.getByUID("produto", uid);
-      
-      if(response) {
-        this.result = response;
+      try {
+        const response = await this.$prismic.client.getByUID("produto", uid);
+
+        if (response) {
+          this.result = response;
+          this.loading = false;
+        }
+      } catch (error) {
+        console.error(error);
         this.loading = false;
+        this.notFound = true;
       }
-      
-      console.log(this.result.data.details);
+    },
+
+    showModal(ref) {
+      this.$refs[ref].showModal(ref);
     },
   },
 
-  created() {
+  mounted() {
     let uid = this.$router.currentRoute.value.params.id;
     let path = this.$route.path;
 
@@ -126,7 +138,9 @@ export default {
     ButtonDownAnchor,
     ContactSection,
     NotFound,
-    Preloader
-},
+    Preloader,
+    Modal,
+    ContactForm
+  },
 };
 </script>

@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import * as VueRouter from "vue-router";
 import routes from "./routes";
 
-import App from "./App.vue";
+import App from "./app.vue";
 
 // prismic
 import prismic from "./services/prismic";
@@ -23,6 +23,7 @@ import {
   faAngleLeft,
   faMagnifyingGlass,
   faGears,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -30,6 +31,7 @@ import {
   faLinkedinIn,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import { faCircleCheck, faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
 
 library.add(faStar);
 library.add(faPhone);
@@ -39,14 +41,17 @@ library.add(faAngleDown);
 library.add(faAngleLeft);
 library.add(faMagnifyingGlass);
 library.add(faGears);
-
 library.add(faWhatsapp);
 library.add(faFacebookF);
 library.add(faInstagram);
 library.add(faLinkedinIn);
+library.add(faXmark);
+library.add(faCircleCheck);
+library.add(faFaceSadTear);
 
 // Route definition
 const router = new VueRouter.createRouter({
+  linkActiveClass: "active",
   history: VueRouter.createWebHistory(),
   routes,
   scrollBehavior() {
@@ -63,7 +68,6 @@ app.component("font-awesome-icon", FontAwesomeIcon);
 
 // Register prismic plugin
 app.use(prismic);
-
 
 // App mount
 app.mount("#app");

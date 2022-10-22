@@ -11,6 +11,7 @@
     v-else
     class="button btn waves-effect waves-light"
     :class="buttonClassLogic"
+    @click="$emit('click', $event)"
   >
     <slot></slot>
   </a>
@@ -33,7 +34,7 @@ export default {
       required: false,
     },
     link: {
-      type: Object,
+      type: [Object, String],
       required: false,
     },
   },

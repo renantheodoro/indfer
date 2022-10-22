@@ -26,7 +26,7 @@
                 <router-link :to="{name: 'products'}">PRODUTOS</router-link>
               </li>
               <li>
-                <router-link :to="{name: 'catalog'}">CATÁLOGOS</router-link>
+                <router-link :to="{name: 'catalog'}">CATÁLOGO</router-link>
               </li>
               <li>
                 <router-link :to="{name: 'contact'}">CONTATO</router-link>

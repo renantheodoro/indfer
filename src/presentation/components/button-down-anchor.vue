@@ -1,13 +1,13 @@
 <template>
   <div class="button-down-anchor" :class="buttonClassLogic">
-    <Button :type="type" :fullWidth="fullWidth" :link="link">
+    <Button @click="scroll" :type="type" :fullWidth="fullWidth" :link="link">
       <slot></slot>
     </Button>
     <font-awesome-icon icon="fa-solid fa-angle-down" />
   </div>
 </template>
 <script>
-import Button from "@/presentation/components/Button.vue";
+import Button from "@/presentation/components/button.vue";
 
 export default {
   name: "app-button-down-anchor",
@@ -35,6 +35,17 @@ export default {
         "button-down-anchor--full-width": this.fullWidth,
       },
     };
+  },
+
+  methods: {
+    scroll(event) {
+      const nextSection = event.srcElement.closest('section').nextSibling;
+      const header = document.getElementsByTagName('header')[0];
+
+      window.scrollTo({
+        top: nextSection.offsetTop - header.offsetHeight
+      });
+    },
   },
 
   components: {
