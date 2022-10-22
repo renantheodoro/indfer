@@ -28,7 +28,7 @@
   </section>
 </template>
 <script>
-import ContactForm from "@/presentation/modules/contact-form.vue";
+import ContactForm from "@/presentation/modules/ContactForm.vue";
 
 export default {
   name: "app-contact-form",
