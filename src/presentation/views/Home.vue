@@ -206,7 +206,7 @@
   </main>
 </template>
 <script>
-import Button from "@/presentation/components/button.vue";
+import Button from "@/presentation/components/Button.vue";
 import Counter from "@/presentation/components/Counter.vue";
 import Rating from "@/presentation/components/Rating.vue";
 import ContactSection from "@/presentation/modules/ContactSection.vue";

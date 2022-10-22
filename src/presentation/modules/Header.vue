@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import Button from "@/presentation/components/button.vue";
+import Button from "@/presentation/components/Button.vue";
 import Modal from "@/presentation/components/Modal.vue";
 import ContactForm from "@/presentation/modules/ContactForm.vue";
 
