@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import Button from './button.vue';
+import Button from '@/presentation/components/button.vue';
 export default {
   name: "app-button-down-anchor",
 
