@@ -31,6 +31,7 @@ import {
   faLinkedinIn,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import { faCircleCheck, faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
 
 library.add(faStar);
 library.add(faPhone);
@@ -40,12 +41,13 @@ library.add(faAngleDown);
 library.add(faAngleLeft);
 library.add(faMagnifyingGlass);
 library.add(faGears);
-
 library.add(faWhatsapp);
 library.add(faFacebookF);
 library.add(faInstagram);
 library.add(faLinkedinIn);
 library.add(faXmark);
+library.add(faCircleCheck);
+library.add(faFaceSadTear);
 
 // Route definition
 const router = new VueRouter.createRouter({

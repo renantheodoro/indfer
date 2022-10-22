@@ -1,32 +1,35 @@
+.close-modal {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+
+  svg {
+    height: 26px;
+
+    path {
+      color: palette("white");
+    }
+  }
+}
+
 #app .modal {
   box-shadow: none;
   background-color: palette("white");
 
   width: 100%;
   max-width: 470px;
-  max-height: 100%;
+  max-height: 85%;
   z-index: 9;
-
-  .close-modal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-
-    svg {
-      height: 26px;
-
-      path {
-        color: palette("grey");
-      }
-    }
-  }
 
   &-content {
     display: flex;
     align-items: start;
     justify-content: center;
     flex-direction: column;
+
+    max-height: 80%;
+    overflow-y: auto;
 
     .contact-form {
       width: 100%;

@@ -20,7 +20,6 @@
     & > input,
     & > textarea {
       color: palette("blue");
-      text-transform: uppercase;
     }
 
     & > textarea {
@@ -49,6 +48,8 @@
 
       box-sizing: border-box;
 
+      color: palette('blue');
+
       &:focus,
       &:visited,
       &:active,
@@ -57,27 +58,68 @@
       }
     }
 
+    & > label {
+      color: palette("grey", "form-text");
+    }
+
     & > label,
     .select-dropdown.dropdown-trigger {
-      color: palette("grey", "form-text");
       background-color: palette("white");
     }
 
     .select-wrapper {
-        & + label {
-            top: -20px;
-            z-index: 1;
-          }
+      & + label {
+        top: -20px;
+        z-index: 1;
+      }
 
-          .caret {
-            z-index: 1;
-            right: $lateral-spacing;
-            fill: palette('grey','form-text');
-          }
+      .caret {
+        z-index: 1;
+        right: $lateral-spacing;
+        fill: palette("grey", "form-text");
+      }
     }
 
     .dropdown-content li:not(.disabled) > span {
       color: palette("grey", "form-text");
+    }
+    
+    input.error,
+    &.input-field--select.error .select-dropdown.dropdown-trigger,
+    textarea.error {
+      border-color: palette("red");
+    }
+    
+    input.error,
+    &.input-field--select.error,
+    textarea.error {
+
+      &>label,
+      &>label.active,
+      & + label,
+      & + label.active,
+      & ~ .helper-text {
+        color: palette("red");
+      }
+    }
+    
+    input.success,
+    &.input-field--select.success .select-dropdown.dropdown-trigger,
+    textarea.success {
+      border-color: palette("green");
+    }
+    
+    input.success,
+    &.input-field--select.success,
+    textarea.success {
+
+      &>label,
+      &>label.active,
+      & + label,
+      & + label.active,
+      & ~ .helper-text {
+        color: palette("green");
+      }
     }
   }
 }
