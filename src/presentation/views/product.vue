@@ -64,7 +64,7 @@ import BackButton from "@/presentation/components/back-button.vue";
 import Button from "@/presentation/components/button.vue";
 import ButtonDownAnchor from "@/presentation/components/button-down-anchor.vue";
 import ContactSection from "@/presentation/modules/contact-section.vue";
-import NotFound from "./not-found.vue";
+import NotFound from "@/presentation/views/not-found.vue";
 import Preloader from "@/presentation/components/preloader.vue";
 import Modal from "@/presentation/components/modal.vue";
 import ContactForm from "@/presentation/modules/contact-form.vue";
