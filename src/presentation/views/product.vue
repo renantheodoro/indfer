@@ -60,14 +60,14 @@
   </div>
 </template>
 <script>
-import BackButton from "../components/back-button.vue";
-import Button from "../components/button.vue";
-import ButtonDownAnchor from "../components/button-down-anchor.vue";
-import ContactSection from "../modules/contact-section.vue";
+import BackButton from "@/presentation/components/back-button.vue";
+import Button from "@/presentation/components/button.vue";
+import ButtonDownAnchor from "@/presentation/components/button-down-anchor.vue";
+import ContactSection from "@/presentation/modules/contact-section.vue";
 import NotFound from "./not-found.vue";
-import Preloader from "../components/preloader.vue";
-import Modal from "../components/modal.vue";
-import ContactForm from "../modules/contact-form.vue";
+import Preloader from "@/presentation/components/preloader.vue";
+import Modal from "@/presentation/components/modal.vue";
+import ContactForm from "@/presentation/modules/contact-form.vue";
 
 export default {
   name: "app-product-detail",

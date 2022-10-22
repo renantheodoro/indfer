@@ -62,7 +62,7 @@
   </section>
 </template>
 <script>
-import Button from "../components/button.vue";
+import Button from "@/presentation/components/button.vue";
 
 export default {
   name: "app-catalog",

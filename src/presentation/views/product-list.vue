@@ -135,10 +135,10 @@
 </template>
 <script>
 import M from "materialize-css";
-import Button from "../components/button.vue";
-import BackButton from "../components/back-button.vue";
-import ContactSection from "../modules/contact-section.vue";
-import Preloader from "../components/preloader.vue";
+import Button from "@/presentation/components/button.vue";
+import BackButton from "@/presentation/components/back-button.vue";
+import ContactSection from "@/presentation/modules/contact-section.vue";
+import Preloader from "@/presentation/components/preloader.vue";
 
 export default {
   name: "app-products",
