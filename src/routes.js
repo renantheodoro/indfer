@@ -1,10 +1,10 @@
-import Home from "./presentation/views/home.vue";
-import About from "./presentation/views/about.vue";
-import Products from "./presentation/views/product-list.vue";
-import ProductDetails from "./presentation/views/product.vue";
-import Catalog from "./presentation/views/catalog.vue";
-import Contact from "./presentation/views/contact.vue";
-import NotFound from "./presentation/views/not-found.vue";
+import Home from "@/presentation/views/home.vue";
+import About from "@/presentation/views/about.vue";
+import Products from "@/presentation/views/product-list.vue";
+import ProductDetails from "@/presentation/views/product.vue";
+import Catalog from "@/presentation/views/catalog.vue";
+import Contact from "@/presentation/views/contact.vue";
+import NotFound from "@/presentation/views/not-found.vue";
 
 export default [
   {
