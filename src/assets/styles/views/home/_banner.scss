@@ -1,47 +1,65 @@
 /* ---- BANNER SECTION ---- */
 #app .banner {
-    background-image: url('@/assets/images/banner.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("@/assets/images/banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-    @media screen and (min-width: breakpoint('desktop')) {
-        padding-top: to-rem(180px);
-        padding-bottom: to-rem(140px);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  @media screen and (min-width: breakpoint("desktop")) {
+    padding-top: to-rem(180px);
+    padding-bottom: to-rem(140px);
+  }
+
+  h1 {
+    font-size: to-rem(24px);
+    line-height: 120%;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+
+    font-weight: bold;
+    color: palette("white");
+    display: block;
+    position: relative;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(45px);
+      padding-bottom: to-rem(40px);
+      margin-bottom: to-rem(30px);
     }
 
-    h1 {
-        font-size: to-rem(45px);
-        font-weight: bold;
-        color: palette('white');
-        display: block;
-        position: relative;
+    &::after {
+      content: "";
 
-        padding-bottom: to-rem(40px);
-        margin-bottom: to-rem(30px);
+      display: block;
 
-        &::after {
-            content: "";
-
-            display: block;
-
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background-color: palette('white');
-            height: to-rem(3px);
-            width: to-rem(64px);
-        }
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: palette("white");
+      height: to-rem(3px);
+      width: to-rem(64px);
     }
+  }
 
-    p {
-        font-size: to-rem(18px);
-        color: palette('white');
-        font-weight: 100;
+  p {
+    font-size: to-rem(16px);
+    color: palette("white");
+    font-weight: 100;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(18px);
     }
+  }
 
-    .button {
-        min-width: to-rem(160px);
+  .button {
+    min-width: to-rem(160px);
+    margin-top: to-rem(24px);
+    
+    @media screen and (min-width: breakpoint("desktop")) {
         margin-top: to-rem(40px);
-    }
+      }
+  }
 }

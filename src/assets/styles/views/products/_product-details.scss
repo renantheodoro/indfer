@@ -68,6 +68,11 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-direction: column;
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      flex-direction: row;
+    }
   }
 
   .product-details__main-content {
@@ -78,13 +83,26 @@
     padding-top: to-rem(40px);
     padding-bottom: 0;
 
+    @media screen and (min-width: breakpoint("desktop")) {
+
+    }
+
     &__media {
-      width: $mediaSize;
-      height: $mediaSize;
-
+      width: 100%;
+      max-width: 450px;
+      
       background-color: palette("white");
-
+      
       position: relative;
+      
+      margin: 0 auto;
+      margin-bottom: 2rem;
+      
+      @media screen and (min-width: breakpoint("desktop")) {
+        width: $mediaSize;
+        height: $mediaSize;
+        margin-bottom: 0;
+      }
 
       &::after {
         content: "";
@@ -95,11 +113,15 @@
 
         position: absolute;
 
-        bottom: 0;
+        bottom: 38px;
         right: 0;
         z-index: 1;
-
+        
         background-color: palette("blue");
+        
+        @media screen and (min-width: breakpoint("desktop")) {
+          bottom: 0;
+        }
       }
 
       .holder {
@@ -161,11 +183,15 @@
 
     &__content {
       flex: 1;
-      padding-left: to-rem(46px);
-
+      
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      
+      @media screen and (min-width: breakpoint("desktop")) {
+        padding-left: to-rem(46px);
+
+      }
 
       strong {
         font-weight: bold;

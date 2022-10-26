@@ -2,12 +2,13 @@
   <footer class="footer">
     <div class="container">
       <div class="content__row">
-        <div class="column-desktop--4">
+        <div class="column-desktop--4 column--4">
           <router-link :to="{name: 'home'}">
             <img
-              src="@/assets/images/svg/secondary-logo.svg"
+            src="@/assets/images/secondary-logo.png"
               alt="INDFER - Ferramentas diamantadas"
               title="INDFER - Ferramentas diamantadas"
+              class="footer__logo"
             />
           </router-link>
 
@@ -34,8 +35,8 @@
             </ul>
           </nav>
         </div>
-        <div class="column-desktop--1"></div>
-        <div class="column-desktop--3">
+        <div class="column-desktop--1 only-desktop"></div>
+        <div class="column-desktop--3 column--4">
           <h3 class="footer__title">CONTATO</h3>
 
           <div class="footer__info-set">
@@ -73,8 +74,8 @@
             </div>
           </div>
         </div>
-        <div class="column-desktop--1"></div>
-        <div class="column-desktop--3">
+        <div class="column-desktop--1 only-desktop"></div>
+        <div class="column-desktop--3 column--4">
           <h3 class="footer__title">REDES SOCIAIS</h3>
 
           <ul class="footer_social-media">

@@ -1,0 +1,36 @@
+.content-title {
+  margin-bottom: to-rem(50px);
+
+  &__subtitle {
+    font-size: to-rem(18px);
+    line-height: 100%;
+    color: palette("orange");
+    font-weight: bold;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(20px);
+    }
+  }
+
+  &__title {
+    font-size: to-rem(28px);
+    line-height: 100%;
+    color: palette("blue");
+    font-weight: bold;
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+        font-size: to-rem(44px);
+
+    }
+  }
+
+  &--white {
+    .content-title__subtitle {
+      color: palette("white");
+    }
+
+    .content-title__title {
+      color: palette("white");
+    }
+  }
+}

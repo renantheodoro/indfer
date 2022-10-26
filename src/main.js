@@ -24,6 +24,7 @@ import {
   faMagnifyingGlass,
   faGears,
   faXmark,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -48,6 +49,7 @@ library.add(faLinkedinIn);
 library.add(faXmark);
 library.add(faCircleCheck);
 library.add(faFaceSadTear);
+library.add(faBars);
 
 // Route definition
 const router = new VueRouter.createRouter({

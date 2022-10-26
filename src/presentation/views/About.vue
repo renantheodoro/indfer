@@ -2,7 +2,7 @@
   <section class="our-focus">
     <div class="container">
       <div class="content__row content__row--align-center">
-        <div class="column-desktop--6">
+        <div class="column-desktop--6 column--4">
           <h1>
             NOSSO
             <div class="our-focus__highlight"><span>FOCO</span></div>
@@ -17,7 +17,7 @@
             </h2>
           </div>
         </div>
-        <div class="column-desktop--6">
+        <div class="column-desktop--6 column--4">
           <p>
             Atuamos no ramo de ferramentas diamantadas com negócios focados em
             <strong>construção civil, metalurgia, marmoraria e ferramentas
@@ -53,7 +53,7 @@
 
       <div class="our-focus__misson-vision">
         <div class="content__row">
-          <div class="column-desktop--4">
+          <div class="column-desktop--4 column--4">
             <div class="our-focus__misson-vision__box our-focus__misson-vision__box--mission">
               <h3>MISSÃO</h3>
               <p>
@@ -63,8 +63,8 @@
               </p>
             </div>
           </div>
-          <div class="column-desktop--1"></div>
-          <div class="column-desktop--4">
+          <div class="column-desktop--1 only-desktop"></div>
+          <div class="column-desktop--4 column--4">
             <div class="our-focus__misson-vision__box our-focus__misson-vision__box--vision">
               <h3>VISÃO</h3>
               <p>
@@ -73,7 +73,7 @@
               </p>
             </div>
           </div>
-          <div class="column-desktop--3"></div>
+          <div class="column-desktop--3 only-desktop"></div>
         </div>
       </div>
     </div>
@@ -82,13 +82,13 @@
   <section class="our-values">
     <div class="container">
       <div class="content__row content__row--align-center">
-        <div class="column-desktop--6">
+        <div class="column-desktop--6 column--4">
           <div class="our-values__media">
             <img src="@/assets/images/about-our_values.jpg" title="Nossos valores" alt="Nossos valores" />
           </div>
         </div>
-        <div class="column-desktop--1"></div>
-        <div class="column-desktop--5">
+        <div class="column-desktop--1 only-desktop"></div>
+        <div class="column-desktop--5 column--4">
           <div class="category-block">
             <h3 class="category-title">VALORES</h3>
           </div>
@@ -128,9 +128,9 @@
 
   <section class="our-history">
     <div class="container">
-      <div class="about-title">
-        <span class="about-title__subtitle">CONHEÇA</span>
-        <h2 class="about-title__title">NOSSA HISTÓRIA</h2>
+      <div class="content-title">
+        <span class="content-title__subtitle">CONHEÇA</span>
+        <h2 class="content-title__title">NOSSA HISTÓRIA</h2>
       </div>
 
       <div class="our-history__timeline">
@@ -208,9 +208,9 @@
     <div class="container">
 
       <div class="ethics-conduct-code__content">
-        <div class="about-title about-title--white">
-          <span class="about-title__subtitle">CONHEÇA</span>
-          <h2 class="about-title__title">NOSSA HISTÓRIA</h2>
+        <div class="content-title content-title--white">
+          <span class="content-title__subtitle">CONHEÇA</span>
+          <h2 class="content-title__title">NOSSA HISTÓRIA</h2>
         </div>
 
         <p>

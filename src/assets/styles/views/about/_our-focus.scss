@@ -1,12 +1,19 @@
 #app .our-focus {
-  padding-top: to-rem(105px);
+  @media screen and (min-width: breakpoint("desktop")) {
+    padding-top: to-rem(105px);
+  }
 
   h1 {
-    font-size: to-rem(60px);
+    font-size: to-rem(44px);
     line-height: 100%;
     font-weight: bold;
-    margin-bottom: to-rem(30px);
+    margin-bottom: to-rem(20px);
     display: block;
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(60px);
+      margin-bottom: to-rem(30px);
+    }
 
     .our-focus__highlight {
       color: palette("white");
@@ -54,7 +61,11 @@
   p {
     font-size: 1rem;
     line-height: to-rem(24px);
-    margin-bottom: to-rem(30px);
+    margin-bottom: 1rem;
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      margin-bottom: to-rem(30px);
+    }
 
     strong {
       font-weight: bold;
@@ -63,12 +74,18 @@
   }
 
   .our-focus__media {
-    $shapeSize: to-rem(30px);
-
-    margin-top: to-rem(90px);
+    $shapeSize: to-rem(20px);
+    $shapeSizeDesktop: to-rem(30px);
+    
+    margin-top: 1rem;
     position: relative;
-
+    
     padding: $shapeSize $shapeSize $shapeSize 0;
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      margin-top: to-rem(90px);
+      padding: $shapeSizeDesktop $shapeSizeDesktop $shapeSizeDesktop 0;
+    }
 
     &::before {
         content: "";
@@ -107,6 +124,15 @@
 
       position: relative;
       z-index: 1;
+
+      object-fit: cover;
+      object-position: center top;
+
+      min-height: 250px;
+      
+      @media screen and (min-width: breakpoint("desktop")) {
+        min-height: auto;
+      }
     }
 
     .our-focus__media__shape {
@@ -134,20 +160,42 @@
       }
 
       &--light {
-        width: to-rem(500px);
-        height: to-rem(20px);
+        width: 40%;
+        height: 1rem;
         background-color: palette("white");
-
+        
         bottom: $shapeSize;
         left: 0;
-
+        
         z-index: 2;
+        
+        @media screen and (min-width: breakpoint("desktop")) {
+          width: to-rem(500px);
+          height: to-rem(20px);
+          bottom: $shapeSizeDesktop;
+        }
       }
     }
   }
 
   .our-focus__misson-vision {
-    margin-top: to-rem(90px);
+    margin-top: 2rem;
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      margin-top: to-rem(90px);
+    }
+
+    & > .content__row > div[class~="column--4"] {
+      margin-bottom: 2rem;
+  
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+  
+      @media screen and (min-width: breakpoint("desktop")) {
+        margin-bottom: 0;
+      }
+    }
 
     [class^="column-"] {
       display: table-cell;
@@ -173,17 +221,27 @@
         z-index: 2;
 
         top: -10px;
-        right: -18px;
+        right: -10px;
+
+        @media screen and (min-width: breakpoint("desktop")) {
+          right: -18px;
+        }
       }
 
       h3 {
-        font-size: to-rem(32px);
+        font-size: to-rem(24px);
         font-weight: bold;
         line-height: 100%;
-        margin-bottom: to-rem(32px);
+        margin-bottom: 1rem;
+        
+        @media screen and (min-width: breakpoint("desktop")) {
+          font-size: to-rem(32px);
+          margin-bottom: to-rem(32px);
+        }
       }
 
       p {
+        font-size: 1rem;
         color: palette("white");
         margin: 0;
       }

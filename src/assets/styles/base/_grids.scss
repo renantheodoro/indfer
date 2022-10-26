@@ -277,10 +277,9 @@ $column-quantity-desktop: 12;
 /* Container style */
 
 #app .container {
-
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
+    padding: 0 2rem;
 
     @media screen and (min-width: breakpoint('desktop')) {
         max-width: 1110px;

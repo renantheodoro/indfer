@@ -6,7 +6,7 @@
       </div>
 
       <div class="content__row content__row--align-center">
-        <div class="column-desktop--6">
+        <div class="column-desktop--6 column--4">
           <div class="catalog-page__media">
             <span
               class="catalog-page__media__shape catalog-page__media__shape--colored"
@@ -24,8 +24,8 @@
             />
           </div>
         </div>
-        <div class="column-desktop--1"></div>
-        <div class="column-desktop--5">
+        <div class="column-desktop--1 only-desktop"></div>
+        <div class="column-desktop--5 column--4">
           <ul class="catalog-page__gallery">
             <li class="catalog-page__gallery__item">
               <img

@@ -2,11 +2,7 @@
   "hosting": {
     "site": "indfer",
     "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
@@ -28,8 +24,7 @@
       ]
     },
     {
-      "source":
-        "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+      "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -37,6 +32,5 @@
         }
       ]
     }
-  ],
-  "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "**/sass/partials/_ref.scss"]
+  ]
 }

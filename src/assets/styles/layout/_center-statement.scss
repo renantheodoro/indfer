@@ -2,14 +2,21 @@
   text-align: center;
 
   .center-statement__title {
-    font-size: to-rem(36px);
-    line-height: to-rem(43px);
+    font-size: to-rem(28px);
+    line-height: 120%;
     font-weight: bold;
     display: block;
 
     position: relative;
-    padding-bottom: to-rem(30px);
-    margin-bottom: to-rem(30px);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(36px);
+      line-height: to-rem(43px);
+      padding-bottom: to-rem(30px);
+      margin-bottom: to-rem(30px);
+    }
 
     &::after {
       content: "";
@@ -32,9 +39,9 @@
     }
 
     &.text-blue {
-        &::after {
-            background-color: palette('orange');
-        }
+      &::after {
+        background-color: palette("orange");
+      }
     }
 
     &--simple {
@@ -45,6 +52,10 @@
   }
 
   .center-statement__text {
-    margin-bottom: to-rem(60px);
+    margin-bottom: to-rem(30px);
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      margin-bottom: to-rem(60px);
+    }
   }
 }
