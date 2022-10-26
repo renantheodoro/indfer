@@ -1,14 +1,24 @@
-.ethics-conduct-code {
+#app .ethics-conduct-code {
+  @media screen and (max-width: breakpoint("desktop")) {
+    padding-top: 0;
+    background-color: palette('blue');
+  }
+
   & > .container {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      flex-direction: row;
+    }
 
     &::after {
       content: "";
 
-      display: block;
+      display: none;
 
       position: absolute;
       top: 0;
@@ -19,13 +29,16 @@
 
       background-color: palette("blue");
       z-index: 0;
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        display: block;
+      }
     }
 
     &::before {
       content: "";
 
-      display: block;
-
+      display: none;
       position: absolute;
       left: 0;
       bottom: 0;
@@ -35,6 +48,10 @@
 
       background-color: palette("orange");
       z-index: 1;
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        display: block;
+      }
     }
   }
 
@@ -46,15 +63,29 @@
 
   .ethics-conduct-code__content {
     position: relative;
-    padding: to-rem(65px) to-rem(50px) to-rem(120px);
+    padding: 3rem 0;
 
-    flex-basis: 50%;
+    @media screen and (min-width: breakpoint("desktop")) {
+      padding: to-rem(65px) to-rem(50px) to-rem(120px);
+      flex-basis: 50%;
+    }
+
+    .content-title {
+      @media screen and (max-width: breakpoint("desktop")) {
+        margin-bottom: 2rem;
+      }
+    }
 
     p {
       color: palette("white");
-      line-height: 2rem;
+      line-height: 120%;
+      margin-bottom: 1rem;
 
-      margin-bottom: to-rem(30px);
+      @media screen and (min-width: breakpoint("desktop")) {
+        line-height: 2rem;
+
+        margin-bottom: to-rem(30px);
+      }
 
       &:last-of-type {
         margin-bottom: 0;
@@ -62,15 +93,22 @@
     }
 
     .button {
-      margin-top: 50px;
+      margin-top: 2rem;
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        margin-top: 50px;
+      }
     }
   }
 
   .ethics-conduct-code__media {
     position: relative;
-    flex-basis: 50%;
 
     display: block;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      flex-basis: 50%;
+    }
 
     &::before {
       content: "";
@@ -78,14 +116,21 @@
       display: block;
 
       position: absolute;
-      right: -25px;
-      bottom: 105px;
+      right: -16px;
+      top: 10px;
 
       width: 115px;
-      height: 26px;
+      height: 16px;
 
       background-color: palette("orange");
       z-index: 2;
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        top: auto;
+        right: -25px;
+        bottom: 105px;
+        height: 26px;
+      }
     }
 
     &::after {

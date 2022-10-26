@@ -1,5 +1,12 @@
-section:not(.banner) 
-{
-    padding-top: to-rem(90px);
-    padding-bottom: to-rem(90px);
+section:not(.banner) {
+  $desktopPadding: to-rem(90px);
+  $mobilePadding: to-rem(50px);
+
+  padding-top: $mobilePadding;
+  padding-bottom: $mobilePadding;
+
+  @media screen and (min-width: breakpoint("desktop")) {
+    padding-top: $desktopPadding;
+    padding-bottom: $desktopPadding;
+  }
 }

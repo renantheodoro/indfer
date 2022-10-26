@@ -3,7 +3,7 @@
     <section class="banner">
       <div class="container">
         <div class="content__row">
-          <div class="column-desktop--8">
+          <div class="column-desktop--8 column--4">
             <h1>
               TECNOLOGIA EM<br />
               FERRAMENTAS DIAMANTADAS
@@ -17,7 +17,7 @@
 
             <Button :link="{name: 'about'}" type="secondary">SAIBA MAIS</Button>
           </div>
-          <div class="column-desktop--4"></div>
+          <div class="column-desktop--4 column--4"></div>
         </div>
       </div>
     </section>
@@ -25,15 +25,15 @@
     <section class="about">
       <div class="container">
         <div class="content__row">
-          <div class="column-desktop--6">
+          <div class="column-desktop--6 column--4">
             <img
               src="@/assets/images/about-diamond.png"
               title="INDFER - sobre a empresa"
               alt="Trabalhador dentro de uma máscara de diamante"
             />
           </div>
-          <div class="column-desktop--1"></div>
-          <div class="column-desktop--5">
+          <div class="column-desktop--1 only-desktop"></div>
+          <div class="column-desktop--5 column--4">
             <div class="category-block">
               <h3 class="category-title">SOBRE</h3>
               <h2 class="category-calling text-blue">
@@ -102,15 +102,15 @@
     <section class="counter">
       <div class="container">
         <div class="counter__list content__row">
-          <div class="counter__list__item column-desktop--4">
+          <div class="counter__list__item column-desktop--4 column--4">
             <Counter :number="50000" />
             <p>FERRAMENTAS DESENVOLVIDAS</p>
           </div>
-          <div class="counter__list__item column-desktop--4">
+          <div class="counter__list__item column-desktop--4  column--4">
             <Counter :number="40" />
             <p>DE EXPERIÊNCIA</p>
           </div>
-          <div class="counter__list__item column-desktop--4">
+          <div class="counter__list__item column-desktop--4  column--4">
             <Counter :number="200" />
             <p>CLIENTES ATENDIDOS</p>
           </div>
@@ -131,7 +131,7 @@
 
       <div class="container">
         <div class="content__row">
-          <div class="column-desktop--4">
+          <div class="column-desktop--4 column--4">
             <div class="testimonials__item">
               <div class="testimonials__item__box">
                 <p>
@@ -147,7 +147,7 @@
               </div>
             </div>
           </div>
-          <div class="column-desktop--4">
+          <div class="column-desktop--4 column--4">
             <div class="testimonials__item">
               <div class="testimonials__item__box">
                 <p>
@@ -163,7 +163,7 @@
               </div>
             </div>
           </div>
-          <div class="column-desktop--4">
+          <div class="column-desktop--4 column--4">
             <div class="testimonials__item">
               <div class="testimonials__item__box">
                 <p>

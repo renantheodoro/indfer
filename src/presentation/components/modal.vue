@@ -1,5 +1,10 @@
 <template>
-  <a @click="hideModal" class="close-modal">
+  <a
+    v-if="isOpened"
+    @click="hideModal"
+    class="close-modal"
+    :class="{ 'close-modal--contact-form': isContactForm }"
+  >
     <font-awesome-icon icon="fa-solid fa-xmark" />
   </a>
   <div :id="id" ref="modal" class="modal">
@@ -19,21 +24,29 @@ export default {
       type: String,
       required: true,
     },
+    isContactForm: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 
   data() {
     return {
       materializeInstance: null,
+      isOpened: false,
     };
   },
 
   methods: {
     showModal() {
       this.materializeInstance.open();
+      this.isOpened = true;
     },
 
     hideModal() {
       this.materializeInstance.close();
+      this.isOpened = false;
     },
   },
 

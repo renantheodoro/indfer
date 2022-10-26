@@ -1,8 +1,13 @@
-.our-values {
+#app .our-values {
     background-color: palette('grey');
 
     .our-values__media {
         position: relative;
+        margin-bottom: 1rem;
+        
+        @media screen and (min-width: breakpoint("desktop")) {
+            margin-bottom: 0;
+        }
 
         &::after {
             content: "";
@@ -38,6 +43,14 @@
             &:last-of-type {
                 margin-bottom: 0;
             }
+        }
+    }
+
+    .button-down-anchor {
+        width: 100%;
+
+        .button {
+            width: 100%;
         }
     }
 }

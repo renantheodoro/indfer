@@ -1,7 +1,7 @@
 #app .category-block {
   .category-title {
     font-family: $gotham-font-stack;
-    font-size: to-rem(20px);
+    font-size: to-rem(16px);
     font-weight: bold;
     color: palette("orange");
 
@@ -9,6 +9,10 @@
 
     padding-bottom: to-rem(10px);
     margin-bottom: 1rem;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(20px);
+    }
 
     &::after {
       content: "";
@@ -26,8 +30,12 @@
   }
 
   .category-calling {
-    font-size: to-rem(40px);
+    font-size: to-rem(32px);
     margin-bottom: to-rem(20px);
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      font-size: to-rem(40px);
+    }
 
     strong {
       font-weight: bold;
@@ -39,7 +47,7 @@
       color: palette("grey");
     }
   }
-  
+
   .button {
     margin-top: to-rem(30px);
   }

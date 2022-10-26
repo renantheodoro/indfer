@@ -18,7 +18,7 @@
       </div>
 
       <div class="content__row">
-        <div class="column-desktop--6">
+        <div class="column-desktop--6 column--4">
           <div class="contact-page__center">
             <div class="contact-page__info-set">
               <font-awesome-icon icon="fa-solid fa-phone" />
@@ -69,8 +69,8 @@
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div class="column-desktop--1"></div>
-        <div class="column-desktop--5">
+        <div class="column-desktop--1 only-desktop"></div>
+        <div class="column-desktop--5 column--4">
           <ContactForm></ContactForm>
         </div>
       </div>

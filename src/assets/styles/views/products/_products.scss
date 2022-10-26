@@ -18,7 +18,11 @@
       background-color: transparent;
 
       display: flex;
-      justify-content: center;
+      
+      @media screen and (min-width: breakpoint("desktop")) {
+        justify-content: center;
+
+      }
 
       .tab a {
         color: palette("white");
@@ -33,8 +37,14 @@
   }
 
   .products__list {
-    padding-top: to-rem(40px);
-    padding-bottom: to-rem(90px);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    @media screen and (min-width: breakpoint("desktop")) {
+      padding-top: to-rem(40px);
+      padding-bottom: to-rem(90px);
+
+    }
+    
   }
 }
 
@@ -42,20 +52,31 @@
   display: flex;
   flex-wrap: wrap;
 
+  justify-content: center;
+  
+  @media screen and (min-width: breakpoint("desktop")) {
+    justify-content: initial;
+  }
+
   .product-cards__item {
     $space-lateral: 1rem;
 
     display: table-cell;
 
-    width: calc(33.333% - #{$space-lateral});
+    width: 100%;
+    max-width: 400px;
 
     box-sizing: border-box;
-
+    
     text-align: center;
-
+    
     padding: to-rem(18px);
-    margin-right: $space-lateral;
     margin-bottom: to-rem(20px);
+    
+    @media screen and (min-width: breakpoint("desktop")) {
+      width: calc(33.333% - #{$space-lateral});
+      margin-right: $space-lateral;
+    }
 
     &:last-of-type {
       margin-right: 0;

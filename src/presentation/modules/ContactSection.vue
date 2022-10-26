@@ -2,7 +2,7 @@
   <section class="contact-section">
     <div class="container">
       <div class="content__row content__row--align-center">
-        <div class="column-desktop--6">
+        <div class="column-desktop--6 column--4">
           <div class="category-block">
             <h3 class="category-title">ENTRE EM CONTATO</h3>
             <h2 class="category-calling text-blue">
@@ -19,8 +19,8 @@
             </p>
           </div>
         </div>
-        <div class="column-desktop--1"></div>
-        <div class="column-desktop--5">
+        <div class="column-desktop--1 only-desktop"></div>
+        <div class="column-desktop--5 column--4">
           <ContactForm></ContactForm>
         </div>
       </div>

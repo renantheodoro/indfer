@@ -11,6 +11,13 @@
       color: palette("white");
     }
   }
+
+  &.close-modal--contact-form svg path {
+    color: palette("grey");
+    @media screen and (min-width: breakpoint("desktop")) {
+      color: palette("white");
+    }
+  }
 }
 
 #app .modal {
@@ -18,9 +25,18 @@
   background-color: palette("white");
 
   width: 100%;
-  max-width: 470px;
+  max-width: 90%;
   max-height: 85%;
   z-index: 9;
+
+  @media screen and (min-width: breakpoint("desktop")) {
+    max-width: 470px;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 
   &-content {
     display: flex;
