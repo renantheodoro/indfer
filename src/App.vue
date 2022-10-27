@@ -1,4 +1,9 @@
 <template>
+  <metainfo>
+    <template v-slot:title="{ content }">{{
+      content ? `${content} | SITE_NAME` : `SITE_NAME`
+    }}</template>
+  </metainfo>
   <Header></Header>
   <router-view></router-view>
   <Footer></Footer>
@@ -10,6 +15,7 @@ import Footer from "@/presentation/modules/Footer.vue";
 
 export default {
   name: "App",
+
   components: {
     Header,
     Footer,
