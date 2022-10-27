@@ -47,6 +47,7 @@
               <li><a href="tel:551120836505">(11) 2083-6505</a></li>
               <li>
                 <a href="tel:5511985800731"
+                class="icon-whatsapp"
                   >(11) 98580-0731
                   <font-awesome-icon icon="fa-brands fa-whatsapp" />
                 </a>
