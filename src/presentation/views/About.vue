@@ -272,6 +272,13 @@
         >
       </div>
 
+      <Modal id="contact-form-modal" ref="contact-form-modal">
+        <div class="category-block">
+          <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
+        </div>
+        <ContactForm />
+      </Modal>
+
       <div class="ethics-conduct-code__media">
         <img
           src="@/assets/images/about-ethics_conduct_code.jpg"
@@ -301,14 +308,15 @@ import ContactForm from "@/presentation/modules/ContactForm.vue";
 export default {
   name: "app-about",
 
+  data() {
+    return { ourValuesSectionTop: null };
+  },
+
   methods: {
     verifyScrollToStartCounter() {
       const currentTop = document.documentElement.scrollTop;
 
-      if (
-        currentTop >=
-        this.ourValuesSectionTop + this.ourHistorySectionHeight
-      ) {
+      if (currentTop >= this.ourValuesSectionTop) {
         document
           .getElementsByClassName("our-history__timeline")[0]
           .classList.add("animate");
@@ -322,10 +330,7 @@ export default {
   },
 
   mounted() {
-    const ourHistorySection = document.getElementsByClassName("our-history")[0];
     const ourValuesSection = document.getElementsByClassName("our-values")[0];
-
-    this.ourHistorySectionHeight = ourHistorySection.offsetHeight;
     this.ourValuesSectionTop = ourValuesSection.offsetTop;
 
     window.addEventListener("scroll", this.verifyScrollToStartCounter);
