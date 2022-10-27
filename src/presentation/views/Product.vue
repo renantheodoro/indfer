@@ -3,7 +3,9 @@
   <NotFound v-else-if="notFound" />
 
   <div v-else class="product-details">
-    <section :class="'product-details_header product-details_header--' + category">
+    <section
+      :class="'product-details_header product-details_header--' + category"
+    >
       <h1>{{ categoryName }}</h1>
     </section>
 
@@ -12,7 +14,10 @@
         <BackButton backLink="products" />
 
         <div class="product-details__row">
-          <div @click="showModal('product-image-detail-modal')" class="product-details__main-content__media">
+          <div
+            @click="showModal('product-image-detail-modal')"
+            class="product-details__main-content__media"
+          >
             <div class="holder">
               <PrismicImage :field="result.data.thumbnail" />
 
@@ -25,13 +30,25 @@
 
           <div class="product-details__main-content__content">
             <div class="dynamic-content">
-              <PrismicText :field="result.data.title" wrapper="h3" fallback="No content" />
-              <PrismicText :field="result.data.subtitle" wrapper="h4" fallback="No content" />
+              <PrismicText
+                :field="result.data.title"
+                wrapper="h3"
+                fallback="No content"
+              />
+              <PrismicText
+                :field="result.data.subtitle"
+                wrapper="h4"
+                fallback="No content"
+              />
               <PrismicRichText :field="result.data.description" />
             </div>
 
-            <Button @click="showModal('contact-form-modal')">FAZER ORÇAMENTO</Button>
-            <ButtonDownAnchor type="secondary-orange">VISUALIZAR MAIS DETALHES</ButtonDownAnchor>
+            <Button @click="showModal('contact-form-modal')"
+              >FAZER ORÇAMENTO</Button
+            >
+            <ButtonDownAnchor type="secondary-orange"
+              >VISUALIZAR MAIS DETALHES</ButtonDownAnchor
+            >
           </div>
         </div>
       </div>
@@ -84,7 +101,6 @@ export default {
   },
 
   methods: {
-
     async getProductData(uid) {
       try {
         const response = await this.$prismic.client.getByUID("produto", uid);
@@ -140,7 +156,7 @@ export default {
     NotFound,
     Preloader,
     Modal,
-    ContactForm
+    ContactForm,
   },
 };
 </script>
