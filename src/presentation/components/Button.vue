@@ -60,7 +60,7 @@ export default {
   methods: {
     emit(event) {
       this.$emit("click", event);
-      if (!this.link) {
+      if (!this.link && !this.externalPath) {
         event.preventDefault();
       }
     },

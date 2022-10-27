@@ -2,7 +2,11 @@
   <section class="catalog-page">
     <div class="container">
       <div class="center-statement">
-        <h2 class="center-statement__title center-statement__title--simple text-blue">BAIXE NOSSO CATÁLOGO</h2>
+        <h2
+          class="center-statement__title center-statement__title--simple text-blue"
+        >
+          BAIXE NOSSO CATÁLOGO
+        </h2>
       </div>
 
       <div class="content__row content__row--align-center">
@@ -55,7 +59,12 @@
             </li>
           </ul>
 
-          <Button :fullWidth="true" type="primary-blue">BAIXAR CATÁLOGO</Button>
+          <Button
+            externalPath="https://firebasestorage.googleapis.com/v0/b/indfer-822a1.appspot.com/o/catalogo_2014.pdf?alt=media&token=69c3271c-eb2b-428d-ac8f-a6c892df0cab"
+            :fullWidth="true"
+            type="primary-blue"
+            >BAIXAR CATÁLOGO</Button
+          >
         </div>
       </div>
     </div>
