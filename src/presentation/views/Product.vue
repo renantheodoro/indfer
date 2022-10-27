@@ -61,7 +61,7 @@
         <div class="category-block">
           <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
         </div>
-        <ContactForm />
+        <ContactForm formId="product-page-form" />
       </Modal>
     </section>
 

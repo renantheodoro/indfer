@@ -2,8 +2,8 @@
   <form @submit="sendEmail($event)" class="contact-form forms">
     <div class="input-field">
       <input
-        id="first_name"
-        ref="first_name"
+        :id="`${formId}-first_name`"
+        :ref="`${formId}-first_name`"
         v-model="form.firstName.value"
         type="text"
         :class="{
@@ -18,13 +18,13 @@
       <span v-if="form.firstName.isValid === false" class="helper-text">{{
         form.firstName.errorMessage
       }}</span>
-      <label @click="focus('first_name')" for="first_name">Nome *</label>
+      <label :for="`${formId}-first_name`">Nome *</label>
     </div>
 
     <div class="input-field">
       <input
-        id="last_name"
-        ref="last_name"
+        :id="`${formId}-last_name`"
+        :ref="`${formId}-last_name`"
         v-model="form.lastName.value"
         type="text"
         :class="{
@@ -36,7 +36,7 @@
           validateInputs();
         "
       />
-      <label @click="focus('last_name')" for="last_name">Sobrenome *</label>
+      <label :for="`${formId}-last_name`">Sobrenome *</label>
       <span v-if="form.lastName.isValid === false" class="helper-text">{{
         form.lastName.errorMessage
       }}</span>
@@ -44,8 +44,8 @@
 
     <div class="input-field">
       <input
-        id="company"
-        ref="company"
+        :id="`${formId}-company`"
+        :ref="`${formId}-company`"
         v-model="form.company.value"
         type="text"
         :class="{
@@ -57,7 +57,7 @@
           validateInputs();
         "
       />
-      <label @click="focus('company')" for="company">Empresa</label>
+      <label :for="`${formId}-company`">Empresa</label>
       <span v-if="form.company.isValid === false" class="helper-text">{{
         form.company.errorMessage
       }}</span>
@@ -65,8 +65,8 @@
 
     <div class="input-field">
       <input
-        id="phone"
-        ref="phone"
+        :id="`${formId}-phone`"
+        :ref="`${formId}-phone`"
         type="text"
         v-model="form.phone.value"
         v-mask="['(##) ####-####', '(##) #####-####']"
@@ -79,7 +79,7 @@
           validateInputs();
         "
       />
-      <label @click="focus('phone')" for="phone">Telefone*</label>
+      <label :for="`${formId}-phone`">Telefone*</label>
       <span v-if="form.phone.isValid === false" class="helper-text">{{
         form.phone.errorMessage
       }}</span>
@@ -87,8 +87,8 @@
 
     <div class="input-field">
       <input
-        id="email"
-        ref="email"
+        :id="`${formId}-email`"
+        :ref="`${formId}-email`"
         v-model="form.email.value"
         type="text"
         :class="{
@@ -100,7 +100,7 @@
           validateInputs();
         "
       />
-      <label @click="focus('email')" for="email">E-mail*</label>
+      <label :for="`${formId}-email`">E-mail*</label>
       <span v-if="form.email.isValid === false" class="helper-text">{{
         form.email.errorMessage
       }}</span>
@@ -114,8 +114,8 @@
       }"
     >
       <select
-        id="find"
-        ref="find"
+        :id="`${formId}-find`"
+        :ref="`${formId}-find`"
         v-model="form.find.value"
         @change="
           visit('find');
@@ -127,7 +127,7 @@
         <option value="Indicação">Indicação</option>
         <option value="E-mail">E-mail</option>
       </select>
-      <label @click="focus('find')" for="find">Como nos encontrou? *</label>
+      <label :for="`${formId}-find`">Como nos encontrou? *</label>
       <span v-if="form.find.isValid === false" class="helper-text">{{
         form.find.errorMessage
       }}</span>
@@ -135,8 +135,8 @@
 
     <div class="input-field">
       <textarea
-        id="message"
-        ref="message"
+        :id="`${formId}-message`"
+        :ref="`${formId}-message`"
         v-model="form.message.value"
         class="materialize-textarea"
         length="120"
@@ -149,7 +149,7 @@
           validateInputs();
         "
       ></textarea>
-      <label @click="focus('message')" for="message">Mensagem *</label>
+      <label :for="`${formId}-message`">Mensagem *</label>
       <span v-if="form.message.isValid === false" class="helper-text">{{
         form.message.errorMessage
       }}</span>
@@ -196,6 +196,13 @@ export default {
   name: "app-contact-form",
 
   directives: { mask },
+
+  props: {
+    formId: {
+      type: String,
+      required: true
+    }
+  },
 
   data() {
     return this.getFormInitialValues();
@@ -392,10 +399,6 @@ export default {
         this.form.fail = true;
         this.form.success = false;
       }
-    },
-
-    focus(field) {
-      this.$refs[field].focus();
     },
   },
 

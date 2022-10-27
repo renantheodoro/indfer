@@ -23,7 +23,7 @@
             ></span>
 
             <img
-              src="@/assets/images/catalog-media.jpg"
+              src="@/assets/images/webp/catalog-media.webp"
               alt="Baixe nosso catálogo"
             />
           </div>
@@ -33,7 +33,7 @@
           <ul class="catalog-page__gallery">
             <li class="catalog-page__gallery__item">
               <img
-                src="@/assets/images/our_products-metallurgy.jpg"
+                src="@/assets/images/webp/our_products-metallurgy.webp"
                 title="Nossos produtos - Metalurgia"
                 alt="Nossos produtos - metalurgia"
               />
@@ -42,7 +42,7 @@
 
             <li class="catalog-page__gallery__item">
               <img
-                src="@/assets/images/our_products-civil_building.jpg"
+                src="@/assets/images/webp/our_products-civil_building.webp"
                 title="Nossos produtos - Construção Civil"
                 alt="Nossos produtos - Construção Civil"
               />
@@ -51,7 +51,7 @@
 
             <li class="catalog-page__gallery__item">
               <img
-                src="@/assets/images/our_products-gold_tools.jpg"
+                src="@/assets/images/webp/our_products-gold_tools.webp"
                 title="Nossos produtos - Ferramentas ouro"
                 alt="Nossos produtos - Ferramentas ouro"
               />
