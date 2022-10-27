@@ -15,7 +15,9 @@
               accumsan et viverra justo commodo.
             </p>
 
-            <Button :link="{name: 'about'}" type="secondary">SAIBA MAIS</Button>
+            <Button :link="{ name: 'about' }" type="secondary"
+              >SAIBA MAIS</Button
+            >
           </div>
           <div class="column-desktop--4 column--4"></div>
         </div>
@@ -46,7 +48,7 @@
                 euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 accumsan et viverra justo commodo.
               </p>
-              <Button :link="{name: 'about'}">CONHEÇA NOSSA HISTÓRIA</Button>
+              <Button :link="{ name: 'about' }">CONHEÇA NOSSA HISTÓRIA</Button>
             </div>
           </div>
         </div>
@@ -95,7 +97,7 @@
       </ul>
 
       <div class="content__row justify-content--center">
-        <Button :link="{name: 'products'}">VER TODOS OS PRODUTOS</Button>
+        <Button :link="{ name: 'products' }">VER TODOS OS PRODUTOS</Button>
       </div>
     </section>
 
@@ -106,11 +108,11 @@
             <Counter :number="50000" />
             <p>FERRAMENTAS DESENVOLVIDAS</p>
           </div>
-          <div class="counter__list__item column-desktop--4  column--4">
+          <div class="counter__list__item column-desktop--4 column--4">
             <Counter :number="40" />
             <p>DE EXPERIÊNCIA</p>
           </div>
-          <div class="counter__list__item column-desktop--4  column--4">
+          <div class="counter__list__item column-desktop--4 column--4">
             <Counter :number="200" />
             <p>CLIENTES ATENDIDOS</p>
           </div>
@@ -184,19 +186,27 @@
     </section>
 
     <section class="catalog">
-      <div class="container">
-        <div class="center-statement">
-          <h2 class="center-statement__title text-white">
-            BAIXE NOSSO CATÁLOGO
-          </h2>
+      <div class="parallax-container">
+        <div class="parallax" ref="parallax">
+          <img src="@/assets/images/catalog-bg.jpg" />
 
-          <p class="center-statement__text text-white">
-            Acesse todos os nossos catálogos e baixe gratuitamente para saber
-            mais detalhes de cada produto.
-          </p>
+          <div class="container">
+            <div class="center-statement">
+              <h2 class="center-statement__title text-white">
+                BAIXE NOSSO CATÁLOGO
+              </h2>
 
-          <div class="content__row justify-content--center">
-            <Button :link="{name: 'catalog'}" type="secondary">ACESSAR CATÁLOGO</Button>
+              <p class="center-statement__text text-white">
+                Acesse todos os nossos catálogos e baixe gratuitamente para
+                saber mais detalhes de cada produto.
+              </p>
+
+              <div class="content__row justify-content--center">
+                <Button :link="{ name: 'catalog' }" type="secondary"
+                  >ACESSAR CATÁLOGO</Button
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -206,6 +216,8 @@
   </main>
 </template>
 <script>
+import M from "materialize-css";
+
 import Button from "@/presentation/components/Button.vue";
 import Counter from "@/presentation/components/Counter.vue";
 import Rating from "@/presentation/components/Rating.vue";
@@ -213,6 +225,11 @@ import ContactSection from "@/presentation/modules/ContactSection.vue";
 
 export default {
   name: "app-home",
+
+  mounted() {
+    M.Parallax.init(this.$refs.parallax);
+  },
+
   components: {
     Button,
     Counter,

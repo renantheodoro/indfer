@@ -1,32 +1,37 @@
-.catalog {
+#app .catalog {
+  position: relative;
+
+  padding-top: 0;
+  padding-bottom: 0;
+
+  & > .container {
     position: relative;
-    background-color: palette('grey');
+    z-index: 1;
+  }
 
-    &::after {
-        content: "";
+  .center-statement {
+    position: relative;
+    z-index: 9;
+  }
 
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-        
-        width: 100%;
-        height: 100%;
+  .parallax-container {
+    min-height: 390px;
+    height: 100%;
 
-        object-fit: cover;
-        opacity: 0.4;
+    .parallax {
+      padding-top: to-rem(90px);
+      padding-bottom: to-rem(90px);
+      z-index: 5;
+      background-color: palette("grey");
+
+      display: flex;
+      align-items: center;
+
+      img {
+        opacity: 0.4 !important;
         mix-blend-mode: luminosity;
-
-        background-image: url('@/assets/images/catalog-bg.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-
+        object-fit: cover;
+      }
     }
-
-    &>.container {
-        position: relative;
-        z-index: 1;
-    }
+  }
 }
