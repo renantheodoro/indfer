@@ -330,7 +330,13 @@ export default {
     const ourValuesSection = document.getElementsByClassName("our-values")[0];
     this.ourValuesSectionTop = ourValuesSection.offsetTop;
 
-    window.addEventListener("scroll", this.verifyScrollToStartCounter, {passive: true},);
+    window.addEventListener("scroll", this.verifyScrollToStartCounter, {
+      passive: true,
+    });
+  },
+
+  unmounted() {
+    window.removeEventListener("scroll", this.verifyScrollToStartCounter);
   },
 
   components: {
