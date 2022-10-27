@@ -11,7 +11,9 @@
     v-else
     class="button btn waves-effect waves-light"
     :class="buttonClassLogic"
-    @click="$emit('click', $event)"
+    @click="emit($event)"
+    :href="externalPath ? externalPath : '#'"
+    :target="externalPath ? '_blank' : ''"
   >
     <slot></slot>
   </a>
@@ -37,6 +39,10 @@ export default {
       type: [Object, String],
       required: false,
     },
+    externalPath: {
+      type: [Object, String],
+      required: false,
+    },
   },
 
   data() {
@@ -51,6 +57,15 @@ export default {
     };
   },
 
-  emits: ['click']
+  methods: {
+    emit(event) {
+      this.$emit("click", event);
+      if (!this.link) {
+        event.preventDefault();
+      }
+    },
+  },
+
+  emits: ["click"],
 };
 </script>
