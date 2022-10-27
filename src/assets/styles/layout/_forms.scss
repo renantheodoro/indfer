@@ -48,7 +48,7 @@
 
       box-sizing: border-box;
 
-      color: palette('blue');
+      color: palette("blue");
 
       &:focus,
       &:visited,
@@ -83,42 +83,59 @@
     .dropdown-content li:not(.disabled) > span {
       color: palette("grey", "form-text");
     }
-    
+
     input.error,
     &.input-field--select.error .select-dropdown.dropdown-trigger,
     textarea.error {
       border-color: palette("red");
     }
-    
+
     input.error,
     &.input-field--select.error,
     textarea.error {
-
-      &>label,
-      &>label.active,
+      & > label,
+      & > label.active,
       & + label,
       & + label.active,
       & ~ .helper-text {
         color: palette("red");
       }
     }
-    
+
     input.success,
     &.input-field--select.success .select-dropdown.dropdown-trigger,
     textarea.success {
       border-color: palette("green");
     }
-    
+
     input.success,
     &.input-field--select.success,
     textarea.success {
-
-      &>label,
-      &>label.active,
+      & > label,
+      & > label.active,
       & + label,
       & + label.active,
       & ~ .helper-text {
         color: palette("green");
+      }
+    }
+
+    input:focus:not(.success):not(.error),
+    &.input-field--select:focus:not(.success):not(.error)
+      .select-dropdown.dropdown-trigger,
+    textarea:focus:not(.success):not(.error) {
+      border-color: palette("blue");
+    }
+
+    input:focus:not(.success):not(.error),
+    &.input-field--select:focus:not(.success):not(.error),
+    textarea:focus:not(.success):not(.error) {
+      & > label,
+      & > label.active,
+      & + label,
+      & + label.active,
+      & ~ .helper-text {
+        color: palette("blue");
       }
     }
   }

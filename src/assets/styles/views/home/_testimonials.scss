@@ -20,13 +20,17 @@
   &::after,
   &::before {
     content: "";
-    display: block;
+    display: none;
 
     background-repeat: no-repeat;
     background-size: contain;
 
     position: absolute;
     z-index: 0;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      display: block;
+    }
   }
 
   &::before {

@@ -27,7 +27,9 @@
                 <li><a href="tel:551123089270">(11) 2308-9270</a></li>
                 <li><a href="tel:551120836505">(11) 2083-6505</a></li>
                 <li>
-                  <a href="tel:5511985800731"
+                  <a
+                    href="tel:5511985800731"
+                    class="icon-whatsapp"
                     >(11) 98580-0731
                     <font-awesome-icon icon="fa-brands fa-whatsapp" />
                   </a>
@@ -84,7 +86,7 @@ export default {
   name: "app-contact",
 
   components: {
-    ContactForm
-}
+    ContactForm,
+  },
 };
 </script>

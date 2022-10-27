@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import * as VueRouter from "vue-router";
 import routes from "./routes";
 
-import App from "./app.vue";
+import App from "./App.vue";
 
 // prismic
 import prismic from "./services/prismic";
@@ -32,7 +32,10 @@ import {
   faLinkedinIn,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCircleCheck, faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCircleCheck,
+  faFaceSadTear,
+} from "@fortawesome/free-regular-svg-icons";
 
 library.add(faStar);
 library.add(faPhone);
@@ -66,6 +69,7 @@ const router = new VueRouter.createRouter({
 const app = createApp(App);
 
 app.use(router);
+
 app.component("font-awesome-icon", FontAwesomeIcon);
 
 // Register prismic plugin

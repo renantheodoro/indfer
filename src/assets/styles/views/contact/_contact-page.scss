@@ -94,6 +94,10 @@
           fill: palette("white");
         }
       }
+
+      .icon-whatsapp svg {
+        @include whatsapp-icon;
+      }
     }
   }
 }

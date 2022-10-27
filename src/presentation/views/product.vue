@@ -40,7 +40,7 @@
         <PrismicImage v-if="result" :field="result.data.thumbnail" />
       </Modal>
 
-      <Modal id="contact-form-modal" ref="contact-form-modal">
+      <Modal :isContactForm="true" id="contact-form-modal" ref="contact-form-modal">
         <div class="category-block">
           <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
         </div>
