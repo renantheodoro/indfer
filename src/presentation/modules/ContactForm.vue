@@ -403,12 +403,14 @@ export default {
   },
 
   mounted() {
-    M.FormSelect.init(this.$refs.find);
+    M.FormSelect.init(this.$refs[`${this.formId}-find`]);
   },
 
   unmounted() {
-    if (this.$refs.find) {
-      var instance = M.FormSelect.getInstance(this.$refs.find);
+    if (this.$refs[`${this.formId}-find`]) {
+      var instance = M.FormSelect.getInstance(
+        this.$refs[`${this.formId}-find`]
+      );
       instance.destroy();
     }
   },
