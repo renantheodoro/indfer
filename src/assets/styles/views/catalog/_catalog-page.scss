@@ -78,6 +78,8 @@
     &::after {
       content: "";
 
+      display: none;
+
       position: absolute;
 
       width: to-rem(254px);
@@ -89,6 +91,10 @@
 
       bottom: -69px;
       left: 1rem;
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        display: block;
+      }
     }
 
     img {

@@ -1,26 +1,27 @@
 #app .contact-section {
   background-color: palette("grey", "background");
-  
+
   position: relative;
 
   &::before {
     content: "";
-    display: block;
-
-    background-repeat: no-repeat;
-    background-size: contain;
+    display: none;
 
     position: absolute;
+    left: 40px;
+    top: 95px;
     z-index: 0;
-  }
 
-  &::before {
     width: 200px;
     height: 100px;
 
-    left: 40px;
-    top: 95px;
     background-image: url("@/assets/images/svg/pattern-blue-horizontal.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media screen and (min-width: breakpoint("desktop")) {
+      display: block;
+    }
   }
 
   .contact-form {

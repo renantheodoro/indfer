@@ -90,6 +90,8 @@
     &::before {
         content: "";
 
+        display: none;
+
         position: absolute;
 
         width: to-rem(87px);
@@ -101,10 +103,16 @@
 
         top: -67px;
         left: 1rem;
+
+        @media screen and (min-width: breakpoint("desktop")) {
+          display: block;
+        }
       }
 
     &::after {
         content: "";
+
+        display: none;
 
         position: absolute;
 
@@ -117,6 +125,10 @@
 
         bottom: -66px;
         right: 13px;
+
+        @media screen and (min-width: breakpoint("desktop")) {
+          display: block;
+        }
       }
 
     img {

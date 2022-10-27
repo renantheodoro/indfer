@@ -3,6 +3,7 @@
     <div class="input-field">
       <input
         id="first_name"
+        ref="first_name"
         v-model="form.firstName.value"
         type="text"
         :class="{
@@ -14,15 +15,16 @@
           validateInputs();
         "
       />
-      <label for="first_name">Nome *</label>
       <span v-if="form.firstName.isValid === false" class="helper-text">{{
         form.firstName.errorMessage
       }}</span>
+      <label @click="focus('first_name')" for="first_name">Nome *</label>
     </div>
 
     <div class="input-field">
       <input
         id="last_name"
+        ref="last_name"
         v-model="form.lastName.value"
         type="text"
         :class="{
@@ -34,7 +36,7 @@
           validateInputs();
         "
       />
-      <label for="last_name">Sobrenome *</label>
+      <label @click="focus('last_name')" for="last_name">Sobrenome *</label>
       <span v-if="form.lastName.isValid === false" class="helper-text">{{
         form.lastName.errorMessage
       }}</span>
@@ -43,6 +45,7 @@
     <div class="input-field">
       <input
         id="company"
+        ref="company"
         v-model="form.company.value"
         type="text"
         :class="{
@@ -54,7 +57,7 @@
           validateInputs();
         "
       />
-      <label for="company">Empresa</label>
+      <label @click="focus('company')" for="company">Empresa</label>
       <span v-if="form.company.isValid === false" class="helper-text">{{
         form.company.errorMessage
       }}</span>
@@ -63,6 +66,7 @@
     <div class="input-field">
       <input
         id="phone"
+        ref="phone"
         type="text"
         v-model="form.phone.value"
         v-mask="['(##) ####-####', '(##) #####-####']"
@@ -75,7 +79,7 @@
           validateInputs();
         "
       />
-      <label for="phone">Telefone*</label>
+      <label @click="focus('phone')" for="phone">Telefone*</label>
       <span v-if="form.phone.isValid === false" class="helper-text">{{
         form.phone.errorMessage
       }}</span>
@@ -84,6 +88,7 @@
     <div class="input-field">
       <input
         id="email"
+        ref="email"
         v-model="form.email.value"
         type="text"
         :class="{
@@ -95,7 +100,7 @@
           validateInputs();
         "
       />
-      <label for="email">E-mail*</label>
+      <label @click="focus('email')" for="email">E-mail*</label>
       <span v-if="form.email.isValid === false" class="helper-text">{{
         form.email.errorMessage
       }}</span>
@@ -110,8 +115,8 @@
     >
       <select
         id="find"
+        ref="find"
         v-model="form.find.value"
-        ref="select"
         @change="
           visit('find');
           validateInputs();
@@ -122,7 +127,7 @@
         <option value="Indicação">Indicação</option>
         <option value="E-mail">E-mail</option>
       </select>
-      <label>Como nos encontrou? *</label>
+      <label @click="focus('find')" for="find">Como nos encontrou? *</label>
       <span v-if="form.find.isValid === false" class="helper-text">{{
         form.find.errorMessage
       }}</span>
@@ -130,6 +135,8 @@
 
     <div class="input-field">
       <textarea
+        id="message"
+        ref="message"
         v-model="form.message.value"
         class="materialize-textarea"
         length="120"
@@ -142,13 +149,13 @@
           validateInputs();
         "
       ></textarea>
-      <label for="textarea1">Mensagem *</label>
+      <label @click="focus('message')" for="message">Mensagem *</label>
       <span v-if="form.message.isValid === false" class="helper-text">{{
         form.message.errorMessage
       }}</span>
     </div>
 
-    <ButtonSubmit>ENVIAR ORÇAMENTO</ButtonSubmit>
+    <ButtonSubmit :isEnabled="form.isValid">ENVIAR ORÇAMENTO</ButtonSubmit>
 
     <div
       v-if="form.success"
@@ -160,11 +167,11 @@
 
       <p>Aguarde que logo entraremos em contato.</p>
 
-      <Button>Enviar novo orçamento</Button>
+      <Button @click="resetForm">Enviar novo orçamento</Button>
     </div>
 
     <div
-      v-if="form.success === false"
+      v-if="form.fail"
       class="contact-form__message contact-form__message--failed"
     >
       <font-awesome-icon icon="fa-regular fa-face-sad-tear" />
@@ -173,7 +180,7 @@
 
       <p>Tente novamente mais tarde.</p>
 
-      <Button>Enviar novo orçamento</Button>
+      <Button @click="resetForm">Enviar novo orçamento</Button>
     </div>
   </form>
 </template>
@@ -191,15 +198,16 @@ export default {
   directives: { mask },
 
   data() {
-    return this.resetForm();
+    return this.getFormInitialValues();
   },
 
   methods: {
-    resetForm() {
+    getFormInitialValues() {
       return {
         form: {
-          isValid: null,
-          success: null,
+          isValid: false,
+          success: false,
+          fail: false,
           firstName: {
             value: "",
             isValid: null,
@@ -231,7 +239,7 @@ export default {
             isVisited: false,
           },
           find: {
-            value: "",
+            value: "-1",
             isValid: null,
             errorMessage: "",
             isVisited: false,
@@ -246,6 +254,10 @@ export default {
       };
     },
 
+    resetForm() {
+      Object.assign(this.$data, this.getFormInitialValues());
+    },
+
     visit(reference) {
       this.form[reference].isVisited = true;
     },
@@ -255,10 +267,16 @@ export default {
     },
 
     validateEmail(value) {
+      if (!this.validateNotEmpty(value)) {
+        return false;
+      }
       return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value);
     },
 
     validatePhone(value) {
+      if (!this.validateNotEmpty(value)) {
+        return false;
+      }
       return new RegExp(
         /(\([0-9]{2}\)\s?[0-9]{4,5}-?[0-9]{3,4})|([0-9]{10,11})|([0-9]{2}\s?[0-9]{8,9})/
       ).test(value);
@@ -268,105 +286,87 @@ export default {
       return value !== "" && value !== "-1" && value != "0";
     },
 
+    checkForm() {
+      if (
+        this.form.firstName.isValid &&
+        this.form.lastName.isValid &&
+        this.form.company.isValid &&
+        this.form.phone.isValid &&
+        this.form.email.isValid &&
+        this.form.find.isValid &&
+        this.form.message.isValid
+      ) {
+        this.form.isValid = true;
+      } else {
+        this.form.isValid = false;
+      }
+    },
+
+    validateField({ reference, validateFunction, errorMessage }) {
+      if (reference.isVisited) {
+        if (validateFunction(reference.value)) {
+          reference.isValid = true;
+        } else {
+          reference.isValid = false;
+          reference.errorMessage = errorMessage;
+        }
+      }
+    },
+
     validateInputs() {
       const requiredMessage = "Este campo é obrigatório e não pode estar vazio";
       const invalidPhone = "Telefone inválido";
       const invalidEmail = "E-mail inválido";
 
-      if (this.validateNotEmpty(this.form.firstName.value)) {
-        this.form.firstName.isValid = true;
-      } else {
-        if (this.form.firstName.isVisited) {
-          this.form.firstName.isValid = false;
-          this.form.firstName.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.firstName,
+        validateFunction: this.validateNotEmpty,
+        errorMessage: requiredMessage,
+      });
 
-      if (this.validateNotEmpty(this.form.lastName.value)) {
-        this.form.lastName.isValid = true;
-      } else {
-        if (this.form.lastName.isVisited) {
-          this.form.lastName.isValid = false;
-          this.form.lastName.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.lastName,
+        validateFunction: this.validateNotEmpty,
+        errorMessage: requiredMessage,
+      });
 
-      if (this.validateNotEmpty(this.form.company.value)) {
-        this.form.company.isValid = true;
-      } else {
-        if (this.form.company.isVisited) {
-          this.form.company.isValid = false;
-          this.form.company.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.company,
+        validateFunction: this.validateNotEmpty,
+        errorMessage: requiredMessage,
+      });
 
-      if (this.validateNotEmpty(this.form.phone.value)) {
-        this.form.phone.isValid = true;
-      } else {
-        if (this.form.phone.isVisited) {
-          this.form.phone.isValid = false;
-          this.form.phone.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.phone,
+        validateFunction: this.validatePhone,
+        errorMessage: invalidPhone,
+      });
 
-      if (this.validatePhone(this.form.phone.value)) {
-        this.form.phone.isValid = true;
-      } else {
-        if (this.form.phone.isVisited) {
-          this.form.phone.isValid = false;
-          this.form.phone.errorMessage = invalidPhone;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.find,
+        validateFunction: this.validateSelect,
+        errorMessage: requiredMessage,
+      });
 
-      if (this.validateSelect(this.form.find.value)) {
-        this.form.find.isValid = true;
-      } else {
-        if (this.form.find.isVisited) {
-          this.form.find.isValid = false;
-          this.form.find.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.email,
+        validateFunction: this.validateEmail,
+        errorMessage: invalidEmail,
+      });
 
-      if (this.validateNotEmpty(this.form.email.value)) {
-        this.form.email.isValid = true;
-      } else {
-        if (this.form.email.isVisited) {
-          this.form.email.isValid = false;
-          this.form.email.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
+      this.validateField({
+        reference: this.form.message,
+        validateFunction: this.validateNotEmpty,
+        errorMessage: requiredMessage,
+      });
 
-      if (this.validateEmail(this.form.email.value)) {
-        this.form.email.isValid = true;
-      } else {
-        if (this.form.email.isVisited) {
-          this.form.email.isValid = false;
-          this.form.email.errorMessage = invalidEmail;
-          this.form.isValid = false;
-        }
-      }
-
-      if (this.validateNotEmpty(this.form.message.value)) {
-        this.form.message.isValid = true;
-      } else {
-        if (this.form.message.isVisited) {
-          this.form.message.isValid = false;
-          this.form.message.errorMessage = requiredMessage;
-          this.form.isValid = false;
-        }
-      }
-
-      this.form.isValid = true;
+      this.checkForm();
     },
 
     sendEmail(e) {
+      e.preventDefault();
+
+      if (!this.form.isValid) return;
       try {
         emailjs.send(
           "indfer_orcamento",
@@ -384,32 +384,36 @@ export default {
           },
           "RgBnMm36ZWKMyXS5b"
         );
-        Object.assign(this.$data, this.resetForm());
+        this.resetForm();
         this.form.success = true;
+        this.form.fail = false;
       } catch (error) {
         console.error({ error });
+        this.form.fail = true;
         this.form.success = false;
       }
+    },
 
-      e.preventDefault();
+    focus(field) {
+      this.$refs[field].focus();
     },
   },
 
   mounted() {
-    M.FormSelect.init(this.$refs.select);
+    M.FormSelect.init(this.$refs.find);
   },
 
   unmounted() {
-    if (this.$refs.select) {
-      var instance = M.FormSelect.getInstance(this.$refs.select);
+    if (this.$refs.find) {
+      var instance = M.FormSelect.getInstance(this.$refs.find);
       instance.destroy();
     }
   },
 
   components: {
     ButtonSubmit,
-    Button
-},
+    Button,
+  },
 };
 </script>
 <style lang=""></style>

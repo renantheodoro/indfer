@@ -1,86 +1,86 @@
 @use "sass:math";
 
 @mixin font($family: $roboto-font-stack, $size: $normal, $weight: 400) {
-    font: {
-        size: $size;
+  font: {
+    size: $size;
 
-        family: $family;
-        weight: $weight;
-    }
+    family: $family;
+    weight: $weight;
+  }
 }
 
 @mixin dimension($width, $height) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin transitionScreen {
-    transition: ease 0.5s;
+  transition: ease 0.5s;
 }
 
 @mixin size($size) {
-    width: $size;
-    height: $size;
+  width: $size;
+  height: $size;
 }
 
 @mixin circle {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 @mixin flex($x: center, $y: center, $direction: row) {
-    display: flex !important;
+  display: flex !important;
 
-    align-items: $y;
-    flex-direction: $direction;
-    justify-content: $x;
+  align-items: $y;
+  flex-direction: $direction;
+  justify-content: $x;
 }
 
 @mixin no-mgn($side) {
-    margin: {
-        #{$side}: 0 !important;
-    }
+  margin: {
+    #{$side}: 0 !important;
+  }
 }
 
 @mixin no-pad($side) {
-    padding: {
-        #{$side}: 0 !important;
-    }
+  padding: {
+    #{$side}: 0 !important;
+  }
 }
 
 @mixin line-row-style($line-width, $line-left, $line-top) {
-    position: absolute;
-    top: $line-top;
-    left: $line-left;
+  position: absolute;
+  top: $line-top;
+  left: $line-left;
 
-    display: inline-block;
-    // transform: translateY(-50%);
-    z-index: 1;
+  display: inline-block;
+  // transform: translateY(-50%);
+  z-index: 1;
 
-    width: $line-width;
-    height: 1px;
+  width: $line-width;
+  height: 1px;
 
-    border: solid 1px palette('blue', '20%');
+  border: solid 1px palette("blue", "20%");
 
-    content: '';
+  content: "";
 }
 
-@mixin reset-container($breakpoint: 'max-tablet') {
-    @media (max-width: breakpoint($breakpoint)) {
-        width: calc(100% + (#{$gutter-mobile} * 2));
-        max-width: calc(100% + (#{$gutter-mobile} * 2));
+@mixin reset-container($breakpoint: "max-tablet") {
+  @media (max-width: breakpoint($breakpoint)) {
+    width: calc(100% + (#{$gutter-mobile} * 2));
+    max-width: calc(100% + (#{$gutter-mobile} * 2));
 
-        margin-right: -$gutter-mobile;
-        margin-left: -$gutter-mobile;
-    }
+    margin-right: -$gutter-mobile;
+    margin-left: -$gutter-mobile;
+  }
 }
 
 @mixin font-size($size) {
-    font-size: $size; //Fallback in px
-    font-size: calculateRem($size);
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
 }
 
 @mixin line-height($size) {
-    line-height: calculateRem($size);
+  line-height: calculateRem($size);
 }
 
 /// Special style for the _&_ used as a conjunction.
@@ -88,9 +88,9 @@
 /// @access private
 ///
 @mixin _italic-overflow {
-    overflow: visible;
+  overflow: visible;
 
-    font-style: italic;
+  font-style: italic;
 }
 
 /// Special style for the _&_ used as a conjunction.
@@ -118,18 +118,18 @@
 /// }
 ///
 @mixin alt-ampersand {
-    .amp {
-        // sass-lint:disable-line no-qualifying-elements
-        @include _italic-overflow;
+  .amp {
+    // sass-lint:disable-line no-qualifying-elements
+    @include _italic-overflow;
 
-        font-size: 2em;
-        line-height: 0.25;
-        font-family: $ampersand-font-stack;
+    font-size: 2em;
+    line-height: 0.25;
+    font-family: $ampersand-font-stack;
 
-        vertical-align: middle;
+    vertical-align: middle;
 
-        @content;
-    }
+    @content;
+  }
 }
 
 /// Special style for conjunctions or prepositions.
@@ -153,14 +153,14 @@
 /// }
 ///
 @mixin alt-preposition {
-    .alt {
-        // sass-lint:disable-line no-qualifying-elements
-        @include _italic-overflow;
+  .alt {
+    // sass-lint:disable-line no-qualifying-elements
+    @include _italic-overflow;
 
-        font-family: $alt-font-stack;
+    font-family: $alt-font-stack;
 
-        @content;
-    }
+    @content;
+  }
 }
 
 /// Helper for an inline-block grid.
@@ -205,20 +205,21 @@
 /// }
 ///
 @mixin inline-block-wrapper {
-    // sass-lint:disable-block no-duplicate-properties
-    $_inline-block-font-stack: 'FreeSans', 'Arimo', 'Droid Sans', 'Helvetica', 'Arial', sans-serif;
+  // sass-lint:disable-block no-duplicate-properties
+  $_inline-block-font-stack: "FreeSans", "Arimo", "Droid Sans", "Helvetica",
+    "Arial", sans-serif;
 
-    font-size: 0;
-    font-family: $_inline-block-font-stack;
-    letter-spacing: -0.31em;
-    /* Webkit: collapse white-space between units */
-    letter-spacing: normal\9;
-    /* reset IE < 8 */
-    word-spacing: -0.43em\9;
-    /* IE < 8: collapse white-space between units */
+  font-size: 0;
+  font-family: $_inline-block-font-stack;
+  letter-spacing: -0.31em;
+  /* Webkit: collapse white-space between units */
+  letter-spacing: normal\9;
+  /* reset IE < 8 */
+  word-spacing: -0.43em\9;
+  /* IE < 8: collapse white-space between units */
 
-    text-rendering: optimizespeed;
-    /* Webkit: fixes text-rendering: optimizeLegibility */
+  text-rendering: optimizespeed;
+  /* Webkit: fixes text-rendering: optimizeLegibility */
 }
 
 /// Helper for an inline-block grid.
@@ -253,18 +254,18 @@
 /// 	zoom: 1;
 /// }
 ///
-@mixin inline-block-item($align: 'top', $font-size: 1rem) {
-    display: inline-block;
+@mixin inline-block-item($align: "top", $font-size: 1rem) {
+  display: inline-block;
 
-    font-size: $font-size;
-    font-family: $text-font-stack;
-    letter-spacing: normal;
-    word-spacing: normal;
+  font-size: $font-size;
+  font-family: $text-font-stack;
+  letter-spacing: normal;
+  word-spacing: normal;
 
-    text-rendering: auto;
-    vertical-align: unquote($align);
+  text-rendering: auto;
+  vertical-align: unquote($align);
 
-    zoom: 1;
+  zoom: 1;
 }
 
 /// Helper for an table grid layout.
@@ -289,11 +290,11 @@
 /// }
 ///
 @mixin table-layout-wrapper {
-    display: table;
+  display: table;
 
-    border-collapse: collapse;
+  border-collapse: collapse;
 
-    @content;
+  @content;
 }
 
 /// Helper for an table grid layout.
@@ -318,11 +319,11 @@
 /// }
 ///
 @mixin table-layout-item {
-    display: table-cell;
+  display: table-cell;
 
-    vertical-align: top;
+  vertical-align: top;
 
-    @content;
+  @content;
 }
 
 /// Special style icon fonts.
@@ -330,14 +331,14 @@
 /// @access private
 ///
 @mixin _font-smoothing($value: true) {
-    // sass-lint:disable-block no-vendor-prefixes
-    @if ($value==true) {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    } @else {
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: auto;
-    }
+  // sass-lint:disable-block no-vendor-prefixes
+  @if ($value==true) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
 }
 
 /// Helper for icon font.
@@ -365,23 +366,23 @@
 /// }
 ///
 @mixin icon-font {
-    @include _font-smoothing(true);
+  @include _font-smoothing(true);
 
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    font-size: 14px;
-    /* font-awesome pixel perfection is at 14px and multiples of 14 */
-    // sass-lint:disable-line property-units
-    line-height: 1;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: 14px;
+  /* font-awesome pixel perfection is at 14px and multiples of 14 */
+  // sass-lint:disable-line property-units
+  line-height: 1;
 
-    text-transform: none;
+  text-transform: none;
 
-    speak: none;
+  speak: none;
 }
 
 @mixin clearfix($ie: 8) {
-    /**
+  /**
 	 * For modern browsers
 	 * 1. The space content is one way to avoid an Opera bug when the
 	 *    contenteditable attribute is included anywhere else in the document.
@@ -391,38 +392,38 @@
 	 *    `:before` to contain the top-margins of child elements.
 	 * 3. To prevent Firefox 57+ border-spacing issues
 	 */
-    &::before,
-    &::after {
-        display: table;
-        /* 2 */
+  &::before,
+  &::after {
+    display: table;
+    /* 2 */
 
-        content: '';
-        /* 1 */
+    content: "";
+    /* 1 */
 
-        border-collapse: collapse;
-        /* 3 */
-    }
+    border-collapse: collapse;
+    /* 3 */
+  }
 
-    &::after {
-        clear: both;
-    }
+  &::after {
+    clear: both;
+  }
 
-    @if ($ie <=8) {
-        zoom: 1\9; // old IE sucks
-    }
+  @if ($ie <=8) {
+    zoom: 1\9; // old IE sucks
+  }
 }
 
 /// @content the rules to be applied
 @mixin link-undercover {
-    &,
-    &:link,
-    &:visited {
-        text-decoration: inherit;
+  &,
+  &:link,
+  &:visited {
+    text-decoration: inherit;
 
-        color: inherit;
+    color: inherit;
 
-        @content;
-    }
+    @content;
+  }
 }
 
 /// Event wrapper
@@ -430,29 +431,29 @@
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
 @mixin on-event($self: false) {
-    @if $self {
-        &,
-        &:hover,
-        &:active,
-        &:focus {
-            @content;
-        }
-    } @else {
-        &:hover,
-        &:active,
-        &:focus {
-            @content;
-        }
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
     }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
 }
 
 /// Make a context based selector a little more friendly
 /// @author Hugo Giraudel
 /// @param {String} $context
 @mixin when-inside($context) {
-    #{$context} & {
-        @content;
-    }
+  #{$context} & {
+    @content;
+  }
 }
 
 ///
@@ -463,44 +464,44 @@
 /// @link https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
 ///
 @mixin visually-hidden {
-    // sass-lint:disable-block no-duplicate-properties no-important property-units
-    position: absolute !important;
+  // sass-lint:disable-block no-duplicate-properties no-important property-units
+  position: absolute !important;
 
-    width: 1px !important;
-    height: 1px !important;
+  width: 1px !important;
+  height: 1px !important;
 
-    padding: 0 !important;
-    margin: -1px;
+  padding: 0 !important;
+  margin: -1px;
 
-    overflow: hidden !important;
-    clip: rect(1px 1px 1px 1px) !important;
-    clip: rect(1px, 1px, 1px, 1px) !important;
-    clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  clip: rect(1px 1px 1px 1px) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
 
-    white-space: nowrap !important;
+  white-space: nowrap !important;
 
-    border: 0 !important;
+  border: 0 !important;
 }
 
 @mixin visually-hidden--focusable {
-    // sass-lint:disable-block no-important
-    @include visually-hidden;
+  // sass-lint:disable-block no-important
+  @include visually-hidden;
 
-    &:active,
-    &:focus {
-        position: static !important;
+  &:active,
+  &:focus {
+    position: static !important;
 
-        width: auto !important;
-        height: auto !important;
+    width: auto !important;
+    height: auto !important;
 
-        margin: auto;
+    margin: auto;
 
-        overflow: visible !important;
-        clip: auto !important;
-        clip-path: none !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
 
-        white-space: normal !important;
-    }
+    white-space: normal !important;
+  }
 }
 
 /// Truncate and add ellipsis to a string too long for it to fit on a single
@@ -521,19 +522,19 @@
 /// }
 ///
 @mixin truncate {
-    overflow: hidden;
+  overflow: hidden;
 
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @mixin multi-line-truncate {
-    display: -webkit-box;
+  display: -webkit-box;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 ///
@@ -558,16 +559,16 @@
 /// }
 ///
 @mixin justify-last-line {
-    text-align: justify;
+  text-align: justify;
 
-    &::after {
-        display: inline-block;
+  &::after {
+    display: inline-block;
 
-        width: 100%;
-        height: 0;
+    width: 100%;
+    height: 0;
 
-        content: '';
-    }
+    content: "";
+  }
 }
 
 /// Hide text while making it readable for screen readers
@@ -588,38 +589,38 @@
 /// }
 ///
 @mixin hide-text {
-    /**
+  /**
 	 * 1. Needed in WebKit-based browsers because of an implementation bug;
 	 *    See: https://code.google.com/p/chromium/issues/detail?id=457146
 	 */
-    padding: 0;
-    /* 1 */
+  padding: 0;
+  /* 1 */
 
+  overflow: hidden;
+
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+@mixin image-replacement($overflow: true) {
+  @if $overflow {
     overflow: hidden;
 
     text-indent: 101%;
     white-space: nowrap;
-}
 
-@mixin image-replacement($overflow: true) {
-    @if $overflow {
-        overflow: hidden;
+    background-repeat: no-repeat;
 
-        text-indent: 101%;
-        white-space: nowrap;
+    direction: ltr;
+  } @else {
+    font: 0/0 a;
 
-        background-repeat: no-repeat;
+    text-shadow: none;
 
-        direction: ltr;
-    } @else {
-        font: 0/0 a;
+    color: transparent;
 
-        text-shadow: none;
-
-        color: transparent;
-
-        border: 0;
-    }
+    border: 0;
+  }
 }
 
 $no-alpha: false !default;
@@ -644,46 +645,48 @@ $no-viewport: false !default;
 /// }
 ///
 @mixin viewport-unit($property, $value) {
-    $unit: unit($value);
-    // sass-lint:disable-block indentation
+  $unit: unit($value);
+  // sass-lint:disable-block indentation
 
-    #{$property}: $value;
+  #{$property}: $value;
 
-    @if (index((vw, vh, vmin, vmax), $unit) !=null) {
-        $devices: (
-            (768px, 1024px),
-            // iPad (all versions)
-            (320px, 480px),
-            // iPhone 4
-            (320px, 568px)
-                // iPhone 5, 5C, 5S
-        );
+  @if (index((vw, vh, vmin, vmax), $unit) !=null) {
+    $devices: (
+      (768px, 1024px),
+      // iPad (all versions)
+      (320px, 480px),
+      // iPhone 4
+      (320px, 568px)
+        // iPhone 5, 5C, 5S
+    );
 
-        @each $device in $devices {
-            $device-width: nth($device, 1);
-            $device-height: nth($device, 2);
-            $device-query: 'only screen and (-webkit-min-device-pixel-ratio: 1)';
-            $device-query: '#{$device-query} and (device-width: #{$device-width})';
-            $device-query: '#{$device-query} and (device-height: #{$device-height})';
-            $percent: ($value / $value * 0 + 1); // see https://github.com/sass/sass/issues/533
-            $percent-width: $device-width * $percent * 0.01;
-            $percent-height: $device-height * $percent * 0.01;
+    @each $device in $devices {
+      $device-width: nth($device, 1);
+      $device-height: nth($device, 2);
+      $device-query: "only screen and (-webkit-min-device-pixel-ratio: 1)";
+      $device-query: "#{$device-query} and (device-width: #{$device-width})";
+      $device-query: "#{$device-query} and (device-height: #{$device-height})";
+      $percent: (
+        $value / $value * 0 + 1
+      ); // see https://github.com/sass/sass/issues/533
+      $percent-width: $device-width * $percent * 0.01;
+      $percent-height: $device-height * $percent * 0.01;
 
-            @if ($unit==vmin or $unit==vmax) {
-                @media #{$device-query} {
-                    #{$property}: if($unit==vmin, $percent-width, $percent-height);
-                }
-            } @else {
-                @media #{$device-query} and (orientation: portrait) {
-                    #{$property}: if($unit==vw, $percent-width, $percent-height);
-                }
-
-                @media #{$device-query} and (orientation: landscape) {
-                    #{$property}: if($unit==vw, $percent-height, $percent-width);
-                }
-            }
+      @if ($unit==vmin or $unit==vmax) {
+        @media #{$device-query} {
+          #{$property}: if($unit==vmin, $percent-width, $percent-height);
         }
+      } @else {
+        @media #{$device-query} and (orientation: portrait) {
+          #{$property}: if($unit==vw, $percent-width, $percent-height);
+        }
+
+        @media #{$device-query} and (orientation: landscape) {
+          #{$property}: if($unit==vw, $percent-height, $percent-width);
+        }
+      }
     }
+  }
 }
 
 /// Returns the opposite direction of each direction in a list
@@ -692,28 +695,31 @@ $no-viewport: false !default;
 /// @return {List} - List of opposite directions
 /// @access private
 @function _opposite-direction($directions) {
-    $opposite-directions: ();
-    $direction-map: (
-        'top': 'bottom',
-        'right': 'left',
-        'bottom': 'top',
-        'left': 'right',
-        'center': 'center',
-        'ltr': 'rtl',
-        'rtl': 'ltr',
-    );
+  $opposite-directions: ();
+  $direction-map: (
+    "top": "bottom",
+    "right": "left",
+    "bottom": "top",
+    "left": "right",
+    "center": "center",
+    "ltr": "rtl",
+    "rtl": "ltr",
+  );
 
-    @each $direction in $directions {
-        $direction: to-lower-case($direction);
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
 
-        @if map-has-key($direction-map, $direction) {
-            $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
-        } @else {
-            @warn 'No opposite direction can be found for `#{$direction}`. Direction omitted.';
-        }
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append(
+        $opposite-directions,
+        unquote(map-get($direction-map, $direction))
+      );
+    } @else {
+      @warn 'No opposite direction can be found for `#{$direction}`. Direction omitted.';
     }
+  }
 
-    @return $opposite-directions;
+  @return $opposite-directions;
 }
 
 /// Triangle helper mixin
@@ -721,62 +727,61 @@ $no-viewport: false !default;
 /// @param {Color} $color [currentcolor] - Triangle color
 /// @param {number} $size [1em] - Triangle size
 @mixin triangle($direction, $color: currentcolor, $size: 1em) {
-    $perpendicular-borders: $size solid transparent;
+  $perpendicular-borders: $size solid transparent;
 
-    z-index: 2;
+  z-index: 2;
 
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 
-    border-#{_opposite-direction($direction)}: ($size * 1.5) solid $color; // sass-lint:disable-line property-sort-order
+  border-#{_opposite-direction($direction)}: ($size * 1.5) solid $color; // sass-lint:disable-line property-sort-order
 
-    @if not index(top right bottom left, $direction) {
-        @error 'Direction must be either `top`, `right`, `bottom` or `left`.';
-    }
+  @if not index(top right bottom left, $direction) {
+    @error 'Direction must be either `top`, `right`, `bottom` or `left`.';
+  }
 
-    @if $direction==top or $direction==bottom {
-        border-right: $perpendicular-borders;
-        border-left: $perpendicular-borders;
-    } @else if $direction==right or $direction==left {
-        border-top: $perpendicular-borders;
-        border-bottom: $perpendicular-borders;
-    }
+  @if $direction==top or $direction==bottom {
+    border-right: $perpendicular-borders;
+    border-left: $perpendicular-borders;
+  } @else if $direction==right or $direction==left {
+    border-top: $perpendicular-borders;
+    border-bottom: $perpendicular-borders;
+  }
 }
 
 /// Compute the maximum depth of a map
 /// @param {Map} $map
 /// @return {Number} max depth of `$map`
 @function depth($map) {
-    $level: 1;
+  $level: 1;
 
-    @each $key, $value in $map {
-        @if type-of($value) == 'map' {
-            $level: max(depth($value) + 1, $level);
-        }
+  @each $key, $value in $map {
+    @if type-of($value) == "map" {
+      $level: max(depth($value) + 1, $level);
     }
+  }
 
-    @return $level;
+  @return $level;
 }
 
 @mixin debug-map($map) {
-    @at-root {
-        @debug-map {
-            // these properties are for debug only. They do not exist
-            // sass-lint:disable-block no-misspelled-properties
-            __tostring__: inspect($map);
-            __length__: length($map);
-            __depth__: depth($map);
-            __keys__: map-keys($map);
+  @at-root {
+    @debug-map {
+      // these properties are for debug only. They do not exist
+      // sass-lint:disable-block no-misspelled-properties
+      __tostring__: inspect($map);
+      __length__: length($map);
+      __depth__: depth($map);
+      __keys__: map-keys($map);
 
-            __properties__ {
-                @each $key, $value in $map {
-                    #{'(' + type-of($value) + ') ' + $key}: inspect($value);
-                }
-            }
+      __properties__ {
+        @each $key, $value in $map {
+          #{'(' + type-of($value) + ') ' + $key}: inspect($value);
         }
+      }
     }
+  }
 }
-
 
 /// Helper to set a two dimensional proportion to an element.
 ///
@@ -809,191 +814,203 @@ $no-viewport: false !default;
 /// }
 ///
 @mixin aspect-ratio($ratio) {
-    $w: nth($ratio, 1);
-    $h: if(length($ratio) ==3, nth($ratio, 3), nth($ratio, 2));
+  $w: nth($ratio, 1);
+  $h: if(length($ratio) ==3, nth($ratio, 3), nth($ratio, 2));
 
-    position: relative;
+  position: relative;
 
-    @if type-of($ratio) !=list {
-        @error '`aspect-ratio` function expecting a list for `$ratio`; `#{type-of($ratio)}` given.';
-    } @else if length($ratio) ==3 and nth($ratio, 2) != 'x' {
-        @error 'when using 3 values length list, `aspect-ratio` function expects the second to be `x`; #{nth($ratio, 2)} given.';
-    } @else if length($ratio) < 2 and length($ratio) >3 {
-        @error '`aspect-ratio` function expecting a list with 2 or 3 items for `$ratio`; `#{length($ratio)}` given.';
-    }
+  @if type-of($ratio) !=list {
+    @error '`aspect-ratio` function expecting a list for `$ratio`; `#{type-of($ratio)}` given.';
+  } @else if length($ratio) ==3 and nth($ratio, 2) != "x" {
+    @error 'when using 3 values length list, `aspect-ratio` function expects the second to be `x`; #{nth($ratio, 2)} given.';
+  } @else if length($ratio) < 2 and length($ratio) >3 {
+    @error '`aspect-ratio` function expecting a list with 2 or 3 items for `$ratio`; `#{length($ratio)}` given.';
+  }
 
-    @if type-of($w) != 'number' {
-        @error 'the value sent to `width` isn\'t a `number`.';
-    } @else if not unitless($w) {
-        @error 'the value sent to `width` **must** be unitless.';
-    }
+  @if type-of($w) != "number" {
+    @error 'the value sent to `width` isn\'t a `number`.';
+  } @else if not unitless($w) {
+    @error 'the value sent to `width` **must** be unitless.';
+  }
 
-    @if type-of($h) != 'number' {
-        @error 'the value sent to `height` isn\'t a `number`.';
-    } @else if not unitless($h) {
-        @error 'the value sent to `height` **must** be unitless.';
-    }
+  @if type-of($h) != "number" {
+    @error 'the value sent to `height` isn\'t a `number`.';
+  } @else if not unitless($h) {
+    @error 'the value sent to `height` **must** be unitless.';
+  }
 
-    &::before {
-        float: left;
+  &::before {
+    float: left;
 
-        padding-top: (($h / $w) * 100%);
+    padding-top: (($h / $w) * 100%);
 
-        content: '';
-    }
+    content: "";
+  }
 
-    &::after {
-        clear: both;
+  &::after {
+    clear: both;
 
-        display: table;
+    display: table;
 
-        content: '';
-    }
+    content: "";
+  }
 }
 
 /// Sass calc lock for line-height
 /// @link http://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
 /// @link http://codepen.io/timbrown/full/akXvRw/
 @mixin fluid-line-height(
-    $font-size: null,
-    $min-line-height: map-get($leadings, 'min'),
-    $max-line-height: map-get($leadings, 'max'),
-    $line-length-lower-gate: map-get($line-lengths, 'min'),
-    $line-length-upper-gate: map-get($line-lengths, 'max')
+  $font-size: null,
+  $min-line-height: map-get($leadings, "min"),
+  $max-line-height: map-get($leadings, "max"),
+  $line-length-lower-gate: map-get($line-lengths, "min"),
+  $line-length-upper-gate: map-get($line-lengths, "max")
 ) {
-    line-height: $min-line-height;
+  line-height: $min-line-height;
 
-    @if $font-size==null {
-        @error 'the `font-size` of the element **must** be provided to calculate the media query limits.';
-    } @else if unit($font-size) == '%' {
-        $font-size: ($font-size / 100%);
-    } @else if unit($font-size) == 'em' {
-        $font-size: ($font-size / 1em);
-    } @else if unit($font-size) == 'rem' {
-        $font-size: ($font-size / 1rem);
-    } @else if unitless($font-size) {
-        @error 'the unit of the parameter sent should be `%`, `em`, `rem`. Unitless value given.';
-    } @else {
-        @error 'the unit of the parameter sent should be `%`, `em`, `rem`. `#{unit($font-size)}` given.';
-    }
+  @if $font-size==null {
+    @error 'the `font-size` of the element **must** be provided to calculate the media query limits.';
+  } @else if unit($font-size) == "%" {
+    $font-size: ($font-size / 100%);
+  } @else if unit($font-size) == "em" {
+    $font-size: ($font-size / 1em);
+  } @else if unit($font-size) == "rem" {
+    $font-size: ($font-size / 1rem);
+  } @else if unitless($font-size) {
+    @error 'the unit of the parameter sent should be `%`, `em`, `rem`. Unitless value given.';
+  } @else {
+    @error 'the unit of the parameter sent should be `%`, `em`, `rem`. `#{unit($font-size)}` given.';
+  }
 
-    @media screen and (min-width: #{$line-length-lower-gate * $font-size}) {
-        line-height: calc(
-            #{$min-line-height * 1em} + (#{$max-line-height} - #{$min-line-height}) * ((100vw - #{$line-length-lower-gate}) /
-                        (#{($line-length-upper-gate / 1em)} - #{($line-length-lower-gate / 1em)}))
-        );
-    }
+  @media screen and (min-width: #{$line-length-lower-gate * $font-size}) {
+    line-height: calc(
+      #{$min-line-height * 1em} + (#{$max-line-height} - #{$min-line-height}) * ((
+              100vw - #{$line-length-lower-gate}
+            ) /
+            (
+              #{($line-length-upper-gate / 1em)} - #{(
+                  $line-length-lower-gate / 1em
+                )}
+            ))
+    );
+  }
 
-    @media (min-width: #{$line-length-upper-gate * $font-size}) {
-        line-height: $max-line-height;
-    }
+  @media (min-width: #{$line-length-upper-gate * $font-size}) {
+    line-height: $max-line-height;
+  }
 }
 
 @mixin hyphens {
-    hyphens: auto;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+  hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 @mixin box-wrap {
-    display: flex;
+  display: flex;
 
-    flex-direction: row;
-    flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-    width: calc(100% + (#{$gutter-mobile} * 2));
+  width: calc(100% + (#{$gutter-mobile} * 2));
 
-    padding-right: calc(#{$gutter-mobile} * 0.5);
-    padding-bottom: $leading * 0.5rem;
-    padding-left: calc(#{$gutter-mobile} * 0.5);
-    margin-right: -#{$gutter-mobile};
-    margin-left: -#{$gutter-mobile};
+  padding-right: calc(#{$gutter-mobile} * 0.5);
+  padding-bottom: $leading * 0.5rem;
+  padding-left: calc(#{$gutter-mobile} * 0.5);
+  margin-right: -#{$gutter-mobile};
+  margin-left: -#{$gutter-mobile};
 
-    @media screen and (min-width: breakpoint('desktop')) {
-        width: calc(100% + (#{$gutter} * 2));
+  @media screen and (min-width: breakpoint("desktop")) {
+    width: calc(100% + (#{$gutter} * 2));
 
-        padding-right: calc(#{$gutter} * 0.5);
-        padding-bottom: $leading * 1rem;
-        padding-left: calc(#{$gutter} * 0.5);
-        margin-right: -#{$gutter};
-        margin-left: -#{$gutter};
-    }
+    padding-right: calc(#{$gutter} * 0.5);
+    padding-bottom: $leading * 1rem;
+    padding-left: calc(#{$gutter} * 0.5);
+    margin-right: -#{$gutter};
+    margin-left: -#{$gutter};
+  }
 
-    &:last-of-type {
-        padding-bottom: 0;
-    }
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 }
 
 @mixin box-item {
-    padding-right: calc(#{$gutter-mobile} * 0.5);
-    padding-left: calc(#{$gutter-mobile} * 0.5);
+  padding-right: calc(#{$gutter-mobile} * 0.5);
+  padding-left: calc(#{$gutter-mobile} * 0.5);
 
-    @media screen and (min-width: breakpoint('desktop')) {
-        padding-right: calc(#{$gutter} * 0.5);
-        padding-left: calc(#{$gutter} * 0.5);
-    }
+  @media screen and (min-width: breakpoint("desktop")) {
+    padding-right: calc(#{$gutter} * 0.5);
+    padding-left: calc(#{$gutter} * 0.5);
+  }
 }
 
 @mixin icon-reset {
-    font-style: normal !important;
-    font-variant: normal !important;
-    font-weight: normal !important;
-    font-family: 'meudna-icons' !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  font-family: "meudna-icons" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    text-transform: none !important;
+  text-transform: none !important;
 
-    speak: none;
+  speak: none;
 }
 
 @mixin input-range-style {
-    width: calculateRem(188px);
-    height: 5px;
+  width: calculateRem(188px);
+  height: 5px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    background: palette('pink', '40%');
+  background: palette("pink", "40%");
 
-    border-radius: 8px;
+  border-radius: 8px;
 
-    @media screen and (min-width: breakpoint('desktop')) {
-        width: calculateRem(266px);
-    }
+  @media screen and (min-width: breakpoint("desktop")) {
+    width: calculateRem(266px);
+  }
 }
 
 @mixin input-range-circle {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    background: palette('pink');
+  background: palette("pink");
 }
 
 @mixin transition($transition...) {
-    -moz-transition: $transition;
-    -o-transition: $transition;
-    -webkit-transition: $transition;
-    transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
 }
 
 @mixin floating-effect {
-    -webkit-animation-name: Floating;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-iteration-count: infinite;
-    transform: translateX(0px);
+  -webkit-animation-name: Floating;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  transform: translateX(0px);
 }
 
 @keyframes Floating {
-    0% {
-        -webkit-transform: translateY(0px);
-    }
-    50% {
-        -webkit-transform: translateY(8px);
-    }
-    100% {
-        -webkit-transform: translateY(0px);
-    }
+  0% {
+    -webkit-transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(8px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+@mixin whatsapp-icon {
+  path {
+    fill: #25d366 !important;
+  }
 }

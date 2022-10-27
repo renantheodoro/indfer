@@ -1,7 +1,7 @@
 #app .ethics-conduct-code {
   @media screen and (max-width: breakpoint("desktop")) {
     padding-top: 0;
-    background-color: palette('blue');
+    background-color: palette("blue");
   }
 
   & > .container {
@@ -63,6 +63,7 @@
 
   .ethics-conduct-code__content {
     position: relative;
+    z-index: 5;
     padding: 3rem 0;
 
     @media screen and (min-width: breakpoint("desktop")) {
@@ -136,7 +137,7 @@
     &::after {
       content: "";
 
-      display: block;
+      display: none;
 
       position: absolute;
 
@@ -148,6 +149,10 @@
       height: to-rem(324px);
 
       background-image: url("@/assets/images/svg/about-pattern-blue-white-vertical.svg");
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        display: block;
+      }
     }
 
     img {
