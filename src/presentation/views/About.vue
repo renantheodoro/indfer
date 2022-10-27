@@ -55,7 +55,7 @@
           ></span>
 
           <img
-            src="@/assets/images/about-our_focus.jpg"
+            src="@/assets/images/webp/about-our_focus.webp"
             title="Homem trabalhador represetando o foco da empresa"
             alt="Nosso foco"
           />
@@ -100,7 +100,7 @@
         <div class="column-desktop--6 column--4">
           <div class="our-values__media">
             <img
-              src="@/assets/images/about-our_values.jpg"
+              src="@/assets/images/webp/about-our_values.webp"
               title="Nossos valores"
               alt="Nossos valores"
             />
@@ -272,27 +272,24 @@
         >
       </div>
 
-      <Modal id="contact-form-modal" ref="contact-form-modal">
-        <div class="category-block">
-          <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
-        </div>
-        <ContactForm />
-      </Modal>
-
       <div class="ethics-conduct-code__media">
         <img
-          src="@/assets/images/about-ethics_conduct_code.jpg"
+          src="@/assets/images/webp/about-ethics_conduct_code.webp"
           title="Código de ética e conduta"
           alt="Código de ética e conduta"
         />
       </div>
     </div>
 
-    <Modal :isContactForm="true" id="contact-form-modal" ref="contact-form-modal">
+    <Modal
+      :isContactForm="true"
+      id="contact-form-modal"
+      ref="contact-form-modal"
+    >
       <div class="category-block">
         <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
       </div>
-      <ContactForm />
+      <ContactForm formId="about-page-contact-form" />
     </Modal>
   </section>
 
@@ -333,7 +330,7 @@ export default {
     const ourValuesSection = document.getElementsByClassName("our-values")[0];
     this.ourValuesSectionTop = ourValuesSection.offsetTop;
 
-    window.addEventListener("scroll", this.verifyScrollToStartCounter);
+    window.addEventListener("scroll", this.verifyScrollToStartCounter, {passive: true},);
   },
 
   components: {

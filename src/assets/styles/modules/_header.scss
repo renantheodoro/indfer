@@ -29,7 +29,6 @@ $headerMobileHeight: to-rem(50px);
     justify-content: space-between;
   }
 
-
   nav {
     background-color: palette("white");
     height: 100%;
@@ -123,11 +122,9 @@ $headerMobileHeight: to-rem(50px);
   }
 
   .header__main-logo {
-
     a {
-
       img {
-        width: to-rem(150px);
+        display: block;
       }
     }
   }
@@ -136,16 +133,16 @@ $headerMobileHeight: to-rem(50px);
     svg {
       height: 22px;
       path {
-        fill: palette('blue');
+        fill: palette("blue");
       }
     }
   }
 
   .sidenav {
-    background-color: palette('blue');
+    background-color: palette("blue");
 
-    li>a {
-      color: palette('white');
+    li > a {
+      color: palette("white");
       text-transform: uppercase;
 
       font-weight: bold;

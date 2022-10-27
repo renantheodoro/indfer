@@ -29,7 +29,9 @@
         <div class="content__row">
           <div class="column-desktop--6 column--4">
             <img
-              src="@/assets/images/about-diamond.png"
+              width="410"
+              height="300"
+              src="@/assets/images/webp/about-diamond.webp"
               title="INDFER - sobre a empresa"
               alt="Trabalhador dentro de uma máscara de diamante"
             />
@@ -67,7 +69,7 @@
       <ul class="our-products__products_gallery">
         <li class="our-products__products_gallery__item">
           <img
-            src="@/assets/images/our_products-metallurgy.jpg"
+            src="@/assets/images/webp/our_products-metallurgy.webp"
             title="Nossos produtos - Metalurgia"
             alt="Nossos produtos - metalurgia"
           />
@@ -77,7 +79,7 @@
 
         <li class="our-products__products_gallery__item">
           <img
-            src="@/assets/images/our_products-civil_building.jpg"
+            src="@/assets/images/webp/our_products-civil_building.webp"
             title="Nossos produtos - Construção Civil"
             alt="Nossos produtos - Construção Civil"
           />
@@ -87,7 +89,7 @@
 
         <li class="our-products__products_gallery__item">
           <img
-            src="@/assets/images/our_products-gold_tools.jpg"
+            src="@/assets/images/webp/our_products-gold_tools.webp"
             title="Nossos produtos - Ferramentas ouro"
             alt="Nossos produtos - Ferramentas ouro"
           />
@@ -188,7 +190,13 @@
     <section class="catalog">
       <div class="parallax-container">
         <div class="parallax" ref="parallax">
-          <img src="@/assets/images/catalog-bg.jpg" />
+          <img
+            width="1400"
+            height="1080"
+            src="@/assets/images/webp/catalog-bg.webp"
+            title="Fundo da seção catálogo - INDFER"
+            alt="Fundo da seção catálogo - INDFER"
+          />
 
           <div class="container">
             <div class="center-statement">

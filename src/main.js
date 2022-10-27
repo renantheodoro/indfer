@@ -9,7 +9,6 @@ import prismic from "./services/prismic";
 
 // CSS Libs
 import "materialize-css/dist/css/materialize.min.css";
-import "material-design-icons/iconfont/material-icons.css";
 
 // Icon libs
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";

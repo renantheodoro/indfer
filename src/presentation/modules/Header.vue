@@ -4,7 +4,9 @@
       <div class="header__main-logo">
         <router-link :to="{ name: 'home' }">
           <img
-            src="@/assets/images/main-logo.png"
+            width="165"
+            height="37"
+            src="@/assets/images/webp/main-logo.webp"
             alt="INDFER - Ferramentas diamantadas"
             title="INDFER - Ferramentas diamantadas"
           />
@@ -67,7 +69,9 @@
     <div class="header__main-logo">
       <router-link :to="{ name: 'home' }">
         <img
-          src="@/assets/images/main-logo.png"
+          width="130"
+          height="30"
+          src="@/assets/images/webp/main-logo-footer.webp"
           alt="INDFER - Ferramentas diamantadas"
           title="INDFER - Ferramentas diamantadas"
         />
@@ -138,7 +142,7 @@
     <div class="category-block">
       <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
     </div>
-    <ContactForm />
+    <ContactForm formId="header-form" />
   </Modal>
 </template>
 
@@ -156,6 +160,16 @@ export default {
     return {
       sidenavInstance: null,
     };
+  },
+
+  computed: {
+    isMobile() {
+      if (window.screen.width <= 767) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
 
   methods: {
