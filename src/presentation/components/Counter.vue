@@ -18,7 +18,6 @@ export default {
     data() {
         return {
             fullNumber: 0,
-            counterSectionHeight: 0,
             ourProductSectionTop: 0
         }
     },
@@ -56,7 +55,7 @@ export default {
         verifyScrollToStartCounter() {
             const currentTop = document.documentElement.scrollTop;
 
-            if (currentTop >= this.ourProductSectionTop + this.counterSectionHeight) {
+            if (currentTop >= this.ourProductSectionTop) {
                 this.startCounter();
                 window.removeEventListener("scroll", this.verifyScrollToStartCounter);
             }
@@ -70,10 +69,7 @@ export default {
     },
 
     mounted() {
-        const counterSection = document.getElementsByClassName('counter')[0];
         const ourProductSection = document.getElementsByClassName('our-products')[0];
-
-        this.counterSectionHeight = counterSection.offsetHeight;
         this.ourProductSectionTop = ourProductSection.offsetTop;
 
         window.addEventListener("scroll", this.verifyScrollToStartCounter);
