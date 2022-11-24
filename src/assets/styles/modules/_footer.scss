@@ -32,6 +32,11 @@
     color: palette("white");
 
     margin: to-rem(40px) 0;
+
+    strong {
+      font-weight: bold;
+      color: palette('blue');
+    }
   }
 
   .footer__pages {

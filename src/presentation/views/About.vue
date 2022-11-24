@@ -19,18 +19,24 @@
         </div>
         <div class="column-desktop--6 column--4">
           <p>
-            Atuamos no ramo de ferramentas diamantadas com negócios focados em
-            <strong
-              >construção civil, metalurgia, marmoraria e ferramentas
-              ouro</strong
-            >.
+            Nossa empresa surgiu em 1993 e se tornou independente a partir do
+            ano de 2008, tornando-se conhecida como
+            <strong class="text-blue">INDFER</strong>.
           </p>
           <p>
-            Nossa empresa surgiu no ano de XXXX com foco na busca contínua de
-            entender e analisar as necessidades de cada cliente para, assim,
-            desenvolver ferramentas e produtos adequados para cada aplicação,
-            sempre com o objetivo de promover a inovação das atividades
-            industriais.
+            Atuamos no ramo de ferramentas diamantadas para atender diversos
+            segmentos. Dentre eles, estão:
+            <strong
+              >construção civil, metalurgia, marmoraria, ferramentas para tornos
+              de alianças</strong
+            >, entre outros.
+          </p>
+          <p>
+            Temos o objetivo de promover uma busca contínua pelo melhor
+            entendimento das necessidades de cada cliente, para que, assim,
+            possamos desenvolver as melhores ferramentas e produtos mais
+            adequados para cada aplicação, sempre dando enfoque em inovar as
+            atividades industriais.
           </p>
           <p>
             <strong>Nosso foco</strong> é melhorar processos e aumentar a
@@ -83,7 +89,7 @@
             >
               <h3>VISÃO</h3>
               <p>
-                Ser ético , trabalhando na obtenção de melhores resultados,
+                Ser ético, trabalhando na obtenção de melhores resultados,
                 conquistando nossos clientes na qualidade dos processos.
               </p>
             </div>
@@ -162,9 +168,9 @@
             >
               <h4>Início de um sonho</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-                accumsan et viverra justo commodo.
+                <strong>José Candido Filho</strong> iniciou no ramo de
+                Ferramentas Diamantadas com lapidação de pedras e foi adquirindo
+                conhecimento e experiência no decorrer de sua vida.
               </p>
             </div>
 
@@ -172,18 +178,18 @@
               class="our-history__timeline__item__date our-history__timeline__item__date--1"
             >
               <span class="icon-diamond"></span>
-              <p>13 de abril de 1997</p>
+              <p>1960 - 1970</p>
             </div>
           </div>
           <div class="our-history__timeline__item">
             <div
               class="our-history__timeline__item__box our-history__timeline__item__box--2"
             >
-              <h4>Início de um sonho</h4>
+              <h4>Primeiros anos</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-                accumsan et viverra justo commodo.
+                Fundou a empresa Dimafer Ferramentas Especiais Diamantadas, onde
+                iniciou a ramificação de seus familiares para que dessem
+                continuidade em sua experiência e conhecimento.
               </p>
             </div>
 
@@ -191,7 +197,7 @@
               class="our-history__timeline__item__date our-history__timeline__item__date--2"
             >
               <span class="icon-diamond"></span>
-              <p>13 de abril de 1997</p>
+              <p>1985 - 2008</p>
             </div>
           </div>
         </div>
@@ -202,11 +208,11 @@
             <div
               class="our-history__timeline__item__box our-history__timeline__item__box--3"
             >
-              <h4>Início de um sonho</h4>
+              <h4>Primeira empresa</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-                accumsan et viverra justo commodo.
+                Tornou-se sócio proprietário e fundador da sua
+                <strong>primeira empresa</strong>
+                no ramo Ferramentas Diamantadas.
               </p>
             </div>
 
@@ -214,7 +220,7 @@
               class="our-history__timeline__item__date our-history__timeline__item__date--3"
             >
               <span class="icon-diamond"></span>
-              <p>13 de abril de 1997</p>
+              <p>1975 - 1984</p>
             </div>
           </div>
 
@@ -224,11 +230,13 @@
             <div
               class="our-history__timeline__item__box our-history__timeline__item__box--4 our-history__timeline__item__box--highlight"
             >
-              <h4>Início de um sonho</h4>
+              <h4>Sonho de independência</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-                accumsan et viverra justo commodo.
+                Nasce a empresa INDFER Industria de Ferramentas Diamantadas,
+                fundada pelo Sr. José Candido e seus familiares. Com
+                responsabilidade, conhecimento, inovação e qualidade, a empresa
+                busca cuidar de suas principais joias:
+                <strong>seus clientes</strong>.
               </p>
             </div>
 
@@ -236,7 +244,7 @@
               class="our-history__timeline__item__date our-history__timeline__item__date--4"
             >
               <span class="icon-diamond"></span>
-              <p>13 de abril de 1997</p>
+              <p>2008 - ATUALMENTE</p>
             </div>
           </div>
         </div>
@@ -248,24 +256,20 @@
     <div class="container">
       <div class="ethics-conduct-code__content">
         <div class="content-title content-title--white">
-          <span class="content-title__subtitle">CONHEÇA</span>
-          <h2 class="content-title__title">NOSSA HISTÓRIA</h2>
+          <span class="content-title__subtitle orange text-white"
+            >ECOLOGICAMENTE</span
+          >
+          <h2 class="content-title__title">CORRETOS</h2>
         </div>
 
         <p>
-          Para transformar a sociedade ao nosso redor, nosso compromisso é
-          também com a natureza, buscamos por profissionais e parceiros que
-          estejam alinhados com o nosso código de conduta.
+          Seguindo a tendência mundial, nossos equipamentos são projetados e
+          produzidos dentro do melhor padrão que preza pelo comprometimento com
+          o meio ambiente, tendo na composição os principais materiaus que, além
+          de não agreditar o meio ambiente, contribuem para a sua melhoria.
         </p>
 
-        <p>
-          Código de ética e conduta demonstra a nossa preocupação com a nossa
-          ética direcionando nossas ações.
-        </p>
-
-        <p>
-          Servindo como pilar para nosso comportamento íntegro nos negócios.
-        </p>
+        <p>Entre em contato conosco para mais informações.</p>
 
         <Button @click="showModal('contact-form-modal')" type="secondary"
           >SOLICITE UM ORÇAMENTO</Button

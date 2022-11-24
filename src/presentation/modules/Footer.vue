@@ -15,9 +15,7 @@
           </router-link>
 
           <p class="footer__description">
-            lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis
-            sem nibh elit. Duis sed odio sit amet auctror a ornare odio non
-            mauris vitae erat in elit
+            A melhor base para a qualidade é a <strong>experiência</strong>.
           </p>
 
           <nav class="footer__pages">

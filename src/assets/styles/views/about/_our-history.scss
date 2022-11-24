@@ -31,7 +31,7 @@
       z-index: 0;
 
       @media screen and (min-width: breakpoint("desktop")) {
-        top: calc(50% - 10px);
+        top: calc(50% - 45px);
         width: 100%;
         height: 2px;
       }
@@ -58,7 +58,7 @@
       
       @media screen and (min-width: breakpoint("desktop")) {
         position: absolute;
-        top: calc(50% - 8px);
+        top: calc(50% - 43px);
         left: auto;
         right: 0;
         transform: rotate(0deg) translateY(-50%);
@@ -103,7 +103,6 @@
         position: relative;
 
         width: 100%;
-        height: 100%;
 
         background-color: palette("grey");
         padding: 28px $lateral-margin;
@@ -145,8 +144,12 @@
         p {
           font-size: to-rem(14px);
           color: palette("white");
-          line-height: 1rem;
+          line-height: 120%;
           margin: 0;
+
+          strong {
+            font-weight: bold;
+          }
         }
       }
 
@@ -209,8 +212,10 @@
         @media screen and (min-width: breakpoint("desktop")) {
           margin-right: 0;
 
-          flex-direction: column-reverse;
           margin-left: 25%;
+
+          display: flex;
+          align-items: flex-start;
 
           .our-history__timeline__item__box {
             margin-bottom: 0;
