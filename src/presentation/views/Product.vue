@@ -36,6 +36,7 @@
                 fallback="No content"
               />
               <PrismicText
+              v-if="result.data.subtitle"
                 :field="result.data.subtitle"
                 wrapper="h4"
                 fallback="No content"
@@ -46,7 +47,7 @@
             <Button @click="showModal('contact-form-modal')"
               >FAZER ORÇAMENTO</Button
             >
-            <ButtonDownAnchor type="secondary-orange"
+            <ButtonDownAnchor v-if="result.data.details && result.data.details.length" type="secondary-orange"
               >VISUALIZAR MAIS DETALHES</ButtonDownAnchor
             >
           </div>
@@ -65,7 +66,7 @@
       </Modal>
     </section>
 
-    <section class="product-details__more-details">
+    <section v-if="result.data.details && result.data.details.length" class="product-details__more-details">
       <div class="container">
         <div class="dynamic-content">
           <PrismicRichText :field="result.data.details" />
@@ -106,6 +107,7 @@ export default {
         const response = await this.$prismic.client.getByUID("produto", uid);
 
         if (response) {
+          console.log(response)
           this.result = response;
           this.loading = false;
         }
