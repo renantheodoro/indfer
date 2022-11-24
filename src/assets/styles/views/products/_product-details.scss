@@ -96,12 +96,11 @@
       position: relative;
       
       margin: 0 auto;
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
       
       @media screen and (min-width: breakpoint("desktop")) {
         width: $mediaSize;
         height: $mediaSize;
-        margin-bottom: 0;
       }
 
       &::after {
