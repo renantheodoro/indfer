@@ -8,12 +8,12 @@
               TECNOLOGIA EM<br />
               FERRAMENTAS DIAMANTADAS
             </h1>
-
+<!-- 
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
               euismod bibendum laoreet. Proin gravida dolor sit amet lacus
               accumsan et viverra justo commodo.
-            </p>
+            </p> -->
 
             <Button :link="{ name: 'about' }" type="secondary"
               >SAIBA MAIS</Button
@@ -45,11 +45,11 @@
                 que garantem nossa
                 <strong class="text-orange">qualidade</strong>
               </h2>
-              <p>
+              <!-- <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 euismod bibendum laoreet. Proin gravida dolor sit amet lacus
                 accumsan et viverra justo commodo.
-              </p>
+              </p> -->
               <Button :link="{ name: 'about' }">CONHEÇA NOSSA HISTÓRIA</Button>
             </div>
           </div>
@@ -61,9 +61,9 @@
       <div class="center-statement">
         <h2 class="center-statement__title text-white">NOSSOS PRODUTOS</h2>
 
-        <p class="center-statement__text text-white">
+        <!-- <p class="center-statement__text text-white">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
+        </p> -->
       </div>
 
       <ul class="our-products__products_gallery">
@@ -93,7 +93,7 @@
             title="Nossos produtos - Ferramentas ouro"
             alt="Nossos produtos - Ferramentas ouro"
           />
-          <h4>FERRAMENTAS OURO</h4>
+          <h4>FERRAMENTAS PARA USINAGEM DE ALIANÇAS</h4>
           <Button link="produtos/#ferramentas-ouro">VER PRODUTOS</Button>
         </li>
       </ul>
@@ -122,7 +122,7 @@
       </div>
     </section>
 
-    <section class="testimonials">
+    <!-- <section class="testimonials">
       <div class="center-statement">
         <h2 class="center-statement__title text-blue">
           O QUE NOSSOS CLIENTES DIZEM
@@ -185,7 +185,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="catalog">
       <div class="parallax-container">
@@ -228,7 +228,7 @@ import M from "materialize-css";
 
 import Button from "@/presentation/components/Button.vue";
 import Counter from "@/presentation/components/Counter.vue";
-import Rating from "@/presentation/components/Rating.vue";
+// import Rating from "@/presentation/components/Rating.vue";
 import ContactSection from "@/presentation/modules/ContactSection.vue";
 
 export default {
@@ -241,7 +241,7 @@ export default {
   components: {
     Button,
     Counter,
-    Rating,
+    // Rating,
     ContactSection,
   },
 };

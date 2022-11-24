@@ -387,7 +387,7 @@ export default {
             email: this.form.email.value,
             find: this.form.find.value,
             message: this.form.message.value,
-            reply_to: "renan.b.theodoro@gmail.com",
+            reply_to: "vendas@indfer.com.br",
           },
           "RgBnMm36ZWKMyXS5b"
         );
