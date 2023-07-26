@@ -13,6 +13,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import M from "materialize-css";
 
@@ -52,7 +53,11 @@ export default {
 
   mounted() {
     const element = this.$refs.modal;
-    this.materializeInstance = M.Modal.init(element);
+    this.materializeInstance = M.Modal.init(element, {
+      onCloseStart: () => {
+        this.isOpened = false;
+      },
+    });
   },
 
   beforeUnmount() {

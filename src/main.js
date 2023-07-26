@@ -9,6 +9,9 @@ import prismic from "./services/prismic";
 
 // CSS Libs
 import "materialize-css/dist/css/materialize.min.css";
+import "./assets/styles/index.scss";
+
+import productNames from "@/product-names.js";
 
 // Icon libs
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -24,6 +27,7 @@ import {
   faGears,
   faXmark,
   faBars,
+  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -52,6 +56,7 @@ library.add(faXmark);
 library.add(faCircleCheck);
 library.add(faFaceSadTear);
 library.add(faBars);
+library.add(faDownload);
 
 // Route definition
 const router = new VueRouter.createRouter({
@@ -67,6 +72,7 @@ const router = new VueRouter.createRouter({
 // App config
 const app = createApp(App);
 
+app.config.globalProperties.$products = productNames;
 app.use(router);
 
 app.component("font-awesome-icon", FontAwesomeIcon);

@@ -1,56 +1,65 @@
 #app .our-values {
-    background-color: palette('grey');
+  background-color: palette("grey");
 
-    .our-values__media {
-        position: relative;
-        margin-bottom: 1rem;
-        
-        @media screen and (min-width: breakpoint("desktop")) {
-            margin-bottom: 0;
-        }
+  .our-values__media {
+    position: relative;
+    margin-bottom: 1rem;
 
-        &::after {
-            content: "";
-            display: block;
-
-            position: absolute;
-
-            top: 15px;
-            right: -35px;
-
-            width: to-rem(115px);
-            height: to-rem(25px);
-
-            background-color: palette('orange');
-        }
-    }
-    
-    .our-values__list {
-        .our-values__list__item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            margin-bottom: to-rem(22px);
-            
-            color: palette('white');
-
-            strong {
-                display: inline-block;
-                font-weight: bold;
-            }
-
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
+    @media screen and (min-width: breakpoint("desktop")) {
+      margin-bottom: 0;
     }
 
-    .button-down-anchor {
-        width: 100%;
+    &::after {
+      content: "";
+      display: block;
 
-        .button {
-            width: 100%;
-        }
+      position: absolute;
+
+      top: 15px;
+      right: -35px;
+
+      width: to-rem(115px);
+      height: to-rem(25px);
+
+      background-color: palette("orange");
     }
+
+    img {
+      width: 100%;
+      @media screen and (min-width: breakpoint("desktop")) {
+        height: 400px;
+
+        object-fit: cover;
+      }
+    }
+  }
+
+  .our-values__list {
+    .our-values__list__item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      margin-bottom: to-rem(22px);
+
+      color: palette("white");
+
+      strong {
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .button-down-anchor {
+    width: 100%;
+
+    .button {
+      width: 100%;
+    }
+  }
 }

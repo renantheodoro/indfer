@@ -14,10 +14,6 @@
             />
           </router-link>
 
-          <p class="footer__description">
-            A melhor base para a qualidade é a <strong>experiência</strong>.
-          </p>
-
           <nav class="footer__pages">
             <ul>
               <li>
@@ -103,10 +99,14 @@
       </div>
     </div>
 
+    <p class="footer__description">
+      A melhor base para a qualidade é a <strong>experiência</strong>.
+    </p>
+
     <div class="footer__bottom">
       <p>
         Copyright © 2022 • Developed by
-        <a href="https://renantheodoro.com/" target="_blank" class="text-orange"
+        <a href="https://renantheodoro.com.br/" target="_blank" class="text-orange"
           >Renan Theodoro</a
         >
       </p>

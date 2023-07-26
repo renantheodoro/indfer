@@ -9,7 +9,7 @@
     font-weight: bold;
     margin-bottom: to-rem(20px);
     display: block;
-    
+
     @media screen and (min-width: breakpoint("desktop")) {
       font-size: to-rem(60px);
       margin-bottom: to-rem(30px);
@@ -62,7 +62,7 @@
     font-size: 1rem;
     line-height: to-rem(24px);
     margin-bottom: 1rem;
-    
+
     @media screen and (min-width: breakpoint("desktop")) {
       margin-bottom: to-rem(30px);
     }
@@ -76,60 +76,58 @@
   .our-focus__media {
     $shapeSize: to-rem(20px);
     $shapeSizeDesktop: to-rem(30px);
-    
+
     margin-top: 1rem;
     position: relative;
-    
+
     padding: $shapeSize $shapeSize $shapeSize 0;
-    
+
+    width: 100%;
+
     @media screen and (min-width: breakpoint("desktop")) {
       margin-top: to-rem(90px);
       padding: $shapeSizeDesktop $shapeSizeDesktop $shapeSizeDesktop 0;
     }
 
-    &::before {
-        content: "";
+    .about-pattern-blue-orange-vertical {
+      content: "";
 
-        display: none;
+      display: none;
 
-        position: absolute;
+      position: absolute;
 
-        width: to-rem(87px);
-        height: to-rem(220px);
+      width: to-rem(87px);
+      height: to-rem(220px);
 
-        background-image: url('@/assets/images/svg/about-pattern-blue-orange-vertical.svg');
+      z-index: 2;
 
-        z-index: 2;
+      top: -67px;
+      left: 1rem;
 
-        top: -67px;
-        left: 1rem;
-
-        @media screen and (min-width: breakpoint("desktop")) {
-          display: block;
-        }
+      @media screen and (min-width: breakpoint("desktop")) {
+        display: block;
       }
+    }
 
-    &::after {
-        content: "";
+    .about-pattern-blue-orange-horizontal {
+      content: "";
 
-        display: none;
+      display: none;
 
-        position: absolute;
+      position: absolute;
 
-        width: to-rem(254px);
-        height: to-rem(200px);
+      width: to-rem(254px);
+      height: to-rem(200px);
 
-        background-image: url('@/assets/images/svg/about-pattern-blue-orange-horizontal.svg');
+      z-index: 2;
 
-        z-index: 2;
+      bottom: -66px;
+      right: 13px;
 
-        bottom: -66px;
-        right: 13px;
-
-        @media screen and (min-width: breakpoint("desktop")) {
-          display: block;
-        }
+      @media screen and (min-width: breakpoint("desktop")) {
+        display: block;
       }
+    }
 
     img {
       display: block;
@@ -141,9 +139,13 @@
       object-position: center top;
 
       min-height: 250px;
-      
+
       @media screen and (min-width: breakpoint("desktop")) {
-        min-height: auto;
+        width: 100%;
+        height: 530px;
+
+        object-fit: cover;
+        object-position: center -30px;
       }
     }
 
@@ -175,12 +177,12 @@
         width: 40%;
         height: 1rem;
         background-color: palette("white");
-        
+
         bottom: $shapeSize;
         left: 0;
-        
+
         z-index: 2;
-        
+
         @media screen and (min-width: breakpoint("desktop")) {
           width: to-rem(500px);
           height: to-rem(20px);
@@ -192,18 +194,18 @@
 
   .our-focus__misson-vision {
     margin-top: 2rem;
-    
+
     @media screen and (min-width: breakpoint("desktop")) {
       margin-top: to-rem(90px);
     }
 
     & > .content__row > div[class~="column--4"] {
       margin-bottom: 2rem;
-  
+
       &:last-of-type {
         margin-bottom: 0;
       }
-  
+
       @media screen and (min-width: breakpoint("desktop")) {
         margin-bottom: 0;
       }
@@ -245,7 +247,7 @@
         font-weight: bold;
         line-height: 100%;
         margin-bottom: 1rem;
-        
+
         @media screen and (min-width: breakpoint("desktop")) {
           font-size: to-rem(32px);
           margin-bottom: to-rem(32px);
@@ -259,16 +261,15 @@
       }
 
       &--mission {
-
         &::after {
-            background-color: palette('orange');
+          background-color: palette("orange");
         }
-    }
-    
-    &--vision {
-          &::after {
-              background-color: palette('blue');
-          }
+      }
+
+      &--vision {
+        &::after {
+          background-color: palette("blue");
+        }
       }
     }
   }

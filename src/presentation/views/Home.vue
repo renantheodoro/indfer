@@ -3,38 +3,38 @@
     <section class="banner">
       <div class="container">
         <div class="content__row">
-          <div class="column-desktop--8 column--4">
+          <div class="column-desktop--9 column--4">
             <h1>
               TECNOLOGIA EM<br />
               FERRAMENTAS DIAMANTADAS
             </h1>
-<!-- 
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-              accumsan et viverra justo commodo.
-            </p> -->
+              Soluções focadas em construção civil, metalurgia, marmoraria e
+              ferramentas ouro. <br />Clique e saiba mais!
+            </p>
 
             <Button :link="{ name: 'about' }" type="secondary"
               >SAIBA MAIS</Button
             >
+
           </div>
-          <div class="column-desktop--4 column--4"></div>
+          <div class="column-desktop--3 column--4"></div>
         </div>
       </div>
     </section>
 
     <section class="about">
       <div class="container">
-        <div class="content__row">
+        <div class="content__row flex-v-center">
           <div class="column-desktop--6 column--4">
-            <img
+            <!-- <img
               width="410"
               height="300"
               src="@/assets/images/webp/about-diamond.webp"
               title="INDFER - sobre a empresa"
               alt="Trabalhador dentro de uma máscara de diamante"
-            />
+            /> -->
+            <img src="@/assets/images/png/about-diamond_2.png" alt="" />
           </div>
           <div class="column-desktop--1 only-desktop"></div>
           <div class="column-desktop--5 column--4">
@@ -45,11 +45,6 @@
                 que garantem nossa
                 <strong class="text-orange">qualidade</strong>
               </h2>
-              <!-- <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-                accumsan et viverra justo commodo.
-              </p> -->
               <Button :link="{ name: 'about' }">CONHEÇA NOSSA HISTÓRIA</Button>
             </div>
           </div>
@@ -60,10 +55,6 @@
     <section class="our-products">
       <div class="center-statement">
         <h2 class="center-statement__title text-white">NOSSOS PRODUTOS</h2>
-
-        <!-- <p class="center-statement__text text-white">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p> -->
       </div>
 
       <ul class="our-products__products_gallery">
@@ -73,7 +64,7 @@
             title="Nossos produtos - Metalurgia"
             alt="Nossos produtos - metalurgia"
           />
-          <h4>METALURGIA</h4>
+          <h4>{{ $products.productNames.metallurgy }}</h4>
           <Button link="produtos/#metalugia">VER PRODUTOS</Button>
         </li>
 
@@ -83,7 +74,7 @@
             title="Nossos produtos - Construção Civil"
             alt="Nossos produtos - Construção Civil"
           />
-          <h4>CONSTRUÇÃO CIVIL</h4>
+          <h4>{{ $products.productNames.civilBuilding }}</h4>
           <Button link="produtos/#construcao-civil">VER PRODUTOS</Button>
         </li>
 
@@ -93,7 +84,7 @@
             title="Nossos produtos - Ferramentas ouro"
             alt="Nossos produtos - Ferramentas ouro"
           />
-          <h4>FERRAMENTAS PARA USINAGEM DE ALIANÇAS</h4>
+          <h4>{{ $products.productNames.goldTools }}</h4>
           <Button link="produtos/#ferramentas-ouro">VER PRODUTOS</Button>
         </li>
       </ul>
@@ -190,12 +181,13 @@
     <section class="catalog">
       <div class="parallax-container">
         <div class="parallax" ref="parallax">
+          <!-- src="@/assets/images/webp/catalog-bg.webp" -->
           <img
             width="1400"
             height="1080"
-            src="@/assets/images/webp/catalog-bg.webp"
             title="Fundo da seção catálogo - INDFER"
             alt="Fundo da seção catálogo - INDFER"
+            src="@/assets/images/jpg/catalog-bg.jpeg"
           />
 
           <div class="container">

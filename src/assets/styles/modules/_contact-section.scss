@@ -3,21 +3,20 @@
 
   position: relative;
 
-  &::before {
+  @media screen and (min-width: breakpoint("desktop")) {
+    padding-top: 160px;
+  }
+
+  .pattern {
     content: "";
     display: none;
 
     position: absolute;
+    top: 2rem;
     left: 40px;
-    top: 95px;
     z-index: 0;
 
     width: 200px;
-    height: 100px;
-
-    background-image: url("@/assets/images/svg/pattern-blue-horizontal.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
 
     @media screen and (min-width: breakpoint("desktop")) {
       display: block;
