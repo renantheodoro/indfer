@@ -2,11 +2,6 @@
   background-color: palette("white");
   padding: to-rem(20px);
   border-radius: 4px;
-  margin-top: 2rem;
-
-  @media screen and (min-width: breakpoint("desktop")) {
-    margin-top: 0;
-  }
 
   .contact-form__message {
     @keyframes showMessage {

@@ -134,7 +134,7 @@
       }
     }
 
-    &::after {
+    .about-pattern-blue-white-vertical {
       content: "";
 
       display: none;
@@ -148,8 +148,6 @@
       width: to-rem(246px);
       height: to-rem(324px);
 
-      background-image: url("@/assets/images/svg/about-pattern-blue-white-vertical.svg");
-
       @media screen and (min-width: breakpoint("desktop")) {
         display: block;
       }
@@ -157,6 +155,14 @@
 
     img {
       min-width: 50%;
+
+      @media screen and (min-width: breakpoint("desktop")) {
+        width: 100%;
+        max-width: 525px;
+        height: 505px;
+
+        object-fit: cover;
+      }
     }
   }
 }

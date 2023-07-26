@@ -17,7 +17,7 @@
     font-size: to-rem(24px);
     line-height: 120%;
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
 
     font-weight: bold;
     color: palette("white");
@@ -26,28 +26,15 @@
 
     @media screen and (min-width: breakpoint("desktop")) {
       font-size: to-rem(45px);
-      padding-bottom: to-rem(40px);
-      margin-bottom: to-rem(30px);
     }
 
-    &::after {
-      content: "";
-
-      display: block;
-
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: palette("white");
-      height: to-rem(3px);
-      width: to-rem(64px);
-    }
   }
 
   p {
     font-size: to-rem(16px);
     color: palette("white");
     font-weight: 100;
+    line-height: 160%;
 
     @media screen and (min-width: breakpoint("desktop")) {
       font-size: to-rem(18px);
@@ -57,9 +44,5 @@
   .button {
     min-width: to-rem(160px);
     margin-top: to-rem(24px);
-    
-    @media screen and (min-width: breakpoint("desktop")) {
-        margin-top: to-rem(40px);
-      }
   }
 }

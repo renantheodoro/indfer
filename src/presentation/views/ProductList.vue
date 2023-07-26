@@ -10,16 +10,13 @@
 
         <ul ref="tabs" class="products__header__tabs tabs">
           <li class="tab">
-            <a href="#metalurgia">METALURGIA</a>
-            <!-- <router-link to="#metalurgia">METALURGIA</router-link> -->
+            <a href="#metalurgia">{{$products.productNames.metallurgy}}</a>
           </li>
           <li class="tab">
-            <a href="#construcao-civil">CONSTRUÇÃO CIVIL</a>
-            <!-- <router-link to="#construcao-civil">CONSTRUÇÃO CIVIL</router-link> -->
+            <a href="#construcao-civil">{{$products.productNames.civilBuilding}}</a>
           </li>
           <li class="tab">
-            <a href="#ferramentas-ouro">FERRAMENTAS OURO</a>
-            <!-- <router-link to="#ferramentas-ouro">FERRAMENTAS OURO</router-link> -->
+            <a href="#ferramentas-ouro">{{$products.productNames.goldTools}}</a>
           </li>
         </ul>
       </div>
