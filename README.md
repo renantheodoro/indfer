@@ -1,24 +1,36 @@
-# indfer
+# INDFER - Ferramentas Diamantadas  
 
-## Project setup
-```
-npm install
-```
+**Tecnologia em ferramentas diamantadas para metalurgia, construção civil e usinagem de alianças.**  
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Sobre o Projeto  
+Este projeto foi desenvolvido utilizando **Vue.js**, integrado ao **Prismic CMS** e **GraphQL** para fornecer uma experiência moderna, dinâmica e otimizada para os usuários. O site apresenta os produtos da INDFER, sua história e permite o download de catálogos detalhados.  
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Fui responsável por todo o desenvolvimento do código e do layout.  
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Tecnologias Utilizadas  
+- Vue.js  
+- Prismic CMS  
+- GraphQL  
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Instalação e Execução  
+
+1. Clone este repositório:  
+   ```sh
+   git clone https://github.com/seu-usuario/indfer.git
+   cd indfer
+   ```  
+
+2. Instale as dependências:  
+   ```sh
+   npm install
+   ```  
+
+3. Execute o projeto localmente:  
+   ```sh
+   npm run serve
+   ```  
+
+O site estará disponível em https://indfer.com.br/.  
+
+## Autor  
+Desenvolvido por **Renan Theodoro**, responsável tanto pelo layout quanto pelo código.  
