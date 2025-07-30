@@ -42,29 +42,23 @@
     @media screen and (min-width: breakpoint("desktop")) {
       padding-top: to-rem(40px);
       padding-bottom: to-rem(90px);
-
     }
-    
   }
 }
 
 .product-cards {
   display: flex;
   flex-wrap: wrap;
-
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 1rem;
   
-  @media screen and (min-width: breakpoint("desktop")) {
-    justify-content: initial;
-  }
-
   .product-cards__item {
     $space-lateral: 1rem;
 
-    display: table-cell;
+    display: flex;
+    flex-direction: column;
 
     width: 100%;
-    max-width: 400px;
 
     box-sizing: border-box;
     
@@ -74,8 +68,7 @@
     margin-bottom: to-rem(20px);
     
     @media screen and (min-width: breakpoint("desktop")) {
-      width: calc(33.333% - #{$space-lateral});
-      margin-right: $space-lateral;
+      width: calc(33.333% - 1rem);
     }
 
     &:last-of-type {
@@ -120,7 +113,7 @@
       font-size: 1rem;
       color: palette("white");
       font-weight: bold;
-      line-height: 2rem;
+      line-height: 1.5rem;
     }
 
     p,
@@ -129,6 +122,10 @@
       color: palette("white");
       line-height: to-rem(20px);
       margin-bottom: to-rem(23px);
+    }
+
+    .button {
+      margin-top: auto;
     }
   }
 }
