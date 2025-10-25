@@ -106,7 +106,7 @@
     <div class="footer__bottom">
       <p>
         Copyright © 2022 • Developed by
-        <a href="https://renantheodoro.com/" target="_blank" class="text-orange"
+        <a href="https://renantheodoro.dev/" target="_blank" class="text-orange"
           >Renan Theodoro</a
         >
       </p>

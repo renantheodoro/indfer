@@ -11,12 +11,11 @@
                 NÃO DEIXE DE NOS CONTATAR</strong
               >
             </h2>
-            <!-- <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
-            </p> -->
+            <p>
+              Solicite um orçamento ou esclareça dúvidas — nossa equipe técnica
+              responde rapidamente e oferece soluções sob medida para sua
+              produção.
+            </p>
           </div>
         </div>
         <div class="column-desktop--1 only-desktop"></div>

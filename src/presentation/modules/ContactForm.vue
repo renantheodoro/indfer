@@ -79,7 +79,7 @@
           validateInputs();
         "
       />
-      <label :for="`${formId}-phone`">Telefone*</label>
+      <label :for="`${formId}-phone`">Telefone *</label>
       <span v-if="form.phone.isValid === false" class="helper-text">{{
         form.phone.errorMessage
       }}</span>
@@ -100,7 +100,7 @@
           validateInputs();
         "
       />
-      <label :for="`${formId}-email`">E-mail*</label>
+      <label :for="`${formId}-email`">E-mail *</label>
       <span v-if="form.email.isValid === false" class="helper-text">{{
         form.email.errorMessage
       }}</span>
@@ -139,7 +139,7 @@
         :ref="`${formId}-message`"
         v-model="form.message.value"
         class="materialize-textarea"
-        length="120"
+        length="60"
         :class="{
           success: form.message.isValid === true,
           error: form.message.isValid === false,

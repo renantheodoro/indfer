@@ -8,18 +8,19 @@
           <h2 class="center-statement__title text-white">NOSSOS PRODUTOS</h2>
         </div>
 
+        <div class="center-statement">
+          <p class="center-statement__text text-white">
+            Soluções diamantadas para metalurgia e usinagem de alianças —
+            desempenho, precisão e vida útil estendida.
+          </p>
+        </div>
+
         <ul ref="tabs" class="products__header__tabs tabs">
           <li class="tab">
             <a href="#metalurgia">METALURGIA</a>
-            <!-- <router-link to="#metalurgia">METALURGIA</router-link> -->
-          </li>
-          <li class="tab">
-            <a href="#construcao-civil">CONSTRUÇÃO CIVIL</a>
-            <!-- <router-link to="#construcao-civil">CONSTRUÇÃO CIVIL</router-link> -->
           </li>
           <li class="tab">
             <a href="#ferramentas-ouro">FERRAMENTAS OURO</a>
-            <!-- <router-link to="#ferramentas-ouro">FERRAMENTAS OURO</router-link> -->
           </li>
         </ul>
       </div>
@@ -55,7 +56,7 @@
                 <Button
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >ACESSAR</Button
+                  >VER DETALHES</Button
                 >
               </li>
             </template>
@@ -154,8 +155,9 @@ export default {
   methods: {
     initTabs() {
       setTimeout(() => {
-        this.materializeInstance = M.Tabs.init(this.$refs.tabs, 
-        // {swipeable: true}
+        this.materializeInstance = M.Tabs.init(
+          this.$refs.tabs
+          // {swipeable: true}
         );
         this.selectTab();
       }, 10);

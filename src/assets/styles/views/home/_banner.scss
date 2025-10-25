@@ -13,13 +13,18 @@
     padding-bottom: to-rem(140px);
   }
 
+  .diamond {
+    display: block;
+    width: 100px;
+    margin-bottom: 2rem;
+  }
+
   h1 {
     font-size: to-rem(24px);
     line-height: 120%;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
 
-    font-weight: bold;
     color: palette("white");
     display: block;
     position: relative;
@@ -28,6 +33,10 @@
       font-size: to-rem(45px);
       padding-bottom: to-rem(40px);
       margin-bottom: to-rem(30px);
+    }
+
+    strong {
+      font-weight: bold;
     }
 
     &::after {
@@ -47,19 +56,25 @@
   p {
     font-size: to-rem(16px);
     color: palette("white");
+    line-height: 120%;
     font-weight: 100;
 
+    strong {
+      color: palette("orange");
+      font-weight: bold;
+    }
+
     @media screen and (min-width: breakpoint("desktop")) {
-      font-size: to-rem(18px);
+      font-size: to-rem(22px);
     }
   }
 
   .button {
     min-width: to-rem(160px);
     margin-top: to-rem(24px);
-    
+
     @media screen and (min-width: breakpoint("desktop")) {
-        margin-top: to-rem(40px);
-      }
+      margin-top: to-rem(40px);
+    }
   }
 }

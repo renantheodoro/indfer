@@ -10,10 +10,8 @@
           >
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-          suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-          lacus vel facilisis.
+          Solicite um orçamento ou esclareça dúvidas — nossa equipe técnica
+          responde rapidamente e oferece soluções sob medida para sua produção.
         </p>
       </div>
 
@@ -27,9 +25,7 @@
                 <li><a href="tel:551123089270">(11) 2308-9270</a></li>
                 <li><a href="tel:551120836505">(11) 2083-6505</a></li>
                 <li>
-                  <a
-                    href="tel:5511985800731"
-                    class="icon-whatsapp"
+                  <a href="tel:5511985800731" class="icon-whatsapp"
                     >(11) 98580-0731
                     <font-awesome-icon icon="fa-brands fa-whatsapp" />
                   </a>

@@ -40,7 +40,7 @@
               <h4>METALURGIA</h4>
             </li>
 
-            <li class="catalog-page__gallery__item">
+            <li v-if="false" class="catalog-page__gallery__item">
               <img
                 src="@/assets/images/webp/our_products-civil_building.webp"
                 title="Nossos produtos - Construção Civil"

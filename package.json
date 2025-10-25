@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service build && firebase use indfer-822a1 && firebase deploy --only hosting"
+    "deploy": "vue-cli-service build && firebase use indfer-822a1 && firebase deploy --only hosting",
+    "deploy:staging": "vue-cli-service build --mode staging && firebase hosting:channel:deploy homolog --expires 30d"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -14,6 +15,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@prismicio/client": "^7.20.3",
     "@prismicio/vue": "^3.1.1",
     "core-js": "^3.8.3",
     "emailjs-com": "^3.2.0",

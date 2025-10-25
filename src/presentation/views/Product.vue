@@ -36,7 +36,7 @@
                 fallback="No content"
               />
               <PrismicText
-              v-if="result.data.subtitle"
+                v-if="result.data.subtitle"
                 :field="result.data.subtitle"
                 wrapper="h4"
                 fallback="No content"
@@ -47,7 +47,9 @@
             <Button @click="showModal('contact-form-modal')"
               >FAZER ORÇAMENTO</Button
             >
-            <ButtonDownAnchor v-if="result.data.details && result.data.details.length" type="secondary-orange"
+            <ButtonDownAnchor
+              v-if="result.data.details && result.data.details.length"
+              type="secondary-orange"
               >VISUALIZAR MAIS DETALHES</ButtonDownAnchor
             >
           </div>
@@ -58,7 +60,11 @@
         <PrismicImage v-if="result" :field="result.data.thumbnail" />
       </Modal>
 
-      <Modal :isContactForm="true" id="contact-form-modal" ref="contact-form-modal">
+      <Modal
+        :isContactForm="true"
+        id="contact-form-modal"
+        ref="contact-form-modal"
+      >
         <div class="category-block">
           <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
         </div>
@@ -66,13 +72,19 @@
       </Modal>
     </section>
 
-    <section v-if="result.data.details && result.data.details.length" class="product-details__more-details">
+    <section
+      v-if="result.data.details && result.data.details.length"
+      class="product-details__more-details"
+    >
       <div class="container">
         <div class="dynamic-content">
+          <h3>Detalhamento Técnico</h3>
           <PrismicRichText :field="result.data.details" />
         </div>
       </div>
     </section>
+
+    <CatalogSection></CatalogSection>
 
     <ContactSection></ContactSection>
   </div>
@@ -86,6 +98,7 @@ import NotFound from "@/presentation/views/NotFound.vue";
 import Preloader from "@/presentation/components/Preloader.vue";
 import Modal from "@/presentation/components/Modal.vue";
 import ContactForm from "@/presentation/modules/ContactForm.vue";
+import CatalogSection from "@/presentation/modules/CatalogSection.vue";
 
 export default {
   name: "app-product-detail",
@@ -107,7 +120,7 @@ export default {
         const response = await this.$prismic.client.getByUID("produto", uid);
 
         if (response) {
-          console.log(response)
+          console.log(response);
           this.result = response;
           this.loading = false;
         }
@@ -159,6 +172,7 @@ export default {
     Preloader,
     Modal,
     ContactForm,
+    CatalogSection,
   },
 };
 </script>

@@ -25,10 +25,10 @@
           </p>
           <p>
             Atuamos no ramo de ferramentas diamantadas para atender diversos
-            segmentos. Dentre eles, estão:
+            segmentos, como
             <strong
-              >construção civil, metalurgia, marmoraria, ferramentas para tornos
-              de alianças</strong
+              >metalurgia, marmoraria e ferramentas para tornos de
+              alianças</strong
             >, entre outros.
           </p>
           <p>

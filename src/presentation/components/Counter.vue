@@ -1,11 +1,10 @@
 <template>
   <h3>
-    +<span class="big">{{ mainNumber }}</span
-    >{{
-      decimalNumber != null && decimalNumber != "" ? "." + decimalNumber : ""
-    }}
+    +<span class="big">{{ formattedMain }}</span
+    ><span v-if="formattedDecimal">.{{ formattedDecimal }}</span>
   </h3>
 </template>
+
 <script>
 export default {
   name: "app-counter",
@@ -15,69 +14,84 @@ export default {
       type: Number,
       required: true,
     },
+    duration: {
+      type: Number,
+      default: 2000, // tempo total da animação (ms)
+    },
   },
 
   data() {
     return {
-      fullNumber: 0,
-      ourProductSectionTop: 0,
+      current: 0,
+      targetTop: 0,
+      started: false,
     };
   },
 
   computed: {
-    mainNumber() {
-      return this.splitNumber()[0];
+    formatted() {
+      // se já chegou no valor, formata para milhar/decimal
+      if (this.current >= 1000) {
+        // arredonda para milhar inteiro
+        const thousands = Math.floor(this.current / 1000);
+        const remainder = this.current % 1000;
+        return remainder > 0
+          ? `${thousands}.${String(remainder).padStart(3, "0")}`
+          : `${thousands} mil`;
+      }
+      return new Intl.NumberFormat("pt-BR").format(this.current);
     },
-    decimalNumber() {
-      return this.splitNumber()[1];
+
+    // separa a parte antes e depois do ponto
+    formattedMain() {
+      return this.formatted.split(".")[0];
+    },
+
+    formattedDecimal() {
+      return this.formatted.split(".")[1] || "";
     },
   },
 
   methods: {
     startCounter() {
-      let count = 0;
-      let duration = 2000;
+      if (this.started) return;
+      this.started = true;
 
-      let counterFunction = setInterval(() => {
-        if (this.number > 999) {
-          count = count + 100;
-        } else {
-          count++;
-        }
+      const start = performance.now();
 
-        if (count == this.number) {
-          clearInterval(counterFunction);
-          this.fullNumber = count;
+      const animate = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / this.duration, 1);
+        // interpolação suave
+        this.current = Math.floor(this.number * progress);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
         } else {
-          this.fullNumber = count;
+          this.current = this.number;
         }
-      }, duration / this.number);
+      };
+
+      requestAnimationFrame(animate);
     },
 
-    verifyScrollToStartCounter() {
-      const currentTop = document.documentElement.scrollTop;
-
-      if (currentTop >= this.ourProductSectionTop) {
+    handleScroll() {
+      const top = window.scrollY || document.documentElement.scrollTop;
+      if (top >= this.targetTop) {
         this.startCounter();
-        window.removeEventListener("scroll", this.verifyScrollToStartCounter);
+        window.removeEventListener("scroll", this.handleScroll);
       }
-    },
-
-    splitNumber() {
-      let formattedNumber = new Intl.NumberFormat().format(this.fullNumber);
-      formattedNumber = formattedNumber.toString();
-      return formattedNumber.split(".");
     },
   },
 
   mounted() {
-    const ourProductSection =
-      document.getElementsByClassName("our-products")[0];
-    this.ourProductSectionTop = ourProductSection.offsetTop;
+    const section = document.querySelector(".our-products");
+    if (section) this.targetTop = section.offsetTop;
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+  },
 
-    window.addEventListener("scroll", this.verifyScrollToStartCounter, {
-      passive: true,
-    });
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
