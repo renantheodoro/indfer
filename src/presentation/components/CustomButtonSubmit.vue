@@ -9,13 +9,13 @@
 </template>
 <script>
 export default {
-  name: "app-button-submit",
+  name: "AppCustomButtonSubmit",
 
   props: {
     isEnabled: {
-      type: Boolean, 
-      required: true
-    }
-  }
+      type: Boolean,
+      required: true,
+    },
+  },
 };
 </script>

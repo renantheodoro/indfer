@@ -1,54 +1,47 @@
+<script setup>
+import { computed } from "vue";
+import CustomButton from "@/presentation/components/CustomButton.vue";
+
+const props = defineProps({
+  type: { type: String, default: "primary" },
+  fullWidth: { type: Boolean, default: false },
+  link: { type: Object, default: null },
+});
+
+const buttonClassLogic = computed(() => ({
+  "button-down-anchor--full-width": props.fullWidth,
+}));
+
+function scroll(event) {
+  const section = event?.target?.closest?.("section");
+  if (!section) return;
+  const nextSection = section.nextElementSibling;
+  if (!nextSection) return;
+  const header = document.getElementsByTagName("header")[0];
+  const offset = header?.offsetHeight || 0;
+  window.scrollTo({
+    top: nextSection.offsetTop - offset,
+    behavior: "smooth",
+  });
+}
+</script>
+
+<script>
+export default {
+  name: "BackDownAnchor",
+};
+</script>
+
 <template>
   <div class="button-down-anchor" :class="buttonClassLogic">
-    <Button @click="scroll" :type="type" :fullWidth="fullWidth" :link="link">
-      <slot></slot>
-    </Button>
+    <CustomButton
+      @click="scroll"
+      :type="props.type"
+      :fullWidth="props.fullWidth"
+      :link="props.link"
+    >
+      <slot />
+    </CustomButton>
     <font-awesome-icon icon="fa-solid fa-angle-down" />
   </div>
 </template>
-<script>
-import Button from '@/presentation/components/Button.vue';
-export default {
-  name: "app-button-down-anchor",
-
-  props: {
-    type: {
-      type: String,
-      default: "primary",
-      required: false,
-    },
-    fullWidth: {
-      type: Boolean,
-      default: false,
-      required: false,
-    },
-    link: {
-      type: Object,
-      required: false,
-    },
-  },
-
-  data() {
-    return {
-      buttonClassLogic: {
-        "button-down-anchor--full-width": this.fullWidth,
-      },
-    };
-  },
-
-  methods: {
-    scroll(event) {
-      const nextSection = event.srcElement.closest('section').nextSibling;
-      const header = document.getElementsByTagName('header')[0];
-
-      window.scrollTo({
-        top: nextSection.offsetTop - header.offsetHeight
-      });
-    },
-  },
-
-  components: {
-    Button
-},
-};
-</script>

@@ -1,97 +1,87 @@
+<script setup>
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+
+const props = defineProps({
+  number: { type: Number, required: true },
+  duration: { type: Number, default: 2000 },
+});
+
+const current = ref(0);
+const targetTop = ref(0);
+const started = ref(false);
+let rafId = null;
+
+const formatted = computed(() => {
+  if (current.value >= 1000) {
+    const thousands = Math.floor(current.value / 1000);
+    const remainder = current.value % 1000;
+    return remainder > 0
+      ? `${thousands}.${String(remainder).padStart(3, "0")}`
+      : `${thousands} mil`;
+  }
+  return new Intl.NumberFormat("pt-BR").format(current.value);
+});
+
+const formattedMain = computed(() => formatted.value.split(".")[0]);
+const formattedDecimal = computed(() => formatted.value.split(".")[1] || "");
+
+function startCounter() {
+  if (started.value) return;
+  started.value = true;
+
+  const start = performance.now();
+
+  function animate(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / props.duration, 1);
+    current.value = Math.floor(props.number * progress);
+
+    if (progress < 1) {
+      rafId = requestAnimationFrame(animate);
+    } else {
+      current.value = props.number;
+      rafId = null;
+    }
+  }
+
+  rafId = requestAnimationFrame(animate);
+}
+
+function handleScroll() {
+  const top = window.scrollY || document.documentElement.scrollTop;
+  if (top >= targetTop.value) {
+    startCounter();
+    window.removeEventListener("scroll", handleScroll);
+  }
+}
+
+onMounted(() => {
+  const section = document.querySelector(".our-products");
+  if (section) targetTop.value = section.offsetTop;
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  const top = window.scrollY || document.documentElement.scrollTop;
+  if (top >= targetTop.value) {
+    startCounter();
+    window.removeEventListener("scroll", handleScroll);
+  }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+  if (rafId) cancelAnimationFrame(rafId);
+});
+</script>
+
+<script>
+export default {
+  name: "AppCounter",
+}
+</script>
+
 <template>
   <h3>
     +<span class="big">{{ formattedMain }}</span
     ><span v-if="formattedDecimal">.{{ formattedDecimal }}</span>
   </h3>
 </template>
-
-<script>
-export default {
-  name: "app-counter",
-
-  props: {
-    number: {
-      type: Number,
-      required: true,
-    },
-    duration: {
-      type: Number,
-      default: 2000, // tempo total da animação (ms)
-    },
-  },
-
-  data() {
-    return {
-      current: 0,
-      targetTop: 0,
-      started: false,
-    };
-  },
-
-  computed: {
-    formatted() {
-      // se já chegou no valor, formata para milhar/decimal
-      if (this.current >= 1000) {
-        // arredonda para milhar inteiro
-        const thousands = Math.floor(this.current / 1000);
-        const remainder = this.current % 1000;
-        return remainder > 0
-          ? `${thousands}.${String(remainder).padStart(3, "0")}`
-          : `${thousands} mil`;
-      }
-      return new Intl.NumberFormat("pt-BR").format(this.current);
-    },
-
-    // separa a parte antes e depois do ponto
-    formattedMain() {
-      return this.formatted.split(".")[0];
-    },
-
-    formattedDecimal() {
-      return this.formatted.split(".")[1] || "";
-    },
-  },
-
-  methods: {
-    startCounter() {
-      if (this.started) return;
-      this.started = true;
-
-      const start = performance.now();
-
-      const animate = (now) => {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / this.duration, 1);
-        // interpolação suave
-        this.current = Math.floor(this.number * progress);
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          this.current = this.number;
-        }
-      };
-
-      requestAnimationFrame(animate);
-    },
-
-    handleScroll() {
-      const top = window.scrollY || document.documentElement.scrollTop;
-      if (top >= this.targetTop) {
-        this.startCounter();
-        window.removeEventListener("scroll", this.handleScroll);
-      }
-    },
-  },
-
-  mounted() {
-    const section = document.querySelector(".our-products");
-    if (section) this.targetTop = section.offsetTop;
-    window.addEventListener("scroll", this.handleScroll, { passive: true });
-  },
-
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-};
-</script>

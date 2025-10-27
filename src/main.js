@@ -36,43 +36,40 @@ import {
   faFaceSadTear,
 } from "@fortawesome/free-regular-svg-icons";
 
-library.add(faStar);
-library.add(faPhone);
-library.add(faEnvelopeOpen);
-library.add(faLocationDot);
-library.add(faAngleDown);
-library.add(faAngleLeft);
-library.add(faMagnifyingGlass);
-library.add(faGears);
-library.add(faWhatsapp);
-library.add(faFacebookF);
-library.add(faInstagram);
-library.add(faLinkedinIn);
-library.add(faXmark);
-library.add(faCircleCheck);
-library.add(faFaceSadTear);
-library.add(faBars);
+const icons = [
+  faStar,
+  faPhone,
+  faEnvelopeOpen,
+  faLocationDot,
+  faAngleDown,
+  faAngleLeft,
+  faMagnifyingGlass,
+  faGears,
+  faWhatsapp,
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faXmark,
+  faCircleCheck,
+  faFaceSadTear,
+  faBars,
+];
+library.add(...icons);
 
-// Route definition
-const router = new VueRouter.createRouter({
-  linkActiveClass: "active",
+const router = VueRouter.createRouter({
   history: VueRouter.createWebHistory(),
   routes,
+  linkActiveClass: "active",
   scrollBehavior() {
-    // always scroll to top
     return { top: 0 };
   },
 });
 
-// App config
 const app = createApp(App);
 
 app.use(router);
-
+app.use(prismic);
 app.component("font-awesome-icon", FontAwesomeIcon);
 
-// Register prismic plugin
-app.use(prismic);
-
-// App mount
+// monta
 app.mount("#app");

@@ -1,11 +1,363 @@
+<script>
+export default {
+  name: "AppHome",
+};
+</script>
+
+<script setup>
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { defineOptions } from "vue";
+import M from "materialize-css";
+
+import CustomButton from "@/presentation/components/CustomButton.vue";
+import Counter from "@/presentation/components/Counter.vue";
+import Rating from "@/presentation/components/Rating.vue";
+import ContactSection from "@/presentation/modules/ContactSection.vue";
+import CatalogSection from "@/presentation/modules/CatalogSection.vue";
+
+/* ======= meta ======= */
+defineOptions({ name: "AppHome" });
+
+/* ======= state ======= */
+const elfsightContainer = ref(null);
+const yearsExperience = computed(() => new Date().getFullYear() - 1993);
+
+/* ======= Elfsight tools (refinado) ======= */
+const DEBUG = false;
+const selector = ".elfsight-app-f35d0164-0588-452d-8397-5813e046bb15";
+const textMatch = "Free Google Reviews widget";
+const intervalMs = 300;
+// dá um fôlego maior por conta do "data-elfsight-app-lazy"
+const maxTries = 600; // ~3min
+
+let containerEl = null;
+let intervalId = null;
+let tries = 0;
+let containerObserver = null;
+let documentObserver = null;
+
+const isQueryable = (n) =>
+  !!n &&
+  (n instanceof Element ||
+    n instanceof Document ||
+    n instanceof DocumentFragment);
+
+const log = (...a) => DEBUG && console.debug("[useElfsight]", ...a);
+
+function attachToElement(refEl) {
+  if (!refEl) return;
+  if (typeof refEl === "object" && "value" in refEl) {
+    containerEl = isQueryable(refEl.value) ? refEl.value : null;
+    return;
+  }
+  if (isQueryable(refEl)) {
+    containerEl = refEl;
+    return;
+  }
+  if (typeof refEl === "string") {
+    const el = document.querySelector(refEl);
+    containerEl = isQueryable(el) ? el : null;
+    return;
+  }
+  containerEl = null;
+}
+
+function getContainer() {
+  if (isQueryable(containerEl)) return containerEl;
+  const el = document.querySelector(selector);
+  return isQueryable(el) ? el : null;
+}
+
+function getAnchor(root = null) {
+  const parent = getContainer();
+  const scope = isQueryable(root) ? root : parent;
+  if (!isQueryable(scope)) return null;
+  const anchors = scope.querySelectorAll(
+    "a[href^='https://elfsight.com/google-reviews-widget']"
+  );
+  for (const a of anchors) {
+    if ((a.textContent || "").includes(textMatch)) return a;
+  }
+  return null;
+}
+
+function enforceHiddenStyles(anchor) {
+  if (!isQueryable(anchor)) return false;
+  if (anchor.__hiding) return true;
+
+  anchor.__hiding = true;
+  const setImp = (p, v) => anchor.style.setProperty(p, v, "important");
+
+  setImp("display", "none");
+  setImp("visibility", "hidden");
+  setImp("opacity", "0");
+  setImp("pointer-events", "none");
+  setImp("width", "0px");
+  setImp("height", "0px");
+  setImp("margin", "0");
+  setImp("padding", "0");
+  setImp("transform", "none");
+  setImp("line-height", "0");
+  setImp("font-size", "0");
+  setImp("z-index", "-1");
+  anchor.setAttribute("aria-hidden", "true");
+  anchor.tabIndex = -1;
+  anchor.dataset.elfsightHidden = "1";
+
+  anchor.__hiding = false;
+  log("hidden styles enforced");
+  return true;
+}
+
+function attachAnchorObserver(anchor) {
+  if (!isQueryable(anchor) || anchor.__elfsightObserver) return;
+  const obs = new MutationObserver((muts) => {
+    if (anchor.__hiding) return;
+    const styleChanged = muts.some(
+      (m) => m.type === "attributes" && m.attributeName === "style"
+    );
+    if (styleChanged) {
+      log("style changed -> re-enforce");
+      enforceHiddenStyles(anchor);
+    }
+  });
+  obs.observe(anchor, { attributes: true, attributeFilter: ["style"] });
+  anchor.__elfsightObserver = obs;
+  log("anchor observer attached");
+}
+
+function handleNodeForAnchor(node) {
+  // nó já é um <a> alvo?
+  if (
+    node.tagName === "A" &&
+    node.href?.startsWith("https://elfsight.com/google-reviews-widget")
+  ) {
+    enforceHiddenStyles(node);
+    attachAnchorObserver(node); // ⚠️ FALTAVA NO SEU CÓDIGO NOVO
+    return true;
+  }
+  // procurar dentro
+  const a = getAnchor(node);
+  if (a) {
+    enforceHiddenStyles(a);
+    attachAnchorObserver(a);
+    return true;
+  }
+  return false;
+}
+
+function attachContainerObserver() {
+  const parent = getContainer();
+  if (!isQueryable(parent) || parent.__elfsightContainerObs) return;
+
+  const containerObs = new MutationObserver((muts) => {
+    for (const m of muts) {
+      for (const node of m.addedNodes || []) {
+        if (!isQueryable(node)) continue;
+        if (handleNodeForAnchor(node)) log("anchor handled in container");
+      }
+    }
+  });
+
+  containerObs.observe(parent, { childList: true, subtree: true });
+  parent.__elfsightContainerObs = containerObs;
+  containerObserver = containerObs;
+
+  // primeira passada
+  const a = getAnchor(parent);
+  if (a) {
+    enforceHiddenStyles(a);
+    attachAnchorObserver(a);
+  }
+  log("container observer attached");
+}
+
+function attachDocumentFallbackObserver() {
+  if (documentObserver) return;
+  // Fallback caso o <a> apareça fora do container
+  const obs = new MutationObserver((muts) => {
+    for (const m of muts) {
+      for (const node of m.addedNodes || []) {
+        if (!isQueryable(node)) continue;
+        if (handleNodeForAnchor(node)) log("anchor handled in document");
+      }
+    }
+  });
+  obs.observe(document.body, { childList: true, subtree: true });
+  documentObserver = obs;
+  log("document observer attached (fallback)");
+}
+
+function hideOnceFound() {
+  // tenta no container primeiro
+  let a = getAnchor();
+  if (!a) {
+    // tenta global
+    const global = document.querySelectorAll(
+      "a[href^='https://elfsight.com/google-reviews-widget']"
+    );
+    a = Array.from(global).find((el) =>
+      (el.textContent || "").includes(textMatch)
+    );
+  }
+  if (!a) return false;
+
+  enforceHiddenStyles(a);
+  attachAnchorObserver(a);
+  attachContainerObserver(); // garante que acompanhe recriações
+  return true;
+}
+
+function tick() {
+  tries += 1;
+  if (hideOnceFound()) {
+    stopWatcher(); // achou uma vez, observers dão conta do resto
+    return;
+  }
+  if (tries >= maxTries) {
+    log("maxTries reached; relying on observers");
+    stopWatcher();
+  }
+}
+
+function startWatcher() {
+  if (intervalId) return;
+  if (hideOnceFound()) return;
+  tries = 0;
+  intervalId = setInterval(tick, intervalMs);
+  log("polling started");
+}
+
+function stopWatcher() {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+  tries = 0;
+  log("polling stopped");
+}
+
+function cleanupObservers() {
+  if (containerObserver) {
+    try {
+      containerObserver.disconnect();
+    } catch (e) {
+      console.warn("[useElfsight] containerObserver.disconnect error:", e);
+    }
+    containerObserver = null;
+  }
+  const parent = getContainer();
+  if (isQueryable(parent) && parent.__elfsightContainerObs) {
+    try {
+      parent.__elfsightContainerObs.disconnect();
+    } catch (e) {
+      console.warn("[useElfsight] parent.__elfsightContainerObs error:", e);
+    }
+    parent.__elfsightContainerObs = null;
+  }
+  if (documentObserver) {
+    try {
+      documentObserver.disconnect();
+    } catch (e) {
+      console.warn("[useElfsight] documentObserver.disconnect error:", e);
+    }
+    documentObserver = null;
+  }
+  // limpa observers dos anchors atuais
+  try {
+    const scope = getContainer() || document;
+    scope.querySelectorAll("a").forEach((a) => {
+      if (a.__elfsightObserver) {
+        try {
+          a.__elfsightObserver.disconnect();
+        } catch (e) {
+          console.warn("[useElfsight] anchor observer disconnect error:", e);
+        }
+        a.__elfsightObserver = null;
+      }
+    });
+  } catch (e) {
+    console.warn("[useElfsight] cleanup anchors error:", e);
+  }
+}
+
+function initWidgets() {
+  try {
+    window.elfsightWidgets?.init?.();
+    log("elfsight init called");
+  } catch (e) {
+    console.debug("[useElfsight] initWidgets error:", e);
+  }
+}
+
+function buildWidget() {
+  if (typeof window === "undefined") return;
+  const SRC = "https://elfsightcdn.com/platform.js";
+  const existing = document.querySelector(`script[src="${SRC}"]`);
+  if (!existing) {
+    const s = document.createElement("script");
+    s.src = SRC;
+    s.async = true;
+    s.addEventListener("load", initWidgets, { once: true });
+    document.body.appendChild(s);
+  } else {
+    initWidgets();
+  }
+}
+
+/* ======= lifecycle ======= */
+onMounted(async () => {
+  // garante que o ref do container esteja pronto
+  await nextTick();
+  attachToElement(elfsightContainer);
+
+  // Materialize Parallax (defensivo)
+  try {
+    if (M?.Parallax) {
+      const elems = document.querySelectorAll(".parallax");
+      if (elems.length) M.Parallax.init(elems);
+    }
+  } catch (e) {
+    console.warn("[home] Parallax init error:", e);
+  }
+
+  // monta widget e instala observadores
+  buildWidget();
+  attachContainerObserver();
+  attachDocumentFallbackObserver();
+  startWatcher(); // polling só pra descoberta inicial tardia
+});
+
+onBeforeUnmount(() => {
+  try {
+    if (M?.Parallax?.getInstance) {
+      document.querySelectorAll(".parallax").forEach((el) => {
+        const inst = M.Parallax.getInstance(el);
+        inst?.destroy?.();
+      });
+    }
+  } catch (e) {
+    console.warn("[home] Parallax destroy error:", e);
+  }
+  stopWatcher();
+  cleanupObservers();
+});
+</script>
+
 <template>
   <main class="home">
     <section class="banner">
       <div class="container">
         <div class="content__row">
           <div class="column-desktop--8 column--4">
-            
-            <img class="diamond" src="@/assets/images/png/white-diamond.png" alt="">
+            <img
+              class="diamond"
+              src="@/assets/images/png/white-diamond.png"
+              alt="Diamante branco - INDFER"
+              width="120"
+              height="120"
+              loading="lazy"
+            />
 
             <h1>
               TECNOLOGIA EM<br />
@@ -19,8 +371,8 @@
               <strong>mais eficiência e menor custo por peça.</strong>
             </p>
 
-            <Button :link="{ name: 'about' }" type="secondary"
-              >SAIBA MAIS</Button
+            <CustomButton :link="{ name: 'about' }" type="secondary"
+              >SAIBA MAIS</CustomButton
             >
           </div>
           <div class="column-desktop--4 column--4"></div>
@@ -49,7 +401,9 @@
                 que garantem nossa
                 <strong class="text-orange">qualidade</strong>
               </h2>
-              <Button :link="{ name: 'about' }">CONHEÇA NOSSA HISTÓRIA</Button>
+              <CustomButton :link="{ name: 'about' }"
+                >CONHEÇA NOSSA HISTÓRIA</CustomButton
+              >
             </div>
           </div>
         </div>
@@ -73,7 +427,7 @@
             alt="Nossos produtos - metalurgia"
           />
           <h4>METALURGIA</h4>
-          <Button link="produtos/#metalugia">VER PRODUTOS</Button>
+          <CustomButton link="produtos/#metalurgia">VER PRODUTOS</CustomButton>
         </li>
 
         <li v-if="false" class="our-products__products_gallery__item">
@@ -83,7 +437,9 @@
             alt="Nossos produtos - Construção Civil"
           />
           <h4>CONSTRUÇÃO CIVIL</h4>
-          <Button link="produtos/#construcao-civil">VER PRODUTOS</Button>
+          <CustomButton link="produtos/#construcao-civil"
+            >VER PRODUTOS</CustomButton
+          >
         </li>
 
         <li class="our-products__products_gallery__item">
@@ -93,12 +449,16 @@
             alt="Nossos produtos - Ferramentas ouro"
           />
           <h4>FERRAMENTAS PARA USINAGEM DE ALIANÇAS</h4>
-          <Button link="produtos/#ferramentas-ouro">VER PRODUTOS</Button>
+          <CustomButton link="produtos/#ferramentas-ouro"
+            >VER PRODUTOS</CustomButton
+          >
         </li>
       </ul>
 
       <div class="content__row justify-content--center">
-        <Button :link="{ name: 'products' }">VER TODOS OS PRODUTOS</Button>
+        <CustomButton :link="{ name: 'products' }"
+          >VER TODOS OS PRODUTOS</CustomButton
+        >
       </div>
     </section>
 
@@ -186,59 +546,11 @@
               </div>
             </div>
           </div>
-
-          <div class="column-desktop--4 column--4">
-            <div class="testimonials__item">
-              <div class="testimonials__item__box">
-                <p>
-                  Comprei a primeira vez e superou as expectativas, produtos de
-                  alta qualidade, profissionais bem qualificados, voltarei a
-                  comprar.
-                </p>
-                <Rating />
-              </div>
-              <div class="testimonials__item__client">
-                <h4>Sérgio Nenevê</h4>
-                <p>Oficina</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column-desktop--4 column--4">
-            <div class="testimonials__item">
-              <div class="testimonials__item__box">
-                <p>
-                  Sempre que preciso...eles me atenderam cerretamente....com os
-                  produtos e prazos..
-                </p>
-                <Rating />
-              </div>
-              <div class="testimonials__item__client">
-                <h4>Antônio Claudir Pereira de Oliveira</h4>
-                <p>Parceiro</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column-desktop--4 column--4">
-            <div class="testimonials__item">
-              <div class="testimonials__item__box">
-                <p>
-                  Produtos de qualidade, estão sempre prontos a modificação de
-                  alguma peça e entregam sempre antes do prazo!
-                </p>
-                <Rating />
-              </div>
-              <div class="testimonials__item__client">
-                <h4>Marcos Palma Pinheiro</h4>
-                <p>Cliente</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="content__row">
           <div
+            ref="elfsightContainer"
             class="elfsight-app-f35d0164-0588-452d-8397-5813e046bb15"
             data-elfsight-app-lazy
           ></div>
@@ -246,256 +558,7 @@
       </div>
     </section>
 
-    <CatalogSection></CatalogSection>
-
-    <ContactSection></ContactSection>
+    <CatalogSection />
+    <ContactSection />
   </main>
 </template>
-<script>
-import M from "materialize-css";
-
-import Button from "@/presentation/components/Button.vue";
-import Counter from "@/presentation/components/Counter.vue";
-import Rating from "@/presentation/components/Rating.vue";
-import ContactSection from "@/presentation/modules/ContactSection.vue";
-import CatalogSection from "@/presentation/modules/CatalogSection.vue";
-
-export default {
-  name: "app-home",
-
-  data() {
-    return {
-      elfsightSelector: ".elfsight-app-f35d0164-0588-452d-8397-5813e046bb15",
-      elfsightTextMatch: "Free Google Reviews widget",
-      elfsightIntervalId: null,
-      elfsightIntervalMs: 300,
-      elfsightMaxTries: 60,
-      elfsightTries: 0,
-    };
-  },
-
-  computed: {
-    yearsExperience() {
-      return new Date().getFullYear() - 1993;
-    },
-  },
-
-  methods: {
-    getElfsightParent() {
-      return document.querySelector(this.elfsightSelector);
-    },
-
-    getElfsightAnchor(root = null) {
-      const parent = this.getElfsightParent();
-      if (!parent) return null;
-      const scope = root instanceof Element ? root : parent;
-      const anchors = scope.querySelectorAll(
-        "a[href^='https://elfsight.com/google-reviews-widget']"
-      );
-      for (const a of anchors) {
-        if ((a.textContent || "").includes(this.elfsightTextMatch)) return a;
-      }
-      return null;
-    },
-
-    // aplica inline !important e só quando necessário
-    enforceHiddenStyles(anchor) {
-      if (!anchor) return false;
-
-      // evita reentrância do observer
-      if (anchor.__hiding) return true;
-      anchor.__hiding = true;
-
-      const setImp = (prop, value) =>
-        anchor.style.setProperty(prop, value, "important");
-
-      // cheque rápido para evitar writes desnecessários
-      const need =
-        anchor.style.display !== "none" ||
-        anchor.style.visibility !== "hidden" ||
-        anchor.style.opacity !== "0" ||
-        anchor.style.pointerEvents !== "none" ||
-        anchor.getAttribute("aria-hidden") !== "true" ||
-        anchor.tabIndex !== -1;
-
-      if (need) {
-        setImp("display", "none");
-        setImp("visibility", "hidden");
-        setImp("opacity", "0");
-        setImp("pointer-events", "none");
-        // a seguir ajudam a não “pular” na tela se o widget mover o nó
-        setImp("width", "0px");
-        setImp("height", "0px");
-        setImp("margin", "0");
-        setImp("padding", "0");
-        setImp("transform", "none");
-        setImp("line-height", "0");
-        setImp("font-size", "0");
-        setImp("z-index", "-1");
-
-        anchor.setAttribute("aria-hidden", "true");
-        anchor.tabIndex = -1;
-        anchor.dataset.elfsightHidden = "1";
-      }
-
-      anchor.__hiding = false;
-      return true;
-    },
-
-    attachAnchorObserver(anchor) {
-      if (!anchor || anchor.__elfsightObserver) return;
-
-      const obs = new MutationObserver((muts) => {
-        // se fomos nós que mexemos, ignorar
-        if (anchor.__hiding) return;
-
-        // só reagir quando style mudar de fato
-        const styleChanged = muts.some(
-          (m) => m.type === "attributes" && m.attributeName === "style"
-        );
-        if (styleChanged) {
-          this.enforceHiddenStyles(anchor);
-        }
-      });
-
-      // ⚠️ observe apenas style pra não criar loops por alterações internas
-      obs.observe(anchor, {
-        attributes: true,
-        attributeFilter: ["style"],
-      });
-
-      anchor.__elfsightObserver = obs;
-    },
-
-    // observa o CONTAINER para capturar recriações do <a>
-    attachContainerObserver() {
-      const parent = this.getElfsightParent();
-      if (!parent || parent.__elfsightContainerObs) return;
-
-      const containerObs = new MutationObserver((muts) => {
-        for (const m of muts) {
-          // novos nós?
-          for (const node of m.addedNodes || []) {
-            if (!(node instanceof Element)) continue;
-
-            if (
-              node.tagName === "A" &&
-              node.href?.startsWith(
-                "https://elfsight.com/google-reviews-widget"
-              )
-            ) {
-              // achou direto
-              this.enforceHiddenStyles(node);
-              this.attachAnchorObserver(node);
-            } else {
-              // ou procura dentro
-              const a = this.getElfsightAnchor(node);
-              if (a) {
-                this.enforceHiddenStyles(a);
-                this.attachAnchorObserver(a);
-              }
-            }
-          }
-        }
-      });
-
-      containerObs.observe(parent, {
-        childList: true,
-        subtree: true,
-      });
-
-      parent.__elfsightContainerObs = containerObs;
-
-      // primeira passada
-      const a = this.getElfsightAnchor(parent);
-      if (a) {
-        this.enforceHiddenStyles(a);
-        this.attachAnchorObserver(a);
-      }
-    },
-
-    hideElfsightAnchorOnceFound() {
-      const anchor = this.getElfsightAnchor();
-      if (!anchor) return false;
-
-      this.enforceHiddenStyles(anchor);
-      this.attachAnchorObserver(anchor);
-
-      // *** em vez de parar aqui, já conecta o observer do container
-      this.attachContainerObserver();
-      this.stopElfsightAnchorWatcher();
-      return true;
-    },
-
-    tickElfsightAnchorWatcher() {
-      this.elfsightTries += 1;
-      const ok = this.hideElfsightAnchorOnceFound();
-      if (ok) return;
-
-      if (this.elfsightTries >= this.elfsightMaxTries) {
-        this.stopElfsightAnchorWatcher();
-      }
-    },
-
-    startElfsightAnchorWatcher() {
-      if (this.elfsightIntervalId) return;
-
-      if (this.hideElfsightAnchorOnceFound()) return;
-
-      this.elfsightTries = 0;
-      this.elfsightIntervalId = setInterval(
-        this.tickElfsightAnchorWatcher,
-        this.elfsightIntervalMs
-      );
-    },
-
-    stopElfsightAnchorWatcher() {
-      if (this.elfsightIntervalId) {
-        clearInterval(this.elfsightIntervalId);
-        this.elfsightIntervalId = null;
-      }
-    },
-
-    initElfsightWidgets() {
-      if (window.elfsightWidgets?.init) window.elfsightWidgets.init();
-    },
-
-    buildGoogleReviewsWidget() {
-      if (typeof window === "undefined") return;
-
-      const SRC = "https://elfsightcdn.com/platform.js";
-      const existing = document.querySelector(`script[src="${SRC}"]`);
-
-      if (!existing) {
-        const s = document.createElement("script");
-        s.src = SRC;
-        s.async = true;
-        s.onload = this.initElfsightWidgets;
-        document.body.appendChild(s);
-      } else {
-        this.initElfsightWidgets();
-      }
-
-      // inicia a descoberta do anchor
-      this.startElfsightAnchorWatcher();
-    },
-  },
-
-  mounted() {
-    M.Parallax.init(this.$refs.parallax);
-    this.buildGoogleReviewsWidget();
-  },
-
-  unmounted() {
-    this.stopElfsightAnchorWatcher();
-  },
-
-  components: {
-    Button,
-    Counter,
-    Rating,
-    ContactSection,
-    CatalogSection,
-  },
-};
-</script>

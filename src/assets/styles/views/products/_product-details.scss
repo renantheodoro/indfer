@@ -232,6 +232,11 @@
 
 .product-details__more-details {
   padding-top: 0 !important;
+
+  .back-button {
+    padding-top: 2rem;
+    margin-bottom: 0;
+  }
 }
 
 #app .dynamic-content {

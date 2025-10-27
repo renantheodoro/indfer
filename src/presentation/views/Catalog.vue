@@ -1,3 +1,13 @@
+<script setup>
+import CustomButton from "@/presentation/components/CustomButton.vue";
+</script>
+
+<script>
+export default {
+  name: "app-catalog",
+};
+</script>
+
 <template>
   <section class="catalog-page">
     <div class="container">
@@ -59,23 +69,14 @@
             </li>
           </ul>
 
-          <Button
+          <CustomButton
             externalPath="https://firebasestorage.googleapis.com/v0/b/indfer-822a1.appspot.com/o/catalogo_2014.pdf?alt=media&token=69c3271c-eb2b-428d-ac8f-a6c892df0cab"
             :fullWidth="true"
             type="primary-blue"
-            >BAIXAR CATÁLOGO</Button
+            >BAIXAR CATÁLOGO</CustomButton
           >
         </div>
       </div>
     </div>
   </section>
 </template>
-<script>
-import Button from "@/presentation/components/Button.vue";
-
-export default {
-  name: "app-catalog",
-  components: { Button },
-};
-</script>
-<style lang=""></style>

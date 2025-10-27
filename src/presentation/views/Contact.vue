@@ -1,3 +1,13 @@
+<script setup>
+import ContactForm from "@/presentation/modules/ContactForm.vue";
+</script>
+
+<script>
+export default {
+  name: "ContactView",
+};
+</script>
+
 <template>
   <section class="contact-page">
     <div class="container">
@@ -69,20 +79,9 @@
         </div>
         <div class="column-desktop--1 only-desktop"></div>
         <div class="column-desktop--5 column--4">
-          <ContactForm formId="contact-page-form"></ContactForm>
+          <ContactForm formId="contact-page-form" />
         </div>
       </div>
     </div>
   </section>
 </template>
-<script>
-import ContactForm from "@/presentation/modules/ContactForm.vue";
-
-export default {
-  name: "app-contact",
-
-  components: {
-    ContactForm,
-  },
-};
-</script>

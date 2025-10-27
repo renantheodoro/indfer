@@ -1,3 +1,52 @@
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import ContactSection from "@/presentation/modules/ContactSection.vue";
+import BackDownAnchor from "@/presentation/components/BackDownAnchor.vue";
+import CustomButton from "@/presentation/components/CustomButton.vue";
+import Modal from "@/presentation/components/Modal.vue";
+import ContactForm from "@/presentation/modules/ContactForm.vue";
+
+const contactFormModal = ref(null);
+const ourValuesSectionTop = ref(0);
+
+function verifyScrollToStartCounter() {
+  const currentTop = window.scrollY || document.documentElement.scrollTop;
+  if (currentTop >= ourValuesSectionTop.value) {
+    const el = document.getElementsByClassName("our-history__timeline")[0];
+    if (el) el.classList.add("animate");
+    window.removeEventListener("scroll", verifyScrollToStartCounter);
+  }
+}
+
+function showModal(refName) {
+  const map = { contactFormModal };
+  const r = map[refName];
+  if (r && r.value && typeof r.value.showModal === "function") {
+    r.value.showModal(refName);
+  }
+}
+
+onMounted(() => {
+  const ourValuesSection = document.getElementsByClassName("our-values")[0];
+  if (ourValuesSection) {
+    ourValuesSectionTop.value = ourValuesSection.offsetTop;
+    window.addEventListener("scroll", verifyScrollToStartCounter, {
+      passive: true,
+    });
+  }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", verifyScrollToStartCounter);
+});
+</script>
+
+<script>
+export default {
+  name: "AboutView",
+};
+</script>
+
 <template>
   <section class="our-focus">
     <div class="container">
@@ -10,7 +59,7 @@
 
           <div class="category-block">
             <h2 class="category-calling text-blue">
-              <strong>INOVAÇÃO & RENOVAÇÃO</strong><br />
+              <strong>INOVAÇÃO &amp; RENOVAÇÃO</strong><br />
               que garantem <br />
               nossa
               <strong class="text-orange">qualidade</strong>
@@ -144,10 +193,10 @@
             </li>
           </ul>
 
-          <ButtonDownAnchor type="secondary-orange">
+          <BackDownAnchor type="secondary-orange">
             CONHEÇA NOSSA HISTÓRIA
             <template v-slot:icon> </template>
-          </ButtonDownAnchor>
+          </BackDownAnchor>
         </div>
       </div>
     </div>
@@ -271,8 +320,8 @@
 
         <p>Entre em contato conosco para mais informações.</p>
 
-        <Button @click="showModal('contact-form-modal')" type="secondary"
-          >SOLICITE UM ORÇAMENTO</Button
+        <CustomButton @click="showModal('contactFormModal')" type="secondary"
+          >SOLICITE UM ORÇAMENTO</CustomButton
         >
       </div>
 
@@ -285,11 +334,7 @@
       </div>
     </div>
 
-    <Modal
-      :isContactForm="true"
-      id="contact-form-modal"
-      ref="contact-form-modal"
-    >
+    <Modal :isContactForm="true" id="contact-form-modal" ref="contactFormModal">
       <div class="category-block">
         <h3 class="category-title">SOLICITE UM ORÇAMENTO</h3>
       </div>
@@ -297,58 +342,5 @@
     </Modal>
   </section>
 
-  <ContactSection></ContactSection>
+  <ContactSection />
 </template>
-<script>
-import ContactSection from "@/presentation/modules/ContactSection.vue";
-import ButtonDownAnchor from "@/presentation/components/BackDownAnchor.vue";
-import Button from "@/presentation/components/Button.vue";
-import Modal from "@/presentation/components/Modal.vue";
-import ContactForm from "@/presentation/modules/ContactForm.vue";
-
-export default {
-  name: "app-about",
-
-  data() {
-    return { ourValuesSectionTop: null };
-  },
-
-  methods: {
-    verifyScrollToStartCounter() {
-      const currentTop = document.documentElement.scrollTop;
-
-      if (currentTop >= this.ourValuesSectionTop) {
-        document
-          .getElementsByClassName("our-history__timeline")[0]
-          .classList.add("animate");
-        window.removeEventListener("scroll", this.verifyScrollToStartCounter);
-      }
-    },
-
-    showModal(ref) {
-      this.$refs[ref].showModal(ref);
-    },
-  },
-
-  mounted() {
-    const ourValuesSection = document.getElementsByClassName("our-values")[0];
-    this.ourValuesSectionTop = ourValuesSection.offsetTop;
-
-    window.addEventListener("scroll", this.verifyScrollToStartCounter, {
-      passive: true,
-    });
-  },
-
-  unmounted() {
-    window.removeEventListener("scroll", this.verifyScrollToStartCounter);
-  },
-
-  components: {
-    ButtonDownAnchor,
-    ContactSection,
-    Button,
-    Modal,
-    ContactForm,
-  },
-};
-</script>

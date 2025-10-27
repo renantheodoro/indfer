@@ -1,3 +1,81 @@
+<script setup>
+import { ref, onMounted, watch, getCurrentInstance } from "vue";
+import { useRouter } from "vue-router";
+import M from "materialize-css";
+
+import CustomButton from "@/presentation/components/CustomButton.vue";
+import BackButton from "@/presentation/components/BackButton.vue";
+import ContactSection from "@/presentation/modules/ContactSection.vue";
+import Preloader from "@/presentation/components/Preloader.vue";
+
+const results = ref([]);
+const loading = ref(true);
+const tabsRef = ref(null);
+let materializeInstance = null;
+
+const router = useRouter();
+const { proxy } = getCurrentInstance();
+const prismic = proxy?.$prismic;
+
+function initTabs() {
+  setTimeout(() => {
+    if (!tabsRef.value) return;
+    materializeInstance = M.Tabs.init(tabsRef.value);
+    selectTab();
+  }, 10);
+}
+
+function selectTab() {
+  const fullPath = router.currentRoute.value.fullPath.split("/");
+  const route = fullPath[fullPath.length - 1].replace("#", "");
+  if (materializeInstance && route) {
+    materializeInstance.select(route);
+  }
+}
+
+async function getAllProducts() {
+  try {
+    const response = await prismic.client.getByType("produto");
+    if (response) {
+      results.value = response.results || [];
+    }
+  } catch (e) {
+    // ignore fetch errors, keep loading -> false
+  } finally {
+    loading.value = false;
+    initTabs();
+  }
+}
+
+function goRoute(category, product) {
+  return `/produtos/${category}/${product}`;
+}
+
+onMounted(() => {
+  getAllProducts();
+});
+
+watch(
+  () => router.currentRoute.value.fullPath,
+  () => {
+    if (materializeInstance) {
+      try {
+        materializeInstance.updateTabIndicator();
+      } catch (e) {
+        /* ignore */
+      }
+      selectTab();
+    }
+  }
+);
+</script>
+
+<script>
+export default {
+  name: "ProductsView",
+};
+</script>
+
 <template>
   <Preloader v-if="loading" />
 
@@ -15,7 +93,7 @@
           </p>
         </div>
 
-        <ul ref="tabs" class="products__header__tabs tabs">
+        <ul ref="tabsRef" class="products__header__tabs tabs">
           <li class="tab">
             <a href="#metalurgia">METALURGIA</a>
           </li>
@@ -53,10 +131,10 @@
                   fallback="No content"
                 />
 
-                <Button
+                <CustomButton
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >VER DETALHES</Button
+                  >VER DETALHES</CustomButton
                 >
               </li>
             </template>
@@ -86,10 +164,10 @@
                   fallback="No content"
                 />
 
-                <Button
+                <CustomButton
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >ACESSAR</Button
+                  >ACESSAR</CustomButton
                 >
               </li>
             </template>
@@ -119,10 +197,10 @@
                   fallback="No content"
                 />
 
-                <Button
+                <CustomButton
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >ACESSAR</Button
+                  >ACESSAR</CustomButton
                 >
               </li>
             </template>
@@ -132,73 +210,5 @@
     </div>
   </section>
 
-  <ContactSection></ContactSection>
+  <ContactSection />
 </template>
-<script>
-import M from "materialize-css";
-import Button from "@/presentation/components/Button.vue";
-import BackButton from "@/presentation/components/BackButton.vue";
-import ContactSection from "@/presentation/modules/ContactSection.vue";
-import Preloader from "@/presentation/components/Preloader.vue";
-
-export default {
-  name: "app-products",
-
-  data() {
-    return {
-      results: [],
-      loading: true,
-      materializeInstance: null,
-    };
-  },
-
-  methods: {
-    initTabs() {
-      setTimeout(() => {
-        this.materializeInstance = M.Tabs.init(
-          this.$refs.tabs
-          // {swipeable: true}
-        );
-        this.selectTab();
-      }, 10);
-    },
-
-    selectTab() {
-      const fullPath = this.$router.currentRoute.value.fullPath.split("/");
-      const route = fullPath[fullPath.length - 1].replace("#", "");
-
-      if (this.materializeInstance) {
-        this.materializeInstance.select(route);
-      }
-    },
-
-    async getAllProducts() {
-      const response = await this.$prismic.client.getByType("produto");
-      if (response) {
-        this.results = response.results;
-        this.loading = false;
-        this.initTabs();
-      }
-    },
-
-    goRoute(category, product) {
-      return `/produtos/${category}/${product}`;
-    },
-  },
-
-  created() {
-    this.getAllProducts();
-  },
-
-  watch: {
-    $route() {
-      if (this.materializeInstance) {
-        this.materializeInstance.updateTabIndicator();
-        this.selectTab();
-      }
-    },
-  },
-
-  components: { Button, BackButton, ContactSection, Preloader },
-};
-</script>

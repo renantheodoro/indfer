@@ -1,7 +1,37 @@
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import M from "materialize-css";
+import CustomButton from "@/presentation/components/CustomButton.vue";
+
+const parallaxRef = ref(null);
+let parallaxInstance = null;
+
+onMounted(() => {
+  if (parallaxRef.value) {
+    parallaxInstance = M.Parallax.init(parallaxRef.value);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (parallaxInstance && typeof parallaxInstance.destroy === "function") {
+    parallaxInstance.destroy();
+  } else if (parallaxRef.value) {
+    const inst = M.Parallax.getInstance(parallaxRef.value);
+    if (inst && typeof inst.destroy === "function") inst.destroy();
+  }
+});
+</script>
+
+<script>
+export default {
+  name: "CatalogSection",
+};
+</script>
+
 <template>
   <section class="catalog">
     <div class="parallax-container">
-      <div class="parallax" ref="parallax">
+      <div class="parallax" ref="parallaxRef">
         <img
           width="1400"
           height="1080"
@@ -22,8 +52,8 @@
             </p>
 
             <div class="content__row justify-content--center">
-              <Button :link="{ name: 'catalog' }" type="secondary"
-                >ACESSAR CATÁLOGO</Button
+              <CustomButton :link="{ name: 'catalog' }" type="secondary"
+                >ACESSAR CATÁLOGO</CustomButton
               >
             </div>
           </div>
@@ -32,19 +62,3 @@
     </div>
   </section>
 </template>
-<script>
-import M from "materialize-css";
-import Button from "@/presentation/components/Button.vue";
-
-export default {
-  name: "app-catalog-section",
-
-  mounted() {
-    M.Parallax.init(this.$refs.parallax);
-  },
-
-  components: {
-    Button,
-  },
-};
-</script>
