@@ -1,5 +1,7 @@
 <script setup>
 import CustomButton from "@/presentation/components/CustomButton.vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
+usePageMeta({ title: '404 - Página não encontrada | INDFER - Ferramentas diamantadas', description: 'Conteúdo não encontrado' });
 </script>
 
 <script>

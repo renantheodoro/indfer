@@ -5,8 +5,9 @@ export default {
 </script>
 
 <script setup>
-import { ref, onMounted, getCurrentInstance } from "vue";
+import { ref, onMounted, getCurrentInstance, computed, onServerPrefetch } from "vue";
 import { useRoute } from "vue-router";
+import usePageMeta from "@/presentation/composables/usePageMeta";
 
 import BackButton from "@/presentation/components/BackButton.vue";
 import CustomButton from "@/presentation/components/CustomButton.vue";
@@ -37,15 +38,59 @@ const productImageDetail = ref(null);
 const contactForm = ref(null);
 
 const route = useRoute();
-const { proxy } = getCurrentInstance();
+const _vm = getCurrentInstance();
+const proxy = _vm ? _vm.proxy : null;
 const prismic = proxy?.$prismic;
 
-async function getProductData(uid) {
+// usePrismic provides a per-request client in SSR and a default client in CSR
+import { usePrismic } from "@/presentation/composables/usePrismic";
+const { client: ssrPrismicClient } = usePrismic();
+// fallback: directly create a Prismic client in SSR to avoid inject timing issues
+import { createPrismicClient } from "@/services/prismic-client";
+import { setSsrState } from "@/presentation/composables/useSsrState";
+
+// derive category name synchronously from the route path so it's available in SSR
+const pathForCategory = route.path || "";
+if (pathForCategory.includes("metalurgia")) {
+  category.value = "metallurgy";
+  categoryName.value = "Metalurgia";
+} else if (pathForCategory.includes("construcao-civil")) {
+  category.value = "civil-building";
+  categoryName.value = "Construção Civil";
+} else if (pathForCategory.includes("ferramentas-ouro")) {
+  category.value = "gold-tools";
+  categoryName.value = "Ferramentas ouro";
+}
+
+// helper to extract plain text from Prismic RichText fields
+function plainTextFromRichText(rt) {
+  if (!rt) return "";
+  if (Array.isArray(rt)) return rt.map((r) => r.text || "").join(" ").trim();
+  if (typeof rt === "string") return rt;
+  return "";
+}
+
+const titleComputed = computed(() => {
+  const prod = plainTextFromRichText(result.value?.data?.title) || "Produto";
+  const prefix = categoryName.value ? `${categoryName.value}: ` : "";
+  return `${prefix}${prod} | INDFER - Ferramentas diamantadas`;
+});
+
+const descComputed = computed(() => {
+  return plainTextFromRichText(result.value?.data?.subtitle) || "Detalhes do produto INDFER";
+});
+
+usePageMeta({ title: titleComputed, description: descComputed });
+
+async function getProductData(uid, clientParam = null) {
   loading.value = true;
   notFound.value = false;
 
   try {
-    const response = await prismic.client.getByUID("produto", uid);
+    // prefer explicit client (SSR) -> clientParam, then plugin proxy client (CSR)
+    const clientToUse = clientParam || prismic?.client || proxy?.$prismic?.client;
+    if (!clientToUse) throw new Error("Prismic client not available");
+    const response = await clientToUse.getByUID("produto", uid);
     if (response) {
       result.value = response;
       loading.value = false;
@@ -62,6 +107,38 @@ async function getProductData(uid) {
   }
 }
 
+// SSR prefetch: attempt to fetch product data on server so title and meta are rendered
+onServerPrefetch(async () => {
+  try {
+    const uid = route.params.id;
+    if (!uid) {
+      notFound.value = true;
+      loading.value = false;
+      return;
+    }
+    // prefer ssrPrismicClient injected by usePrismic(); fall back to creating a client directly
+    const clientToUse = ssrPrismicClient || createPrismicClient();
+  if (clientToUse) {
+      try {
+        const response = await getProductData(uid, clientToUse);
+        // Note: getProductData sets result.value
+        // serialize product into app-level ssrState so entry-server can use it to build head if necessary
+        setSsrState('product', result.value);
+        // NOTE: do NOT call useHead/usePageMeta here — calling useHead outside setup triggers
+        // the Vue inject() warning because hooks must run during setup. We already registered
+        // usePageMeta({ title: titleComputed, description: descComputed }) in setup above
+        // so updating `result.value` will update the reactive title/description and Unhead
+        // will pick them up during render.
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error('[Product][onServerPrefetch] getProductData error:', e);
+      }
+    }
+  } catch (e) {
+    // ignore server-side errors and let client handle fallback
+  }
+});
+
 function showModal(refName) {
   // map string keys to template refs
   const map = {
@@ -76,35 +153,14 @@ function showModal(refName) {
 
 onMounted(() => {
   const uid = route.params.id;
-  const path = route.path || "";
 
   if (!uid) {
     notFound.value = true;
     loading.value = false;
     return;
   }
-
+  // client-side fetch (onMounted) if SSR didn't populate the result
   getProductData(uid);
-
-  if (path.includes("metalurgia")) {
-    category.value = "metallurgy";
-    categoryName.value = "Metalurgia";
-    return;
-  }
-
-  if (path.includes("construcao-civil")) {
-    category.value = "civil-building";
-    categoryName.value = "Construção Civil";
-    return;
-  }
-
-  if (path.includes("ferramentas-ouro")) {
-    category.value = "gold-tools";
-    categoryName.value = "Ferramentas ouro";
-    return;
-  }
-
-  notFound.value = true;
 });
 </script>
 

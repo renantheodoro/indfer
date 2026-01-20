@@ -1,0 +1,1 @@
+import{E as a,G as c,H as e}from"./index-ltoyH2x5.js";function b({title:n,description:d,image:s,url:u,type:t="website"}={}){a({title:n,description:d,image:s,url:u,type:t}),c(()=>{const i=e(n)||void 0,o=e(d)||void 0,f=e(s)||void 0,r=e(u)||void 0;return a({title:i,description:o,image:f,url:r,type:t})})}export{b as u};

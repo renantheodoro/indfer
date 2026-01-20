@@ -1,61 +1,42 @@
-import Home from "@/presentation/views/Home.vue";
-import About from "@/presentation/views/About.vue";
-import Products from "@/presentation/views/ProductList.vue";
-import ProductDetails from "@/presentation/views/Product.vue";
-import Catalog from "@/presentation/views/Catalog.vue";
-import Contact from "@/presentation/views/Contact.vue";
-import NotFound from "@/presentation/views/NotFound.vue";
+// route-level code splitting (lazy)
+const Home = () => import("@/presentation/views/Home.vue");
+const About = () => import("@/presentation/views/About.vue");
+const Products = () => import("@/presentation/views/ProductList.vue");
+const ProductDetails = () => import("@/presentation/views/Product.vue");
+const Catalog = () => import("@/presentation/views/Catalog.vue");
+const Contact = () => import("@/presentation/views/Contact.vue");
+const NotFound = () => import("@/presentation/views/NotFound.vue");
 
 export default [
+  { path: "/", name: "home", component: Home },
+  { path: "/sobre", name: "about", component: About },
+
+  // lista de produtos
+  { path: "/produtos", name: "products", component: Products },
+
+  // detalhes (cada categoria com sua rota)
   {
-    path: "/",
-    name: "home",
-    component: Home,
+    path: "/produtos/metalurgia/:id",
+    name: "product-metalurgia",
+    component: ProductDetails,
+    props: true,
+  },
+  {
+    path: "/produtos/construcao-civil/:id",
+    name: "product-construcao-civil",
+    component: ProductDetails,
+    props: true,
+  },
+  {
+    path: "/produtos/ferramentas-ouro/:id",
+    name: "product-ferramentas-ouro",
+    component: ProductDetails,
+    props: true,
   },
 
-  {
-    path: "/sobre",
-    name: "about",
-    component: About,
-  },
+  { path: "/catalogo", name: "catalog", component: Catalog },
+  { path: "/contato", name: "contact", component: Contact },
 
-  {
-    path: "/produtos",
-    
-    children: [
-      {
-        path: '',
-        name: "products",
-        component: Products,
-      },
-      {
-        path: "metalurgia/:id",
-        component: ProductDetails,
-      },
-    
-      {
-        path: "construcao-civil/:id",
-        component: ProductDetails,
-      },
-    
-      {
-        path: "ferramentas-ouro/:id",
-        component: ProductDetails,
-      },
-    ]
-  },
-
-  {
-    path: "/catalogo",
-    name: "catalog",
-    component: Catalog,
-  },
-
-  {
-    path: "/contato",
-    name: "contact",
-    component: Contact,
-  },
-
+  // 404
   { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
 ];

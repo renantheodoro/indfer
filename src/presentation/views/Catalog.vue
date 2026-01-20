@@ -1,5 +1,8 @@
 <script setup>
 import CustomButton from "@/presentation/components/CustomButton.vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
+
+usePageMeta({ title: 'Catálogo de Produtos | INDFER - Ferramentas diamantadas', description: 'Baixe nosso catálogo e conheça as soluções INDFER para sua produção.' });
 </script>
 
 <script>

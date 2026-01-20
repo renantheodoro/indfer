@@ -6,7 +6,9 @@ export default {
 
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, nextTick } from "vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
 import { defineOptions } from "vue";
+// import { useHead } from "@vueuse/head";
 import M from "materialize-css";
 
 import CustomButton from "@/presentation/components/CustomButton.vue";
@@ -17,6 +19,11 @@ import CatalogSection from "@/presentation/modules/CatalogSection.vue";
 
 /* ======= meta ======= */
 defineOptions({ name: "AppHome" });
+usePageMeta({
+  title: 'INDFER - Ferramentas diamantadas',
+  description:
+    "Ferramentas diamantadas de alta performance: soluções desenvolvidas com tecnologia própria e controle de qualidade rigoroso.",
+});
 
 /* ======= state ======= */
 const elfsightContainer = ref(null);
@@ -73,7 +80,7 @@ function getAnchor(root = null) {
   const scope = isQueryable(root) ? root : parent;
   if (!isQueryable(scope)) return null;
   const anchors = scope.querySelectorAll(
-    "a[href^='https://elfsight.com/google-reviews-widget']"
+    "a[href^='https://elfsight.com/google-reviews-widget']",
   );
   for (const a of anchors) {
     if ((a.textContent || "").includes(textMatch)) return a;
@@ -114,7 +121,7 @@ function attachAnchorObserver(anchor) {
   const obs = new MutationObserver((muts) => {
     if (anchor.__hiding) return;
     const styleChanged = muts.some(
-      (m) => m.type === "attributes" && m.attributeName === "style"
+      (m) => m.type === "attributes" && m.attributeName === "style",
     );
     if (styleChanged) {
       log("style changed -> re-enforce");
@@ -194,10 +201,10 @@ function hideOnceFound() {
   if (!a) {
     // tenta global
     const global = document.querySelectorAll(
-      "a[href^='https://elfsight.com/google-reviews-widget']"
+      "a[href^='https://elfsight.com/google-reviews-widget']",
     );
     a = Array.from(global).find((el) =>
-      (el.textContent || "").includes(textMatch)
+      (el.textContent || "").includes(textMatch),
     );
   }
   if (!a) return false;

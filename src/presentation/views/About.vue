@@ -5,6 +5,7 @@ import BackDownAnchor from "@/presentation/components/BackDownAnchor.vue";
 import CustomButton from "@/presentation/components/CustomButton.vue";
 import Modal from "@/presentation/components/Modal.vue";
 import ContactForm from "@/presentation/modules/ContactForm.vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
 
 const contactFormModal = ref(null);
 const ourValuesSectionTop = ref(0);
@@ -39,6 +40,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", verifyScrollToStartCounter);
 });
+usePageMeta({ title: 'Sobre a INDFER - Ferramentas diamantadas', description: 'Conheça a INDFER: inovação e qualidade em ferramentas diamantadas desde 1993.' });
 </script>
 
 <script>
@@ -76,7 +78,7 @@ export default {
             Atuamos no ramo de ferramentas diamantadas para atender diversos
             segmentos, como
             <strong
-              >metalurgia, marmoraria e ferramentas para tornos de
+              >metalurgia e ferramentas para tornos de
               alianças</strong
             >, entre outros.
           </p>

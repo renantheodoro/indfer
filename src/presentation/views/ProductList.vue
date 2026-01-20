@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted, watch, getCurrentInstance } from "vue";
+import { ref, onMounted, watch, getCurrentInstance, onServerPrefetch } from "vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
 import { useRouter } from "vue-router";
 import M from "materialize-css";
 
@@ -8,14 +9,21 @@ import BackButton from "@/presentation/components/BackButton.vue";
 import ContactSection from "@/presentation/modules/ContactSection.vue";
 import Preloader from "@/presentation/components/Preloader.vue";
 
+import { usePrismic } from "@/presentation/composables/usePrismic";
+import { setSsrState, getInitialSsrState } from "@/presentation/composables/useSsrState";
+
 const results = ref([]);
 const loading = ref(true);
 const tabsRef = ref(null);
 let materializeInstance = null;
 
 const router = useRouter();
-const { proxy } = getCurrentInstance();
-const prismic = proxy?.$prismic;
+usePageMeta({ title: 'Produtos | INDFER - Ferramentas diamantadas', description: 'Nossos produtos: soluções diamantadas para metalurgia e ferramentas ouro.' });
+const _vm = getCurrentInstance();
+const proxy = _vm ? _vm.proxy : null;
+
+// per-request prismic client (SSR) or plugin client (CSR)
+const { client: prismicClient } = usePrismic();
 
 function initTabs() {
   setTimeout(() => {
@@ -33,14 +41,19 @@ function selectTab() {
   }
 }
 
-async function getAllProducts() {
+async function fetchProductsFromClient() {
   try {
-    const response = await prismic.client.getByType("produto");
-    if (response) {
+    if (prismicClient && typeof prismicClient.getByType === "function") {
+      const response = await prismicClient.getByType("produto");
       results.value = response.results || [];
+    } else if (prismicClient && typeof prismicClient.getAllByType === "function") {
+      results.value = await prismicClient.getAllByType("produto");
+    } else if (proxy?.$prismic?.client) {
+      const r = await proxy.$prismic.client.getByType("produto");
+      results.value = r.results || [];
     }
   } catch (e) {
-    // ignore fetch errors, keep loading -> false
+    // ignore
   } finally {
     loading.value = false;
     initTabs();
@@ -51,8 +64,33 @@ function goRoute(category, product) {
   return `/produtos/${category}/${product}`;
 }
 
+// SSR: prefetch and set ssrState
+onServerPrefetch(async () => {
+  try {
+    if (!prismicClient) return;
+    if (typeof prismicClient.getByType === "function") {
+      const response = await prismicClient.getByType("produto");
+      results.value = response.results || [];
+    } else if (typeof prismicClient.getAllByType === "function") {
+      results.value = await prismicClient.getAllByType("produto");
+    }
+    setSsrState("products", results.value || []);
+  } catch (e) {
+    // ignore
+  } finally {
+    loading.value = false;
+  }
+});
+
 onMounted(() => {
-  getAllProducts();
+  const initial = getInitialSsrState("products");
+  if (initial && initial.length) {
+    results.value = initial;
+    loading.value = false;
+    initTabs();
+    return;
+  }
+  fetchProductsFromClient();
 });
 
 watch(
@@ -66,7 +104,7 @@ watch(
       }
       selectTab();
     }
-  }
+  },
 );
 </script>
 

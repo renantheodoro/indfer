@@ -1,7 +1,8 @@
 <script setup>
 import { reactive, onMounted, onBeforeUnmount, getCurrentInstance } from "vue";
 import M from "materialize-css";
-import { mask } from "vue-the-mask";
+// A diretiva `mask` é importada no bloco de script padrão abaixo
+// para ficar disponível em `export default` (evita redeclaração).
 import emailjs from "emailjs-com";
 
 import CustomButtonSubmit from "@/presentation/components/CustomButtonSubmit.vue";
@@ -11,7 +12,8 @@ const props = defineProps({
   formId: { type: String, required: true },
 });
 
-const { proxy } = getCurrentInstance();
+const _vm = getCurrentInstance();
+const proxy = _vm ? _vm.proxy : null;
 
 function getFormInitialValues() {
   return {
@@ -65,7 +67,7 @@ function validateEmail(value) {
 function validatePhone(value) {
   if (!validateNotEmpty(value)) return false;
   return /(\([0-9]{2}\)\s?[0-9]{4,5}-?[0-9]{3,4})|([0-9]{10,11})|([0-9]{2}\s?[0-9]{8,9})/.test(
-    value
+    value,
   );
 }
 
@@ -166,7 +168,7 @@ async function sendEmail(e) {
         message: state.form.message.value,
         reply_to: "vendas@indfer.com.br",
       },
-      "RgBnMm36ZWKMyXS5b"
+      "RgBnMm36ZWKMyXS5b",
     );
 
     resetForm();
@@ -199,6 +201,9 @@ onBeforeUnmount(() => {
 </script>
 
 <script>
+import pkg from "vue-the-mask";
+const { mask } = pkg;
+
 export default {
   name: "ContactForm",
   directives: { mask },
@@ -383,7 +388,9 @@ export default {
       <font-awesome-icon icon="fa-regular fa-face-sad-tear" />
       <h2>Ops! Alguma coisa deu errado no envio.</h2>
       <p>Tente novamente mais tarde.</p>
-      <CustomButtonSubmit @click="resetForm">Enviar novo orçamento</CustomButtonSubmit>
+      <CustomButtonSubmit @click="resetForm"
+        >Enviar novo orçamento</CustomButtonSubmit
+      >
     </div>
   </form>
 </template>

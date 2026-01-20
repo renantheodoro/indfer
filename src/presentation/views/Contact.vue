@@ -1,5 +1,7 @@
 <script setup>
 import ContactForm from "@/presentation/modules/ContactForm.vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
+usePageMeta({ title: 'Entre em contato! Solicite um orçamento | INDFER - Ferramentas diamantadas', description: 'Solicite um orçamento ou esclareça dúvidas — nossa equipe técnica responde rapidamente.' });
 </script>
 
 <script>

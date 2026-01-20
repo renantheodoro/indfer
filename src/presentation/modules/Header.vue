@@ -10,7 +10,8 @@ const sidenav = ref(null);
 const headerNavigation = ref(null);
 const sidenavInstance = ref(null);
 
-const { proxy } = getCurrentInstance();
+const _vm = getCurrentInstance();
+const proxy = _vm ? _vm.proxy : null;
 
 function closeMenu() {
   try {
