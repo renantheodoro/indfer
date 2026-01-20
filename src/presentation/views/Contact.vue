@@ -1,3 +1,15 @@
+<script setup>
+import ContactForm from "@/presentation/modules/ContactForm.vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
+usePageMeta({ title: 'Entre em contato! Solicite um orçamento | INDFER - Ferramentas diamantadas', description: 'Solicite um orçamento ou esclareça dúvidas — nossa equipe técnica responde rapidamente.' });
+</script>
+
+<script>
+export default {
+  name: "ContactView",
+};
+</script>
+
 <template>
   <section class="contact-page">
     <div class="container">
@@ -10,10 +22,8 @@
           >
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-          suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-          lacus vel facilisis.
+          Solicite um orçamento ou esclareça dúvidas — nossa equipe técnica
+          responde rapidamente e oferece soluções sob medida para sua produção.
         </p>
       </div>
 
@@ -27,9 +37,7 @@
                 <li><a href="tel:551123089270">(11) 2308-9270</a></li>
                 <li><a href="tel:551120836505">(11) 2083-6505</a></li>
                 <li>
-                  <a
-                    href="tel:5511985800731"
-                    class="icon-whatsapp"
+                  <a href="tel:5511985800731" class="icon-whatsapp"
                     >(11) 98580-0731
                     <font-awesome-icon icon="fa-brands fa-whatsapp" />
                   </a>
@@ -73,20 +81,9 @@
         </div>
         <div class="column-desktop--1 only-desktop"></div>
         <div class="column-desktop--5 column--4">
-          <ContactForm formId="contact-page-form"></ContactForm>
+          <ContactForm formId="contact-page-form" />
         </div>
       </div>
     </div>
   </section>
 </template>
-<script>
-import ContactForm from "@/presentation/modules/ContactForm.vue";
-
-export default {
-  name: "app-contact",
-
-  components: {
-    ContactForm,
-  },
-};
-</script>

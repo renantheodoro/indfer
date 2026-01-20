@@ -1,3 +1,48 @@
+<script setup>
+import { ref, onMounted, getCurrentInstance } from "vue";
+import M from "materialize-css";
+
+import CustomButton from "@/presentation/components/CustomButton.vue";
+import Modal from "@/presentation/components/Modal.vue";
+import ContactForm from "@/presentation/modules/ContactForm.vue";
+
+const sidenav = ref(null);
+const headerNavigation = ref(null);
+const sidenavInstance = ref(null);
+
+const _vm = getCurrentInstance();
+const proxy = _vm ? _vm.proxy : null;
+
+function closeMenu() {
+  try {
+    const instance = M.Sidenav.getInstance(sidenav.value);
+    if (instance && typeof instance.close === "function") instance.close();
+  } catch (e) {
+    /* ignore */
+  }
+}
+
+function showModal(refName) {
+  const modalRef = proxy?.$refs?.[refName];
+  if (modalRef && typeof modalRef.showModal === "function") {
+    modalRef.showModal(refName);
+  }
+  closeMenu();
+}
+
+onMounted(() => {
+  if (sidenav.value) {
+    sidenavInstance.value = M.Sidenav.init(sidenav.value, { edge: "right" });
+  }
+});
+</script>
+
+<script>
+export default {
+  name: "AppHeader",
+};
+</script>
+
 <template>
   <header class="header header--desktop only-desktop">
     <div class="container">
@@ -14,7 +59,7 @@
       </div>
 
       <nav>
-        <ul class="header__navigation tabs" ref="header__navigation">
+        <ul class="header__navigation tabs" ref="headerNavigation">
           <li class="tab">
             <router-link
               :to="{ name: 'home' }"
@@ -56,8 +101,8 @@
           </li>
 
           <li>
-            <Button @click="showModal('contact-form-modal')"
-              >Solicite orçamento</Button
+            <CustomButton @click="showModal('contact-form-modal')"
+              >Solicite orçamento</CustomButton
             >
           </li>
         </ul>
@@ -127,8 +172,8 @@
       <li><div class="divider"></div></li>
 
       <li>
-        <Button @click="showModal('contact-form-modal')"
-          >Solicite orçamento</Button
+        <CustomButton @click="showModal('contact-form-modal')"
+          >Solicite orçamento</CustomButton
         >
       </li>
     </ul>
@@ -145,59 +190,3 @@
     <ContactForm formId="header-form" />
   </Modal>
 </template>
-
-<script>
-import M from "materialize-css";
-
-import Button from "@/presentation/components/Button.vue";
-import Modal from "@/presentation/components/Modal.vue";
-import ContactForm from "@/presentation/modules/ContactForm.vue";
-
-export default {
-  name: "app-header",
-
-  data() {
-    return {
-      sidenavInstance: null,
-    };
-  },
-
-  computed: {
-    isMobile() {
-      if (window.screen.width <= 767) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  },
-
-  methods: {
-    closeMenu() {
-      var instance = M.Sidenav.getInstance(this.$refs.sidenav);
-      instance.close();
-    },
-
-    showModal(ref) {
-      this.$refs[ref].showModal(ref);
-      this.closeMenu();
-    },
-
-    hideModal(ref) {
-      this.$refs[ref].hideModal(ref);
-    },
-  },
-
-  mounted() {
-    this.sidenavInstance = M.Sidenav.init(this.$refs.sidenav, {
-      edge: "right",
-    });
-  },
-
-  components: {
-    Button,
-    Modal,
-    ContactForm,
-  },
-};
-</script>

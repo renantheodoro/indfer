@@ -1,3 +1,16 @@
+<script setup>
+import CustomButton from "@/presentation/components/CustomButton.vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
+
+usePageMeta({ title: 'Catálogo de Produtos | INDFER - Ferramentas diamantadas', description: 'Baixe nosso catálogo e conheça as soluções INDFER para sua produção.' });
+</script>
+
+<script>
+export default {
+  name: "app-catalog",
+};
+</script>
+
 <template>
   <section class="catalog-page">
     <div class="container">
@@ -40,7 +53,7 @@
               <h4>METALURGIA</h4>
             </li>
 
-            <li class="catalog-page__gallery__item">
+            <li v-if="false" class="catalog-page__gallery__item">
               <img
                 src="@/assets/images/webp/our_products-civil_building.webp"
                 title="Nossos produtos - Construção Civil"
@@ -59,23 +72,14 @@
             </li>
           </ul>
 
-          <Button
+          <CustomButton
             externalPath="https://firebasestorage.googleapis.com/v0/b/indfer-822a1.appspot.com/o/catalogo_2014.pdf?alt=media&token=69c3271c-eb2b-428d-ac8f-a6c892df0cab"
             :fullWidth="true"
             type="primary-blue"
-            >BAIXAR CATÁLOGO</Button
+            >BAIXAR CATÁLOGO</CustomButton
           >
         </div>
       </div>
     </div>
   </section>
 </template>
-<script>
-import Button from "@/presentation/components/Button.vue";
-
-export default {
-  name: "app-catalog",
-  components: { Button },
-};
-</script>
-<style lang=""></style>

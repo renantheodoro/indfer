@@ -2,11 +2,23 @@
   "name": "indfer",
   "version": "0.1.1",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service build && firebase use indfer-822a1 && firebase deploy --only hosting"
+    "dev": "node server.js",
+    "test:ssr": "node test-ssr.mjs",
+    "test:prismic": "node test-prismic.mjs",
+    "build:client": "vite build --config vite.config.js",
+    "build:server": "vite build --config vite.config.server.js",
+    "build": "npm run build:client && npm run build:server",
+    "serve": "npm run build && vite",
+    "preview": "NODE_ENV=production node server.js",
+    "lint": "eslint .",
+    "deploy": "npm run build && firebase deploy --only hosting:indfer,functions",
+    "deploy:staging": "npm run build && firebase hosting:channel:deploy homolog --expires 30d",
+    "emulator": "firebase emulators:start --only functions,hosting"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -14,12 +26,15 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@prismicio/client": "^7.20.3",
     "@prismicio/vue": "^3.1.1",
+    "@vue/server-renderer": "^3.5.22",
+    "@vueuse/head": "^2.0.0",
     "core-js": "^3.8.3",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.10.0",
     "sass": "^1.77.8",
-    "vue": "^3.2.41",
+    "vue": "^3.5.22",
     "vue-router": "^4.1.5",
     "vue-the-mask": "^0.11.1",
     "webpack-chain": "^6.5.1"
@@ -27,13 +42,16 @@
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@vitejs/plugin-vue": "^6.0.1",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "^5.0.8",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
+    "eslint-plugin-vue": "^9.33.0",
     "materialize-css": "^1.0.0-rc.2",
-    "sass-loader": "^13.0.2"
+    "sass-loader": "^13.0.2",
+    "vite": "^7.1.12",
+    "vue-eslint-parser": "^9.4.3"
   },
   "eslintConfig": {
     "root": true,

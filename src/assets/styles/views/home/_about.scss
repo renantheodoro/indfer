@@ -1,7 +1,11 @@
 .about {
     img {
-        margin: 0 auto;
+        margin: 0 auto 2rem;
         display: block;
         max-height: 300px;
+
+        @media screen and (min-width: breakpoint("desktop")) {
+            margin-bottom: 0;
+        }
     }
 }

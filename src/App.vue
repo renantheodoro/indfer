@@ -1,26 +1,20 @@
-<template>
-  <metainfo>
-    <template v-slot:title="{ content }">{{
-      content ? `${content} | SITE_NAME` : `SITE_NAME`
-    }}</template>
-  </metainfo>
-  <Header></Header>
-  <router-view></router-view>
-  <Footer></Footer>
-</template>
+<script setup>
+import AppHeader from "@/presentation/modules/Header.vue";
+import AppFooter from "@/presentation/modules/Footer.vue";
+import { useHead } from "@vueuse/head";
+import { defineOptions } from "vue";
+import { buildBaseHead } from "@/presentation/composables/siteMeta";
 
-<script>
-import Header from "@/presentation/modules/Header.vue";
-import Footer from "@/presentation/modules/Footer.vue";
+defineOptions({ name: "App" });
 
-export default {
-  name: "App",
-
-  components: {
-    Header,
-    Footer,
-  },
-};
+// centraliza o head base (meta/link/script) no composable siteMeta
+useHead(buildBaseHead());
 </script>
+
+<template>
+  <AppHeader />
+  <router-view />
+  <AppFooter />
+</template>
 
 <style lang="scss" src="./assets/styles/index.scss"></style>

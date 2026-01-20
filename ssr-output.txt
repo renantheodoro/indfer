@@ -1,0 +1,1768 @@
+Could not find one or more icon(s) { prefix: 'fas', iconName: 'bars' } {}
+Could not find one or more icon(s) { prefix: 'fas', iconName: 'phone' } {}
+Could not find one or more icon(s) { prefix: 'fab', iconName: 'whatsapp' } {}
+Could not find one or more icon(s) { prefix: 'fas', iconName: 'envelope-open' } {}
+Could not find one or more icon(s) { prefix: 'fas', iconName: 'location-dot' } {}
+Could not find one or more icon(s) { prefix: 'fab', iconName: 'facebook-f' } {}
+Could not find one or more icon(s) { prefix: 'fab', iconName: 'instagram' } {}
+Could not find one or more icon(s) { prefix: 'fab', iconName: 'whatsapp' } {}
+Could not find one or more icon(s) { prefix: 'fas', iconName: 'angle-left' } {}
+--- HEAD (raw) ---
+(no headTags)
+--- HEAD ATTRS ---
+htmlAttrs: {}
+bodyAttrs: {}
+--- EXTRACTED <title> ---
+(no <title> found in headTags)
+--- HTML (start) ---
+<!--[--><!--[--><header class="header header--desktop only-desktop"><div class="container"><div class="header__main-logo"><a href="/" class=""><img width="165" height="37" src="/assets/main-logo-WVvuLhC_.webp" alt="INDFER - Ferramentas diamantadas" title="INDFER - Ferramentas diamantadas"></a></div><nav><ul class="header__navigation tabs"><li class="tab"><a href="/" class="header__navigation__item waves-effect waves-light">Home </a></li><li class="tab"><a href="/sobre" class="header__navigation__item waves-effect waves-light">Sobre </a></li><li class="tab"><a aria-current="page" href="/produtos" class="active router-link-exact-active header__navigation__item waves-effect waves-light">Produtos </a></li><li class="tab"><a href="/catalogo" class="header__navigation__item waves-effect waves-light">Catálogo </a></li><li class="tab"><a href="/contato" class="header__navigation__item waves-effect waves-light">Contato </a></li><li><!--[--><a class="button--primary button btn waves-effect waves-light" href="#" target=""><!--[-->Solicite orçamento<!--]--></a><!--[--><!--]--><!--]--></li></ul></nav></div></header><header class="header header--mobile only-mobile"><div class="header__main-logo"><a href="/" class=""><img width="130" height="30" src="data:image/webp;base64,UklGRhQLAABXRUJQVlA4WAoAAAAIAAAAgQAAHAAAVlA4INAHAADwJQCdASqCAB0APkkgjEQioiEUezbEKASEsQBBpSrcVPgAeIh+jH8A7AHmA6AHoAf3r0QPUA9ADynfYW/aT9Q/gA/YP//+wBlk28X6V+If7Ter/g68deyP7qe6NjrtM/kH25+ofkt/Sv2g/CnYX6efxm9Uf9v/IzgjgAfiX81/w35jeZF+zflv7gfLd+QHwc/nP9z/KT1kPBM8Z/wHuD/xv+mf5H+6ftx/b/kP/6v8V+M3t9+h/+N7h38o/pv+h/uP7v/4////Vf7MfRJ/a4GVNWAa1dRXJpVJyFbR2/+YoCFiUkEuOy2QUK+Yeinen1EhTvX3pytuBHKToFNVblCFOKZjpP8o1GscK573TXhXBLT0nO0m272Mv40Q1Zu2K3i6zKri3PZMSDs6+hByQmxacKRidgJAJYAA/v7sUoOopuVUPNk/p1ZFRK50KCqO75vZmctfChYm1LVUUSbXqcr/ZAM0mJENybf1UfWeFwclWQ5sXvVM0yWnRPWWCSIsd1SO+JYEuRVgpdujOFpBsQSRIg5ZKKIhnzMK/OdJt1lF//OeBsa75fv9DOftwx/f9otqfi46V6yPvlT///P6Yu4PP/f9d5P7kEI9/iXzLJfhM0PidRsO/hZlf6MHT5J+yPj7fwXoCwMbvjNvvTGS4FPrTMBosAdea
+--- SSR STATE (full) ---
+{
+  "products": [
+    {
+      "id": "aPvSLxIAACAA9KOB",
+      "uid": "rebolo-resinoide",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPvSLxIAACAA9KOB%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-24T19:34:43+0000",
+      "last_publication_date": "2026-01-19T15:16:10+0000",
+      "slugs": [
+        "rebolo-resinoide"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 400,
+            "height": 400
+          },
+          "alt": "Rebolo Resinóide",
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5KowIvOtkhBthe_bc0d254f-a237-4a50-a277-1c583de932e0_WhatsApp%2BImage%2B2023-01-27%2Bat%2B10.49.21.avif?auto=format,compress",
+          "id": "aW5KowIvOtkhBthe",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "REBOLO RESINÓIDE",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Rebolos diamantados e de CBN",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Os rebolos diamantados são indicados para a retífica de materiais de alta dureza e baixa tenacidade, como metal duro (widia), cerâmicas, vidros, pedras preciosas, ferrites, quartzo e carbonetos em geral.\nGraças à elevada dureza do diamante, proporcionam alta precisão dimensional, excelente acabamento superficial e longa vida útil, mesmo em operações severas.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Já os rebolos de CBN (Nitreto Cúbico de Boro) são recomendados para a retífica de aços de alta liga e elevada dureza, especialmente os que contêm carbono, como aço inoxidável, aço rápido (HSS), aço carbono, VND, VC131 e bits de corte.\nO CBN mantém desempenho estável em altas temperaturas de corte, oferecendo desgaste reduzido e maior produtividade.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "paragraph",
+            "text": "Os rebolos podem ser fabricados em diferentes formas e geometrias conforme norma FEPA (Federation of European Producers of Abrasives), variando de acordo com o tipo de retífica e máquina utilizada.\nOs principais parâmetros técnicos incluem:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Forma geométrica (designação FEPA) — como 1A1, 6A2, 11V9, 12A2 etc.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Diâmetro externo (D) — medida total do rebolo.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Largura da camada abrasiva (T) e espessura total (H).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Abertura do furo (H ou Ø) — adaptada ao eixo do equipamento.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Ângulo de trabalho (α) — define a inclinação ou o perfil da ferramenta.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Tipo de abrasivo — Diamante ou CBN (dependendo do material usinado).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Granulometria — determina o nível de acabamento superficial.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Ligante — pode ser metálico, resinóide, vitrificado ou galvanizado, conforme a aplicação.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Essas variações garantem adaptação ideal ao processo de retífica, otimizando velocidade de corte, precisão e vida útil da ferramenta.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "As principais formas de rebolos estão representadas no gráfico a seguir.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPvUbbpReVYa3qNT_details_01.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1024,
+              "height": 1024
+            },
+            "id": "aPvUbbpReVYa3qNT",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPwbahIAACIA9RwJ",
+      "uid": "ferramentaouro",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPwbahIAACIA9RwJ%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-25T00:37:10+0000",
+      "last_publication_date": "2025-10-25T01:11:18+0000",
+      "slugs": [
+        "ferramenta-para-torno-de-aliancas"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "ferramentas-ouro",
+        "thumbnail": {
+          "dimensions": {
+            "width": 1024,
+            "height": 1024
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aPwjIbpReVYa3qeZ_product_11.png?auto=format,compress",
+          "id": "aPwjIbpReVYa3qeZ",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "FERRAMENTA PARA TORNO DE ALIANÇAS",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Policristalino e Widia",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "As ferramentas para torno de alianças INDFER são projetadas para proporcionar precisão, acabamento superior e longa vida útil na usinagem de metais nobres e ligas não ferrosas, como ouro, prata, bronze e latão.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Disponíveis nas versões Policristalino (PCD) e Widia (metal duro), essas ferramentas atendem às exigências das joalherias e fabricantes de alianças, garantindo cortes limpos, estabilidade dimensional e excelente repetibilidade no processo de torneamento.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "O modelo em Policristalino (PCD) é indicado para usinagem de alta precisão e acabamento espelhado, enquanto o modelo em Widia é recomendado para operações de desbaste, alto rendimento e resistência ao desgaste.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPwjr7pReVYa3qea_details_17.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1536,
+              "height": 1024
+            },
+            "id": "aPwjr7pReVYa3qea",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          }
+        ],
+        "details": [
+          {
+            "type": "list-item",
+            "text": "Materiais trabalháveis: ouro, prata, bronze, cobre, latão e outras ligas não ferrosas.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Material de corte:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "PCD (Policristalino): ideal para acabamento fino e polimento de alto brilho.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Widia (Metal duro): indicado para cortes mais agressivos e longa durabilidade.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Tipos de geometria: ponta reta, angular, perfilada e sob medida conforme o tipo de aliança.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Precisão dimensional: tolerâncias de até ±0,01 mm.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Fixação: compatível com tornos automáticos e semiautomáticos utilizados em fabricação de alianças.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Velocidade recomendada: até 30.000 RPM (dependendo do material e do tipo de ferramenta).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Reafiável: possibilidade de múltiplas reafiações, mantendo a geometria original.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Diferenciais",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Produção personalizada conforme desenho técnico ou amostra do cliente.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Acabamento com altíssima qualidade superficial.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Fabricação com controle rigoroso de concentricidade e ângulo de corte.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Excelente custo-benefício e vida útil prolongada.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPvmyBIAACIA9Mny",
+      "uid": "retificadornaturalelapidado",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPvmyBIAACIA9Mny%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-24T21:26:57+0000",
+      "last_publication_date": "2026-01-19T15:17:31+0000",
+      "slugs": [
+        "retificador-natural-e-lapidado"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 400,
+            "height": 400
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5LBwIvOtkhBthk_f68861c3-ad98-4c82-a9cf-5c457f64e7c2_retificador%2Bponta%2Bunica%2B.avif?auto=format,compress",
+          "id": "aW5LBwIvOtkhBthk",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "RETIFICADOR NATURAL E LAPIDADO",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Diaform / Fortuna / Landis",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Os retificadores de diamante natural e lapidado são ferramentas essenciais para a dressagem (limpeza e reconfiguração de perfis) em rebolos abrasivos, garantindo precisão, desempenho e acabamento superior nas operações de retífica.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Esses retificadores restauram a forma original e a capacidade de corte dos rebolos, removendo partículas desgastadas e expondo novos grãos abrasivos, o que proporciona melhor acabamento superficial, menor vibração e maior vida útil da ferramenta.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Modelos Disponíveis",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "• Retificador Natural:\nIndicado para a dressagem de rebolos que exigem acabamento de alta precisão e estabilidade dimensional.\nUtiliza diamante natural bruto de alta qualidade, ideal para processos de retífica plana, cilíndrica e universal.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "• Retificador Lapidado:\nProjetado para operações de retificação de perfis com elevada exigência dimensional.\nPossui ponta lapidada (facetada) que proporciona formação de perfis nítidos, repetibilidade e controle de geometria.\nAmplamente usado em máquinas Diaform, Fortuna, Landis e similares.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "paragraph",
+            "text": "Função principal:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Dressagem e perfilagem de rebolos abrasivos.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Recondicionamento de rebolos diamantados ou convencionais.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Aplicações típicas:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Retíficas planas, cilíndricas internas e externas.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Máquinas de perfilagem automática ou manual.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Ajuste fino de rebolos em operações de alta precisão.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Características técnicas:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Material ativo: Diamante natural de alta pureza.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Tipo de ponta: Bruta (natural) ou facetada (lapidada).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Fixação: Suporte metálico compatível com sistemas Diaform / Fortuna / Landis.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Precisão dimensional: Até ±0,01 mm (dependendo da operação).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Temperatura de trabalho: Até 600 °C.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Vantagens principais:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Excelente controle do perfil do rebolo.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Redução de queima e vibração na peça.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Maior vida útil do rebolo e melhor acabamento superficial.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Aplicação universal em máquinas de retífica de alta precisão.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Retificador Natural:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPvo77pReVYa3qUY_details_04.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1536,
+              "height": 1024
+            },
+            "id": "aPvo77pReVYa3qUY",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "heading3",
+            "text": "Retificador Lapidado:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPvvHbpReVYa3qWY_details_06.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1536,
+              "height": 1024
+            },
+            "id": "aPvvHbpReVYa3qWY",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPvZKRIAACEA9K9g",
+      "uid": "limasdiamantadas",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPvZKRIAACEA9K9g%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-24T20:49:45+0000",
+      "last_publication_date": "2026-01-19T15:25:59+0000",
+      "slugs": [
+        "limas-diamantadas"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 1024,
+            "height": 1024
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5M_AIvOtkhBtig_em-breve.png?auto=format,compress",
+          "id": "aW5M_AIvOtkhBtig",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "LIMAS DIAMANTADAS",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Limas resinóides e Limas Galvânicas",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "As limas diamantadas são ferramentas de precisão utilizadas para reparos, ajustes e acabamento em moldes e componentes metálicos de alta dureza, garantindo acabamento uniforme e controle dimensional fino.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "As Limas Resinóides são compostas por uma camada de diamante unida por ligante resinóide, o que proporciona alto poder de corte, longa durabilidade e resistência ao desgaste. São amplamente aplicadas em moldes de aço, metal duro, cerâmicas e materiais sinterizados, sendo ideais para trabalhos manuais e de bancada em ferramentarias.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "As Limas Galvânicas, por sua vez, possuem camada abrasiva fixada por processo eletroquímico (galvanização), garantindo precisão e corte eficiente em aços de alta dureza e materiais delicados. Disponíveis em diversos perfis e tamanhos, são indicadas para acabamentos finos e usinagem de áreas de difícil acesso.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "paragraph",
+            "text": "Tipos disponíveis:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Limas Resinóides: para remoção controlada e acabamento em metais duros.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Limas Galvânicas: para cortes precisos em materiais de alta dureza.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Principais perfis (FEPA):",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Redonda",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Quadrada",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Triangular",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Meia Cana",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Chata",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Paralela",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Faca",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Barreta",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Amêndoa",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Oval",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Dimensões típicas:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Comprimento total: 140 mm",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Comprimento útil: 70 mm",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Diâmetro ou seção variável conforme o perfil (2,5 mm a 5 mm).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Características técnicas:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Abrasivo: Diamante natural ou sintético.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Ligante: Resinóide ou Galvânico.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Granulometria: Disponível em grãos finos, médios e grossos, conforme aplicação.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Aplicações: Moldes, matrizes, aços temperados, cerâmicas, metal duro e ferramentas de corte.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPvg0rpReVYa3qRa_details_02.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1536,
+              "height": 1024
+            },
+            "id": "aPvg0rpReVYa3qRa",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPvmZbpReVYa3qTf_details_03.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1536,
+              "height": 1024
+            },
+            "id": "aPvmZbpReVYa3qTf",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "paragraph",
+            "text": "",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPwauBIAACAA9RsA",
+      "uid": "pontasmontadas",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPwauBIAACAA9RsA%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-25T00:34:19+0000",
+      "last_publication_date": "2026-01-19T15:26:22+0000",
+      "slugs": [
+        "pontas-montadas"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 1024,
+            "height": 1024
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5M_AIvOtkhBtig_em-breve.png?auto=format,compress",
+          "id": "aW5M_AIvOtkhBtig",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "PONTAS MONTADAS",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Pontas montadas resinóide e eletrolíticas",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "As pontas montadas Indfer são ferramentas de precisão utilizadas em operações de retificação interna, acabamento de furos e cópia de perfis complexos, especialmente em peças de difícil acesso.\nFabricadas com abrasivos diamantados ou CBN, são ideais para o trabalho em materiais duros, como aços temperados, metal duro, cerâmicas técnicas e ligas especiais.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Disponíveis em versões resinóide (para excelente acabamento superficial) e eletrolítica (para maior remoção de material e durabilidade), as pontas montadas garantem alto desempenho, precisão dimensional e estabilidade geométrica durante o processo.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "list-item",
+            "text": "Formatos disponíveis: cilíndrico, cônico, esférico, ogival, entre outros (sob consulta).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Tipos de fixação: haste metálica balanceada, compatível com retíficas de alta rotação.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Abrasivo: diamante ou CBN (Cubic Boron Nitride).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Liga de ligação: resinóide (para acabamento fino) ou eletrolítica (para remoção agressiva).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Granulometria: de #60 a #600, conforme aplicação e acabamento desejado.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Tolerâncias dimensionais: até ±0,02 mm.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Velocidade recomendada: até 25.000 RPM, conforme diâmetro e tipo de abrasivo.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Aplicações típicas: retificação de moldes, matrizes, componentes automotivos, peças aeronáuticas e ferramentas de precisão.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Pontas Montadas",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPwfF7pReVYa3qeO_details_15.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1024,
+              "height": 1024
+            },
+            "id": "aPwfF7pReVYa3qeO",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPwgM7pReVYa3qeQ_details_16.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1024,
+              "height": 1024
+            },
+            "id": "aPwgM7pReVYa3qeQ",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "heading3",
+            "text": "Diferenciais",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Produção sob medida conforme o tipo de material e operação.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Alta resistência térmica e excelente estabilidade dimensional.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Disponibilidade de modelos especiais mediante projeto ou amostra.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPvxJBIAACIA9NtK",
+      "uid": "dressadores",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPvxJBIAACIA9NtK%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-24T21:54:14+0000",
+      "last_publication_date": "2026-01-19T15:21:58+0000",
+      "slugs": [
+        "dressadores-aglomerados"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 1024,
+            "height": 1024
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aPwKXrpReVYa3qbf_product_06.png?auto=format,compress",
+          "id": "aPwKXrpReVYa3qbf",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "DRESSADORES AGLOMERADOS",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Dressador múltiplo e aglomerado",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "heading3",
+            "text": "Dressador Múltiplo",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "O dressador múltiplo é uma ferramenta de dressagem de alta precisão, projetada para processos de retífica de eixos onde se exige controle rigoroso das cotas e repetibilidade de perfil. Ele é indicado para rebolos que operam em eixos longos ou em máquinas de retífica de eixo, onde o desgaste se distribui de forma variada e a manutenção do perfil correto é crítica para minimizar vibrações, excentricidades e garantir a concentricidade do componente in situ.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aW5MEgIvOtkhBtiA_422ec071-d7b7-4ab5-828e-ce40cacbc340_aglomerados.avif?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 400,
+              "height": 400
+            },
+            "id": "aW5MEgIvOtkhBtiA",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "paragraph",
+            "text": "Este tipo de dressador normalmente incorpora múltiplas cabeças ou múltiplas pontas de diamantação, ou ainda arranjos com discos de diamante múltiplos, de modo a distribuir a carga de dressagem e manter a geometria do rebolo por mais ciclos. Ele permite a dressagem simultânea ou sequencial de várias regiões do rebolo, o que reduz o tempo de setup e aumenta a produtividade da máquina de retífica.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Ele é amplamente usado em retíficas de eixos de transmissão, virabrequins, eixos de bombas, hélices, peças longas com tolerâncias apertadas de diâmetro, circularidade e acabamento superficial.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Dressador Aglomerado",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "O dressador aglomerado foi desenvolvido para aplicações mais robustas, voltadas a rebolos de grandes diâmetros ou de alta tonelagem, substituindo efetivamente os tradicionais dressadores de ponta única em operações pesadas. Ele é capaz de suportar maior carga de dressagem, maior área de contato e maior divulgação térmica, graças ao seu corpo e à construção que permite a utilização de segmentos diamantados ou cerâmico-metalicos sobre um suporte de alta rigidez.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPv6YrpReVYa3qZm_details_07-.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 668,
+              "height": 162
+            },
+            "id": "aPv6YrpReVYa3qZm",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "paragraph",
+            "text": "Esse tipo de dressador é ideal para retífica de grandes discos abrasivos, retíficas planares de peças de grande diâmetro, onde o rebolo exige dressagem pesada para recuperar a forma, face, paralelismo ou perfil. Com ele, é possível manter a integridade do perfil do rebolo, reduzir o tempo da operação de dressagem, garantir maior vida útil do rebolo e melhorar o rendimento da máquina de retífica. A geometria do dressador aglomerado permite maior rigidez, melhor remoção de material desgastado do rebolo e menos deflexão da ferramenta de dressagem.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPv6b7pReVYa3qZn_details_08-.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 659,
+              "height": 127
+            },
+            "id": "aPv6b7pReVYa3qZn",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          }
+        ],
+        "details": [
+          {
+            "type": "paragraph",
+            "text": "Ambos os tipos de dressadores podem ser fabricados em diferentes dimensões conforme a aplicação. Os diâmetros externos geralmente variam entre 100 mm e 300 mm, com furos centrais compatíveis com os sistemas de fixação das principais máquinas de retífica (buchas de 32 mm, 50 mm, 76 mm, entre outras).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPv6f7pReVYa3qZo_details_10-.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 664,
+              "height": 261
+            },
+            "id": "aPv6f7pReVYa3qZo",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "paragraph",
+            "text": "A velocidade periférica máxima recomendada pode chegar a 60 m/s, dependendo da rigidez do corpo e do método de fixação. O acabamento superficial obtido após a dressagem pode atingir níveis de qualidade elevados, com rugosidades inferiores a Ra 0,2 µm, dependendo da aplicação e do tipo de abrasivo do rebolo.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Os diamantes utilizados podem ser naturais ou sintéticos, em granulações que variam de 100 µm a 300 µm, conforme o tipo de material abrasivo (óxido de alumínio, CBN, diamante). A dureza da matriz metálica ou cerâmica é definida de acordo com a agressividade da operação e o tipo de rebolo a ser dressado.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "A concentricidade da ferramenta é rigorosamente controlada, normalmente inferior a 0,005 mm, o que garante estabilidade de processo e precisão dimensional. A vida útil do dressador varia de acordo com as condições de operação, podendo atingir de 2.000 a 10.000 ciclos de dressagem, desde que o uso de fluido refrigerante e os parâmetros de avanço sejam adequadamente ajustados.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPv6ibpReVYa3qZp_details_11-.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 298,
+              "height": 305
+            },
+            "id": "aPv6ibpReVYa3qZp",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "heading3",
+            "text": "Boas Práticas e Seleção",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Antes de selecionar o dressador ideal, recomenda-se avaliar:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "O tipo e diâmetro do rebolo (plano, cilíndrico, perfilado).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "A granulação e dureza do abrasivo do rebolo.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "O nível de precisão dimensional exigido pela peça.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "A frequência e intensidade das dressagens necessárias.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "O tipo de máquina (cilíndrica, plana, universal ou especial).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "O uso correto do fluido de refrigeração e a manutenção periódica do dressador são essenciais para prolongar sua vida útil e assegurar resultados consistentes.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPwKiBIAACAA9QIZ",
+      "uid": "pasta-diamantada",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPwKiBIAACAA9QIZ%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-25T00:04:34+0000",
+      "last_publication_date": "2026-01-19T15:22:43+0000",
+      "slugs": [
+        "pasta-diamantada"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 400,
+            "height": 400
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5MPQIvOtkhBtiH_db919e6e-0aa8-4dec-a113-d828749fea21_pasta1.avif?auto=format,compress",
+          "id": "aW5MPQIvOtkhBtiH",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "PASTA DIAMANTADA",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Polimento e lapidação de superfícies",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "As pastas diamantadas INDFER são compostos abrasivos de alta performance, desenvolvidos com pó de diamante de pureza superior, disperso em uma base cuidadosamente formulada para garantir lubrificação uniforme e excelente aderência à superfície de trabalho.\nEssas pastas são amplamente utilizadas em processos de polimento, lapidação e acabamento de precisão, proporcionando elevado poder de corte, uniformidade de brilho e maior durabilidade das ferramentas.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Sua formulação permite remoção controlada de material, obtendo superfícies com acabamento fino e espelhado, ideal para metais duros, cerâmicas técnicas, carbonetos de tungstênio, vidros ópticos e componentes metálicos de alta precisão.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Principais Aplicações",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Polimento final e espelhado de matrizes, moldes e peças de precisão.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Lapidação de pedras, pastilhas, cerâmicas e materiais superduros.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Semi-desbaste e desbaste controlado em processos de usinagem fina.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Manutenção de ferramentas de corte e superfícies metálicas com tolerâncias estreitas.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPwRYLpReVYa3qcr_details_12-.avif?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 460,
+              "height": 248
+            },
+            "id": "aPwRYLpReVYa3qcr",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "heading3",
+            "text": "Características Técnicas",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Composição: pó de diamante natural ou sintético de alta pureza em base oleosa ou aquosa (conforme especificação).",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Granulometria controlada: tolerância máxima de variação ±5%.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Temperatura de trabalho: até 80 °C.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Compatibilidade: aplicável em feltros, panos, escovas, discos e ferramentas rotativas.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Embalagem: seringas de 5 g ou 10 g, com dosagem precisa e fácil aplicação.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Armazenamento: manter em local seco, longe de calor e luz direta.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Recomendações de Uso",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Utilize a granulação adequada conforme o estágio de polimento.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Aplique pequena quantidade sobre o suporte e distribua de forma uniforme.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Mantenha o substrato limpo para evitar contaminação cruzada entre grãos diferentes.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Pode ser utilizada manualmente ou em máquinas de polimento de precisão.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPwVZBIAACEA9RMW",
+      "uid": "penetrador-para-ensaio-de-dureza",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPwVZBIAACEA9RMW%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-25T00:27:24+0000",
+      "last_publication_date": "2026-01-19T15:23:34+0000",
+      "slugs": [
+        "penetrador-para-ensaio-de-dureza"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 400,
+            "height": 400
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5McQIvOtkhBtiM_66e5aac6-3073-49c8-af3e-96d9e66971c0_penetradores%2B3.avif?auto=format,compress",
+          "id": "aW5McQIvOtkhBtiM",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "PENETRADOR PARA ENSAIO DE DUREZA",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Sistema Rockwell e Vickers",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "O penetrador para ensaio de dureza é uma ferramenta de precisão fabricada com diamante natural lapidado em forma de cone, com ângulo de 120° e ponta de raio de 0,2 mm, garantindo a mais alta confiabilidade nos testes de dureza.\nÉ utilizado em sistemas Rockwell, Vickers e Brinell, permitindo medições exatas da resistência do material à deformação.\nDesenvolvido para oferecer alta durabilidade, precisão dimensional e repetibilidade dos resultados, este penetrador é essencial em laboratórios de controle de qualidade e ambientes industriais que demandam análises rigorosas de materiais metálicos e não metálicos.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Aplicações:",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Ideal para ensaios de dureza em metais, ligas, cerâmicas e outros materiais que exigem avaliação precisa da resistência superficial.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "paragraph",
+            "text": "Material da ponta: Diamante natural lapidado",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Ângulo do cone: 120°",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Raio da ponta: 0,2 mm",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Sistemas compatíveis: Rockwell, Vickers e Brinell",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Precisão: Alta estabilidade dimensional e repetibilidade garantida",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Uso indicado: Ensaios de dureza em metais e ligas de alta resistência",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Opções de configuração: Disponível com diferentes geometrias conforme o tipo de ensaio e norma aplicável",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Normas de referência: ASTM E18 / ISO 6508 (Rockwell) | ISO 6507 (Vickers) | ISO 6506 (Brinell)",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPwWxbpReVYa3qdW_details_13.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 1024,
+              "height": 1024
+            },
+            "id": "aPwWxbpReVYa3qdW",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.prismic.io/indfer-v2/aPwYc7pReVYa3qdr_details_14.png?auto=format,compress",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 940,
+              "height": 788
+            },
+            "id": "aPwYc7pReVYa3qdr",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "aPwZqhIAACAA9Rll",
+      "uid": "reboloeletrolitico",
+      "url": null,
+      "type": "produto",
+      "href": "https://indfer-v2.cdn.prismic.io/api/v2/documents/search?ref=aW5NRRAAAB8A7yQG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aPwZqhIAACAA9Rll%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2025-10-25T00:32:50+0000",
+      "last_publication_date": "2026-01-19T15:27:01+0000",
+      "slugs": [
+        "rebolo-eletrolitico"
+      ],
+      "linked_documents": [],
+      "lang": "pt-br",
+      "alternate_languages": [],
+      "data": {
+        "category": "metalurgia",
+        "thumbnail": {
+          "dimensions": {
+            "width": 1024,
+            "height": 1024
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/indfer-v2/aW5NQAIvOtkhBtij_0dde8caf-eec8-40af-86d5-06515acc7c2c.png?auto=format,compress",
+          "id": "aW5NQAIvOtkhBtij",
+          "edit": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+            "background": "transparent"
+          }
+        },
+        "title": [
+          {
+            "type": "heading1",
+            "text": "REBOLO ELETROLÍTICO",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "subtitle": [
+          {
+            "type": "heading3",
+            "text": "Alta precisão para retificação com controle elétrico",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Os rebolos eletrolíticos são ferramentas abrasivas de alta performance projetadas para operações de retificação de precisão, especialmente em materiais de elevada dureza, como aços temperados, metais duros, cerâmicas e superligas.\nCom tecnologia de condução elétrica integrada, permitem o processo de retificação assistida por corrente elétrica, reduzindo o atrito, o desgaste do abrasivo e o calor gerado durante o corte.",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "text": "Fabricados sob medida conforme a aplicação, os rebolos eletrolíticos da INDFER garantem maior vida útil, acabamento superior e estabilidade dimensional, sendo ideais para processos de alta exigência em usinagem fina, moldes, ferramentas e componentes industriais de precisão.",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ],
+        "details": [
+          {
+            "type": "list-item",
+            "text": "Tipo de abrasivo: Diamante ou CBN (Borazon)",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Método de ligação: Eletrodeposição condutiva",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Formato: Desenvolvido conforme desenho e necessidade do cliente",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Granulometria: Personalizada conforme rugosidade e acabamento desejado",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Condutividade elétrica: Compatível com sistemas de retificação eletrolítica",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Refrigeração: Projetado para trabalho com fluido condutivo específico",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Velocidade periférica: Conforme especificação da máquina e aplicação",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Precisão dimensional: Alta estabilidade e repetibilidade de corte",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Aplicações típicas: Retificação de moldes, insertos de metal duro, ferramentas de corte, componentes automotivos e aeroespaciais",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "heading3",
+            "text": "Diferenciais",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Produção sob demanda, adaptada a geometrias e tolerâncias específicas",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Maior durabilidade em relação a rebolos convencionais",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Redução significativa do desgaste e da necessidade de dressagem",
+            "spans": [],
+            "direction": "ltr"
+          },
+          {
+            "type": "list-item",
+            "text": "Acabamento superficial superior com mínima deformação térmica",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      }
+    }
+  ]
+}

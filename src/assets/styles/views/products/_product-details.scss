@@ -69,7 +69,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    
+
     @media screen and (min-width: breakpoint("desktop")) {
       flex-direction: row;
     }
@@ -81,23 +81,21 @@
     $mediaBorderSize: 20px;
 
     padding-top: to-rem(40px);
-    padding-bottom: 0;
 
     @media screen and (min-width: breakpoint("desktop")) {
-
     }
 
     &__media {
       width: 100%;
       max-width: 450px;
-      
+
       background-color: palette("white");
-      
+
       position: relative;
-      
+
       margin: 0 auto;
       margin-bottom: 4rem;
-      
+
       @media screen and (min-width: breakpoint("desktop")) {
         width: $mediaSize;
         height: $mediaSize;
@@ -115,9 +113,9 @@
         bottom: 38px;
         right: 0;
         z-index: 1;
-        
+
         background-color: palette("blue");
-        
+
         @media screen and (min-width: breakpoint("desktop")) {
           bottom: 0;
         }
@@ -182,14 +180,13 @@
 
     &__content {
       flex: 1;
-      
+
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      
+
       @media screen and (min-width: breakpoint("desktop")) {
         padding-left: to-rem(46px);
-
       }
 
       strong {
@@ -207,7 +204,7 @@
 
       h4 {
         font-size: to-rem(18px);
-        color: palette("orange");
+        // color: palette("orange");
       }
 
       p {
@@ -234,14 +231,19 @@
 }
 
 .product-details__more-details {
-  padding-top: to-rem(64px);
+  padding-top: 0 !important;
+
+  .back-button {
+    padding-top: 2rem;
+    margin-bottom: 0;
+  }
 }
 
 #app .dynamic-content {
   strong {
     font-weight: bold;
   }
-  
+
   h3 {
     font-weight: bold;
     font-size: to-rem(18px);
@@ -259,11 +261,14 @@
     margin-bottom: 1rem;
   }
 
-  p {
+  p,
+  ul li {
     font-size: 1rem;
     line-height: to-rem(20px);
     color: palette("grey", "alternative");
+  }
 
+  p {
     margin-bottom: 1rem;
 
     strong {
@@ -280,5 +285,14 @@
   img {
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  ul {
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+
+    li {
+      list-style: circle;
+    }
   }
 }

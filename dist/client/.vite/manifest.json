@@ -1,0 +1,302 @@
+{
+  "_BackDownAnchor-CA-SbJvr.js": {
+    "file": "assets/BackDownAnchor-CA-SbJvr.js",
+    "name": "BackDownAnchor",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_CatalogSection-Bj8y55A1.js": {
+    "file": "assets/CatalogSection-Bj8y55A1.js",
+    "name": "CatalogSection",
+    "imports": [
+      "index.html"
+    ],
+    "assets": [
+      "assets/catalog-bg-DFR0bBUy.webp"
+    ]
+  },
+  "_ContactSection-BDu5DZxO.js": {
+    "file": "assets/ContactSection-BDu5DZxO.js",
+    "name": "ContactSection",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_browser-DOJHDi7d.js": {
+    "file": "assets/browser-DOJHDi7d.js",
+    "name": "browser",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_our_products-gold_tools-BfDNAl6I.js": {
+    "file": "assets/our_products-gold_tools-BfDNAl6I.js",
+    "name": "our_products-gold_tools",
+    "assets": [
+      "assets/our_products-metallurgy-DJOTr3t5.webp",
+      "assets/our_products-gold_tools-CsMociOy.webp"
+    ]
+  },
+  "_usePageMeta-CdZLCV4E.js": {
+    "file": "assets/usePageMeta-CdZLCV4E.js",
+    "name": "usePageMeta",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_useSsrState-BTPbnvrO.js": {
+    "file": "assets/useSsrState-BTPbnvrO.js",
+    "name": "useSsrState",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "index.html": {
+    "file": "assets/index-ltoyH2x5.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/presentation/views/Home.vue",
+      "src/presentation/views/About.vue",
+      "src/presentation/views/ProductList.vue",
+      "src/presentation/views/Product.vue",
+      "src/presentation/views/Catalog.vue",
+      "src/presentation/views/Contact.vue",
+      "src/presentation/views/NotFound.vue",
+      "_browser-DOJHDi7d.js"
+    ],
+    "css": [
+      "assets/index-Chf8_WsM.css"
+    ],
+    "assets": [
+      "assets/main-logo-WVvuLhC_.webp",
+      "assets/secondary-logo-uHLyitUd.png",
+      "assets/gotham-600-Doi6af27.woff2",
+      "assets/gotham-400-R2RXK2Vc.woff2",
+      "assets/roboto-400-DV8-BaiF.woff2",
+      "assets/roboto-700-hHI5RVHI.woff2",
+      "assets/pattern-blue-horizontal-L3Rh5LbX.svg",
+      "assets/banner-d1OKEbs_.webp",
+      "assets/counter-bg-CZ8VYMdz.svg",
+      "assets/pattern-orange-vertical-CUOVbLgi.svg",
+      "assets/pattern-orange-horizontal-CKp8wSNj.svg",
+      "assets/about-pattern-blue-orange-vertical-D-4ZTX1w.svg",
+      "assets/about-pattern-blue-orange-horizontal-B-RaEv67.svg",
+      "assets/about-pattern-blue-white-vertical-C_po9v3a.svg",
+      "assets/pattern-blue-white-square-B-uX4pSt.svg",
+      "assets/product_detail-metallurgy-CY3T0n1J.webp",
+      "assets/product_detail-building-T_qHcUXo.webp",
+      "assets/product_detail-gold_tools--2qRW0oq.webp"
+    ]
+  },
+  "src/assets/fonts/gotham/gotham-400.woff2": {
+    "file": "assets/gotham-400-R2RXK2Vc.woff2",
+    "src": "src/assets/fonts/gotham/gotham-400.woff2"
+  },
+  "src/assets/fonts/gotham/gotham-600.woff2": {
+    "file": "assets/gotham-600-Doi6af27.woff2",
+    "src": "src/assets/fonts/gotham/gotham-600.woff2"
+  },
+  "src/assets/fonts/roboto/roboto-400.woff2": {
+    "file": "assets/roboto-400-DV8-BaiF.woff2",
+    "src": "src/assets/fonts/roboto/roboto-400.woff2"
+  },
+  "src/assets/fonts/roboto/roboto-700.woff2": {
+    "file": "assets/roboto-700-hHI5RVHI.woff2",
+    "src": "src/assets/fonts/roboto/roboto-700.woff2"
+  },
+  "src/assets/images/png/secondary-logo.png": {
+    "file": "assets/secondary-logo-uHLyitUd.png",
+    "src": "src/assets/images/png/secondary-logo.png"
+  },
+  "src/assets/images/png/white-diamond.png": {
+    "file": "assets/white-diamond-bBmdh3Ch.png",
+    "src": "src/assets/images/png/white-diamond.png"
+  },
+  "src/assets/images/svg/about-pattern-blue-orange-horizontal.svg": {
+    "file": "assets/about-pattern-blue-orange-horizontal-B-RaEv67.svg",
+    "src": "src/assets/images/svg/about-pattern-blue-orange-horizontal.svg"
+  },
+  "src/assets/images/svg/about-pattern-blue-orange-vertical.svg": {
+    "file": "assets/about-pattern-blue-orange-vertical-D-4ZTX1w.svg",
+    "src": "src/assets/images/svg/about-pattern-blue-orange-vertical.svg"
+  },
+  "src/assets/images/svg/about-pattern-blue-white-vertical.svg": {
+    "file": "assets/about-pattern-blue-white-vertical-C_po9v3a.svg",
+    "src": "src/assets/images/svg/about-pattern-blue-white-vertical.svg"
+  },
+  "src/assets/images/svg/counter-bg.svg": {
+    "file": "assets/counter-bg-CZ8VYMdz.svg",
+    "src": "src/assets/images/svg/counter-bg.svg"
+  },
+  "src/assets/images/svg/pattern-blue-horizontal.svg": {
+    "file": "assets/pattern-blue-horizontal-L3Rh5LbX.svg",
+    "src": "src/assets/images/svg/pattern-blue-horizontal.svg"
+  },
+  "src/assets/images/svg/pattern-blue-white-square.svg": {
+    "file": "assets/pattern-blue-white-square-B-uX4pSt.svg",
+    "src": "src/assets/images/svg/pattern-blue-white-square.svg"
+  },
+  "src/assets/images/svg/pattern-orange-horizontal.svg": {
+    "file": "assets/pattern-orange-horizontal-CKp8wSNj.svg",
+    "src": "src/assets/images/svg/pattern-orange-horizontal.svg"
+  },
+  "src/assets/images/svg/pattern-orange-vertical.svg": {
+    "file": "assets/pattern-orange-vertical-CUOVbLgi.svg",
+    "src": "src/assets/images/svg/pattern-orange-vertical.svg"
+  },
+  "src/assets/images/webp/about-diamond.webp": {
+    "file": "assets/about-diamond-bg25elv2.webp",
+    "src": "src/assets/images/webp/about-diamond.webp"
+  },
+  "src/assets/images/webp/about-ethics_conduct_code.webp": {
+    "file": "assets/about-ethics_conduct_code-BXTnSlFW.webp",
+    "src": "src/assets/images/webp/about-ethics_conduct_code.webp"
+  },
+  "src/assets/images/webp/about-our_focus.webp": {
+    "file": "assets/about-our_focus-D-CQtsah.webp",
+    "src": "src/assets/images/webp/about-our_focus.webp"
+  },
+  "src/assets/images/webp/about-our_values.webp": {
+    "file": "assets/about-our_values-BhTRtXG-.webp",
+    "src": "src/assets/images/webp/about-our_values.webp"
+  },
+  "src/assets/images/webp/banner.webp": {
+    "file": "assets/banner-d1OKEbs_.webp",
+    "src": "src/assets/images/webp/banner.webp"
+  },
+  "src/assets/images/webp/catalog-bg.webp": {
+    "file": "assets/catalog-bg-DFR0bBUy.webp",
+    "src": "src/assets/images/webp/catalog-bg.webp"
+  },
+  "src/assets/images/webp/catalog-media.webp": {
+    "file": "assets/catalog-media-CjWHe5OF.webp",
+    "src": "src/assets/images/webp/catalog-media.webp"
+  },
+  "src/assets/images/webp/main-logo.webp": {
+    "file": "assets/main-logo-WVvuLhC_.webp",
+    "src": "src/assets/images/webp/main-logo.webp"
+  },
+  "src/assets/images/webp/our_products-civil_building.webp": {
+    "file": "assets/our_products-civil_building-C8l9QoDv.webp",
+    "src": "src/assets/images/webp/our_products-civil_building.webp"
+  },
+  "src/assets/images/webp/our_products-gold_tools.webp": {
+    "file": "assets/our_products-gold_tools-CsMociOy.webp",
+    "src": "src/assets/images/webp/our_products-gold_tools.webp"
+  },
+  "src/assets/images/webp/our_products-metallurgy.webp": {
+    "file": "assets/our_products-metallurgy-DJOTr3t5.webp",
+    "src": "src/assets/images/webp/our_products-metallurgy.webp"
+  },
+  "src/assets/images/webp/product_detail-building.webp": {
+    "file": "assets/product_detail-building-T_qHcUXo.webp",
+    "src": "src/assets/images/webp/product_detail-building.webp"
+  },
+  "src/assets/images/webp/product_detail-gold_tools.webp": {
+    "file": "assets/product_detail-gold_tools--2qRW0oq.webp",
+    "src": "src/assets/images/webp/product_detail-gold_tools.webp"
+  },
+  "src/assets/images/webp/product_detail-metallurgy.webp": {
+    "file": "assets/product_detail-metallurgy-CY3T0n1J.webp",
+    "src": "src/assets/images/webp/product_detail-metallurgy.webp"
+  },
+  "src/presentation/views/About.vue": {
+    "file": "assets/About-DdqRKPsv.js",
+    "name": "About",
+    "src": "src/presentation/views/About.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_ContactSection-BDu5DZxO.js",
+      "_BackDownAnchor-CA-SbJvr.js",
+      "index.html",
+      "_usePageMeta-CdZLCV4E.js"
+    ],
+    "assets": [
+      "assets/about-our_focus-D-CQtsah.webp",
+      "assets/about-our_values-BhTRtXG-.webp",
+      "assets/about-ethics_conduct_code-BXTnSlFW.webp"
+    ]
+  },
+  "src/presentation/views/Catalog.vue": {
+    "file": "assets/Catalog-CjrHfuQ8.js",
+    "name": "Catalog",
+    "src": "src/presentation/views/Catalog.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_our_products-gold_tools-BfDNAl6I.js",
+      "index.html",
+      "_usePageMeta-CdZLCV4E.js"
+    ],
+    "assets": [
+      "assets/catalog-media-CjWHe5OF.webp"
+    ]
+  },
+  "src/presentation/views/Contact.vue": {
+    "file": "assets/Contact-zSU227cg.js",
+    "name": "Contact",
+    "src": "src/presentation/views/Contact.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_usePageMeta-CdZLCV4E.js"
+    ]
+  },
+  "src/presentation/views/Home.vue": {
+    "file": "assets/Home-DTSzaZnw.js",
+    "name": "Home",
+    "src": "src/presentation/views/Home.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_our_products-gold_tools-BfDNAl6I.js",
+      "_usePageMeta-CdZLCV4E.js",
+      "index.html",
+      "_ContactSection-BDu5DZxO.js",
+      "_CatalogSection-Bj8y55A1.js"
+    ],
+    "assets": [
+      "assets/white-diamond-bBmdh3Ch.png",
+      "assets/about-diamond-bg25elv2.webp"
+    ]
+  },
+  "src/presentation/views/NotFound.vue": {
+    "file": "assets/NotFound-750xE9KL.js",
+    "name": "NotFound",
+    "src": "src/presentation/views/NotFound.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_usePageMeta-CdZLCV4E.js"
+    ]
+  },
+  "src/presentation/views/Product.vue": {
+    "file": "assets/Product-DpIR9m6t.js",
+    "name": "Product",
+    "src": "src/presentation/views/Product.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_usePageMeta-CdZLCV4E.js",
+      "_useSsrState-BTPbnvrO.js",
+      "_BackDownAnchor-CA-SbJvr.js",
+      "_ContactSection-BDu5DZxO.js",
+      "src/presentation/views/NotFound.vue",
+      "_CatalogSection-Bj8y55A1.js"
+    ]
+  },
+  "src/presentation/views/ProductList.vue": {
+    "file": "assets/ProductList-k4GJ0s7G.js",
+    "name": "ProductList",
+    "src": "src/presentation/views/ProductList.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html",
+      "_usePageMeta-CdZLCV4E.js",
+      "_useSsrState-BTPbnvrO.js",
+      "_ContactSection-BDu5DZxO.js"
+    ]
+  }
+}

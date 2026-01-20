@@ -1,3 +1,119 @@
+<script setup>
+import { ref, onMounted, watch, getCurrentInstance, onServerPrefetch } from "vue";
+import usePageMeta from "@/presentation/composables/usePageMeta";
+import { useRouter } from "vue-router";
+import M from "materialize-css";
+
+import CustomButton from "@/presentation/components/CustomButton.vue";
+import BackButton from "@/presentation/components/BackButton.vue";
+import ContactSection from "@/presentation/modules/ContactSection.vue";
+import Preloader from "@/presentation/components/Preloader.vue";
+
+import { usePrismic } from "@/presentation/composables/usePrismic";
+import { setSsrState, getInitialSsrState } from "@/presentation/composables/useSsrState";
+
+const results = ref([]);
+const loading = ref(true);
+const tabsRef = ref(null);
+let materializeInstance = null;
+
+const router = useRouter();
+usePageMeta({ title: 'Produtos | INDFER - Ferramentas diamantadas', description: 'Nossos produtos: soluções diamantadas para metalurgia e ferramentas ouro.' });
+const _vm = getCurrentInstance();
+const proxy = _vm ? _vm.proxy : null;
+
+// per-request prismic client (SSR) or plugin client (CSR)
+const { client: prismicClient } = usePrismic();
+
+function initTabs() {
+  setTimeout(() => {
+    if (!tabsRef.value) return;
+    materializeInstance = M.Tabs.init(tabsRef.value);
+    selectTab();
+  }, 10);
+}
+
+function selectTab() {
+  const fullPath = router.currentRoute.value.fullPath.split("/");
+  const route = fullPath[fullPath.length - 1].replace("#", "");
+  if (materializeInstance && route) {
+    materializeInstance.select(route);
+  }
+}
+
+async function fetchProductsFromClient() {
+  try {
+    if (prismicClient && typeof prismicClient.getByType === "function") {
+      const response = await prismicClient.getByType("produto");
+      results.value = response.results || [];
+    } else if (prismicClient && typeof prismicClient.getAllByType === "function") {
+      results.value = await prismicClient.getAllByType("produto");
+    } else if (proxy?.$prismic?.client) {
+      const r = await proxy.$prismic.client.getByType("produto");
+      results.value = r.results || [];
+    }
+  } catch (e) {
+    // ignore
+  } finally {
+    loading.value = false;
+    initTabs();
+  }
+}
+
+function goRoute(category, product) {
+  return `/produtos/${category}/${product}`;
+}
+
+// SSR: prefetch and set ssrState
+onServerPrefetch(async () => {
+  try {
+    if (!prismicClient) return;
+    if (typeof prismicClient.getByType === "function") {
+      const response = await prismicClient.getByType("produto");
+      results.value = response.results || [];
+    } else if (typeof prismicClient.getAllByType === "function") {
+      results.value = await prismicClient.getAllByType("produto");
+    }
+    setSsrState("products", results.value || []);
+  } catch (e) {
+    // ignore
+  } finally {
+    loading.value = false;
+  }
+});
+
+onMounted(() => {
+  const initial = getInitialSsrState("products");
+  if (initial && initial.length) {
+    results.value = initial;
+    loading.value = false;
+    initTabs();
+    return;
+  }
+  fetchProductsFromClient();
+});
+
+watch(
+  () => router.currentRoute.value.fullPath,
+  () => {
+    if (materializeInstance) {
+      try {
+        materializeInstance.updateTabIndicator();
+      } catch (e) {
+        /* ignore */
+      }
+      selectTab();
+    }
+  },
+);
+</script>
+
+<script>
+export default {
+  name: "ProductsView",
+};
+</script>
+
 <template>
   <Preloader v-if="loading" />
 
@@ -8,18 +124,19 @@
           <h2 class="center-statement__title text-white">NOSSOS PRODUTOS</h2>
         </div>
 
-        <ul ref="tabs" class="products__header__tabs tabs">
+        <div class="center-statement">
+          <p class="center-statement__text text-white">
+            Soluções diamantadas para metalurgia e usinagem de alianças —
+            desempenho, precisão e vida útil estendida.
+          </p>
+        </div>
+
+        <ul ref="tabsRef" class="products__header__tabs tabs">
           <li class="tab">
             <a href="#metalurgia">METALURGIA</a>
-            <!-- <router-link to="#metalurgia">METALURGIA</router-link> -->
-          </li>
-          <li class="tab">
-            <a href="#construcao-civil">CONSTRUÇÃO CIVIL</a>
-            <!-- <router-link to="#construcao-civil">CONSTRUÇÃO CIVIL</router-link> -->
           </li>
           <li class="tab">
             <a href="#ferramentas-ouro">FERRAMENTAS OURO</a>
-            <!-- <router-link to="#ferramentas-ouro">FERRAMENTAS OURO</router-link> -->
           </li>
         </ul>
       </div>
@@ -52,10 +169,10 @@
                   fallback="No content"
                 />
 
-                <Button
+                <CustomButton
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >ACESSAR</Button
+                  >VER DETALHES</CustomButton
                 >
               </li>
             </template>
@@ -85,10 +202,10 @@
                   fallback="No content"
                 />
 
-                <Button
+                <CustomButton
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >ACESSAR</Button
+                  >ACESSAR</CustomButton
                 >
               </li>
             </template>
@@ -118,10 +235,10 @@
                   fallback="No content"
                 />
 
-                <Button
+                <CustomButton
                   :link="{ path: goRoute(result.data.category, result.uid) }"
                   :fullWidth="true"
-                  >ACESSAR</Button
+                  >ACESSAR</CustomButton
                 >
               </li>
             </template>
@@ -131,72 +248,5 @@
     </div>
   </section>
 
-  <ContactSection></ContactSection>
+  <ContactSection />
 </template>
-<script>
-import M from "materialize-css";
-import Button from "@/presentation/components/Button.vue";
-import BackButton from "@/presentation/components/BackButton.vue";
-import ContactSection from "@/presentation/modules/ContactSection.vue";
-import Preloader from "@/presentation/components/Preloader.vue";
-
-export default {
-  name: "app-products",
-
-  data() {
-    return {
-      results: [],
-      loading: true,
-      materializeInstance: null,
-    };
-  },
-
-  methods: {
-    initTabs() {
-      setTimeout(() => {
-        this.materializeInstance = M.Tabs.init(this.$refs.tabs, 
-        // {swipeable: true}
-        );
-        this.selectTab();
-      }, 10);
-    },
-
-    selectTab() {
-      const fullPath = this.$router.currentRoute.value.fullPath.split("/");
-      const route = fullPath[fullPath.length - 1].replace("#", "");
-
-      if (this.materializeInstance) {
-        this.materializeInstance.select(route);
-      }
-    },
-
-    async getAllProducts() {
-      const response = await this.$prismic.client.getByType("produto");
-      if (response) {
-        this.results = response.results;
-        this.loading = false;
-        this.initTabs();
-      }
-    },
-
-    goRoute(category, product) {
-      return `/produtos/${category}/${product}`;
-    },
-  },
-
-  created() {
-    this.getAllProducts();
-  },
-
-  watch: {
-    $route() {
-      if (this.materializeInstance) {
-        this.materializeInstance.updateTabIndicator();
-        this.selectTab();
-      }
-    },
-  },
-
-  components: { Button, BackButton, ContactSection, Preloader },
-};
-</script>

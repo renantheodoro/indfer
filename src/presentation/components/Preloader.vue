@@ -1,5 +1,11 @@
+<script>
+export default {
+  name: "AppPreloader",
+};
+</script>
+
 <template>
-  <div class="preloader">
+  <div class="preloader" role="status" aria-label="Carregando">
     <div class="preloader-wrapper active">
       <div class="spinner-layer">
         <div class="circle-clipper left">
@@ -15,6 +21,3 @@
     </div>
   </div>
 </template>
-<script>
-export default { name: "app-preloader" };
-</script>
